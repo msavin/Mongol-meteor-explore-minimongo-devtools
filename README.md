@@ -6,4 +6,4 @@
 
 <a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/public/video/gif.gif"></a><br>
 
-<a href="http://mongol.meteor.com">Go to http://mongol.meteor.com for more information and a live demo</a>
+Go to <a href="http://mongol.meteor.com">http://mongol.meteor.com</a> for more information and a live demo
