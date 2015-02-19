@@ -1,8 +1,12 @@
-# Mongol, the Insanely Handy Development Tool for Meteor
+# Mongol
+ - First Beta (seems stable)
+ - Please send feedback to msavin@me.com
+
+# The Insanely Handy Development Tool for Meteor
 - Browse Your Collections Visually
 - Insert, Update and Remove Documents
-- As a Debug  Package, Mongol Stays Out of Production Code 
 - Hot Key Activation
+- As a Debug Package, Mongol Stays Out of Production Code 
 
 <a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/public/video/gif.gif"></a><br>
 
