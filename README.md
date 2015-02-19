@@ -12,3 +12,4 @@
 
 Go to <a href="http://mongol.meteor.com">http://mongol.meteor.com</a> for more information and a live demo.
 
+License: MIT
