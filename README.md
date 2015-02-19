@@ -12,4 +12,4 @@
 
 Go to <a href="http://mongol.meteor.com">http://mongol.meteor.com</a> for more information and a live demo.
 
-License: MIT
+<a href="https://github.com/msavin/Mongol/blob/master/LICENSE.md">Licensed under The MIT License</a>
