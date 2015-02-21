@@ -10,6 +10,13 @@
 
 <a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/public/video/gif.gif"></a><br>
 
+# Setup
+
+To add mongol to your project simply run
+```
+meteor add msavin:mongol
+```
+
 Go to <a href="http://mongol.meteor.com">http://mongol.meteor.com</a> for more information and a live demo.
 
 <a href="https://github.com/msavin/Mongol/blob/master/LICENSE.md">Licensed under The MIT License</a>
