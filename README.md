@@ -25,11 +25,13 @@ Security & "debug-only"
 -----------------------
 Mongol is able to edit any document in your database, regardless of whether you have insecure on or the permissions to allow it. It does so through a special set of methods that allow it execute virtually any code on the server. This is great because it allows you to use your application in its natural" state, while helping you make quick database edits when you need to.
 
-When you deploy your Meteor application (meteor deploy xxx), Meteor will automatically remove the package from the codebase because its a "debug-only" package. However, if you deploy it in debug mode (meteor deploy xxx --debug), you will upload Mongol's methods with it. If that case that you are deploying your application in debug mode, you should remove the package before pushing it.
+When you deploy your Meteor application (meteor deploy xxx), Meteor will automatically remove the package from the codebase because its a "<a href="https://www.meteor.com/blog/2014/10/13/meteor-094-mobile-and-testing">debug-only</a>" package. However, if you deploy it in debug mode (meteor deploy xxx --debug), you will upload Mongol's methods with it. If that case that you are deploying your application in debug mode, you should remove the package before pushing it.
 
 
 Additional Information
 ----------------------
  - Licensed under MIT: https://github.com/msavin/Mongol/blob/master/LICENSE.md
  - Live Demo: http://mongol.meteor.com
+ - Atmosphere: https://atmospherejs.com/msavin/mongol
+ - GitHub: https://github.com/msavin/Mongol/
  - Created by <a href="http://maxsavin.com">Max Savin</a>
