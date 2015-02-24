@@ -1,0 +1,17 @@
+<template name="Mongol_collection">
+	<div class="Mongol_row {{active}}" id="Mongol_c{{this}}">
+		
+		<!-- Collection Count -->
+		<div class="Mongol_counter">
+			{{#if collectionCount}}
+			<span class="MongolHide">{{currentPosition}}/</span>{{/if}}{{collectionCount}}
+		</div>
+
+		<!-- Collection Name -->
+		{{this}}
+
+		<!-- Document Viewer -->
+		{{> Mongol_docViewer}}
+
+	</div>
+</template>

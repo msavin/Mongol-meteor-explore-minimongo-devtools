@@ -1,0 +1,37 @@
+<template name="Mongol_account">
+	<div class="Mongol_row {{active}}" id="Mongol_c{{this}}">
+		
+		<!-- Display sign in status -->
+		{{#if currentUser}}
+			<div class="Mongol_account_active"></div>
+		{{else}}
+			<div class="Mongol_account_inactive"></div>
+		{{/if}}
+
+		<!-- Name -->
+		Account
+
+		<!-- Document Viewer -->
+		{{#if currentUser}}
+			{{> Mongol_accountViewer}}
+		{{else}}
+			<div class="Mongol_docMenu {{Mongol_docMenu_editing}}">
+					<div class="Mongol_docBar1" style="text-indent: 5px">
+						Not Signed In
+					</div>
+				</div>
+			<div class="Mongol_documentViewer">	
+				{{#if hasAccountsUI}}
+					{{> loginButtons}}
+				{{else}}
+<pre>Add Accounts UI to be able to
+to sign in from here.
+
+meteor add accounts-ui</pre>
+				{{/if}}
+			</div>
+		{{/if}}
+
+	</div>
+
+</template>

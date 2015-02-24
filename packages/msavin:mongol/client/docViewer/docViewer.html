@@ -1,0 +1,31 @@
+<template name="Mongol_docViewer">
+
+	{{#if active}}
+		{{> Mongol_docControls}}
+		{{#if documentJSON}}
+			{{#if editStyle}}
+			<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{this}}" contenteditable="{{editContent}}">	
+				<pre>{{{documentJSON}}}</pre>
+			</div>
+			{{else}}
+			<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{this}}" contenteditable="{{editContent}}">	
+				<pre>{{{documentJSON}}}</pre>
+			</div>
+			{{/if}}
+		{{else}}
+			<div class="Mongol_documentViewer" id="MongolDoc_{{this}}">	
+				<pre>No document found</pre>
+			</div>
+		{{/if}}
+	{{else}}
+		{{> Mongol_docInsert}}
+	{{/if}}
+	
+</template>
+
+<!-- 
+	Magic to Update Document 
+	var value = document.getElementById('X').textContent;
+	var objk = JSON.parse(value);
+	Meteor.call("updateDocument", "Vendor", objk);
+-->
