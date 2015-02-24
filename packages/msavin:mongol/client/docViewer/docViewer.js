@@ -3,12 +3,13 @@ if (Meteor.isClient) {
     Template.Mongol_docViewer.helpers({
         documentJSON: function () {
             
-            var currentCollection = window[this],
-                documents   = currentCollection.find().fetch(),
-                sessionKey  = "Mongol_" + this;
-                docNumber   = Session.get(sessionKey),
-                docCurrent  = documents[docNumber],
-                json_output = JSON.stringify(docCurrent, null, 2);
+			var collectionName    = String(this);
+            var currentCollection = Mongol.Collection(collectionName);
+			var documents         = currentCollection.find().fetch();
+            var sessionKey  = "Mongol_" + String(this);
+            var docNumber   = Session.get(sessionKey);
+            var docCurrent  = documents[docNumber];
+            var json_output = JSON.stringify(docCurrent, null, 2);
                 
                 if (! (typeof json_output === "undefined")) {
                     colorize    = MongolPackage.colorize(json_output);
@@ -24,7 +25,7 @@ if (Meteor.isClient) {
             var editMode = Session.get("Mongol_editMode");
             
             if (editMode) {
-                return "true"
+                return "true";
             }
 
         },
@@ -33,14 +34,14 @@ if (Meteor.isClient) {
             var editMode = Session.get("Mongol_editMode");
             
             if (editMode) {
-                return "Mongol_editable"
+                return "Mongol_editable";
             }
             
         },
         active: function() {
-            documentCount = window[this].find().count()
+            documentCount = Mongol.Collection(String(this)) && Mongol.Collection(String(this)).find().count()
             if (documentCount >= 1) {
-                return true
+                return true;
             }
         }
     });

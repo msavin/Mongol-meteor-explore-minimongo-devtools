@@ -1,46 +1,54 @@
 if (Meteor.isClient) {
 
 	Template.Mongol_collection.events({
-		'click': function () {
+		'click .Mongol_toggle_selected_collection': function (evt) {
 
-			var targetCollection =  String(this),
-				sessionKey       = "Mongol_" + targetCollection;		
-
-			if (targetCollection == Session.get("Mongol_currentCollection")) {
-				// do nothing
+			var targetCollection =  String(this);
+			var sessionKey       = "Mongol_" + targetCollection;
+				console.log(targetCollection,Session.get("Mongol_currentCollection"));
+			if (Session.equals("Mongol_currentCollection",targetCollection)) {
+				
+				// either do nothing or collapse the pane
+				// comment out the line below for not collapsing the pane
+				Session.set("Mongol_currentCollection",null);
+				
 			} else {
 				
 				Session.set("Mongol_editMode", false)
 
-				var thisCollection = window[targetCollection],
-					documentCount = thisCollection.find().count();
+				var thisCollection = Mongol.Collection(targetCollection);
+				var documentCount = thisCollection.find().count();
 
 				// If the collection doesn't have an index key set,
 				// start it from the first document
 				if (!Session.get(sessionKey)) {
 					Session.set(sessionKey, 0);
 				}
-			}
 
-			Session.set("Mongol_currentCollection", targetCollection);
+				Session.set("Mongol_currentCollection", targetCollection);
+				
+			}
 			
 		}
 	});
 
 	Template.Mongol_collection.helpers({
 		active: function () {
+			
 			var currentCollection = Session.get("Mongol_currentCollection"),
-				targetCollection  = this;
+				targetCollection  = String(this);
 
-			if (currentCollection == targetCollection) {
+			if (currentCollection === targetCollection) {
 				return "Mongol_row_expand";
 			} 
+			
 		},
 	    collectionCount: function () {
 
-	        var collectionName = this,
-	            collectionVar  = window[collectionName],
-	        	count          = collectionVar.find().count();
+	        var collectionName = String(this);
+	        var collectionVar  = Mongol.Collection(collectionName);
+				
+	        var count          = collectionVar && collectionVar.find().count() || 0;
 
 	        return count;
 
@@ -53,7 +61,8 @@ if (Meteor.isClient) {
 	        var current = Session.get(sessionKey);
 	        var count = current + 1;
 	        
-	        return count
+	        return count;
+			
 	    }
 	});
 

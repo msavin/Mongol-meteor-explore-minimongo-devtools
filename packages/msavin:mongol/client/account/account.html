@@ -1,15 +1,19 @@
 <template name="Mongol_account">
 	<div class="Mongol_row {{active}}" id="Mongol_c{{this}}">
 		
-		<!-- Display sign in status -->
-		{{#if currentUser}}
-			<div class="Mongol_account_active"></div>
-		{{else}}
-			<div class="Mongol_account_inactive"></div>
-		{{/if}}
+        <div class="Mongol_toggle_selected_collection">
+        
+			<!-- Display sign in status -->
+			{{#if currentUser}}
+				<div class="Mongol_account_active"></div>
+			{{else}}
+				<div class="Mongol_account_inactive"></div>
+			{{/if}}
 
-		<!-- Name -->
-		Account
+			<!-- Name -->
+			Account
+        
+        </div>
 
 		<!-- Document Viewer -->
 		{{#if currentUser}}

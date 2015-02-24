@@ -13,8 +13,12 @@ Template.Mongol_account.helpers({
 
 
 Template.Mongol_account.events({
-	'click .Mongol_row': function () {
-		Session.set("Mongol_currentCollection", "account_618")
+	'click .Mongol_toggle_selected_collection': function () {
+		if (Session.get("Mongol_currentCollection")) {
+		  Session.set("Mongol_currentCollection", null);
+		} else {
+		  Session.set("Mongol_currentCollection", "account_618");
+		}
 	},
 }); 
 

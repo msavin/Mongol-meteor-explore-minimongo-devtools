@@ -4,13 +4,13 @@
 		{{> Mongol_docControls}}
 		{{#if documentJSON}}
 			{{#if editStyle}}
-			<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{this}}" contenteditable="{{editContent}}">	
-				<pre>{{{documentJSON}}}</pre>
-			</div>
+				<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{this}}" contenteditable="{{editContent}}">	
+					<pre>{{{documentJSON}}}</pre>
+				</div>
 			{{else}}
-			<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{this}}" contenteditable="{{editContent}}">	
-				<pre>{{{documentJSON}}}</pre>
-			</div>
+				<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{this}}" contenteditable="{{editContent}}">	
+					<pre>{{{documentJSON}}}</pre>
+				</div>
 			{{/if}}
 		{{else}}
 			<div class="Mongol_documentViewer" id="MongolDoc_{{this}}">	

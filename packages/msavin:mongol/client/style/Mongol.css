@@ -53,6 +53,9 @@
   text-indent: 6px;
   margin-top: 3px; }
 
+#Mongol a {
+  color: #999; }
+
 #Mongol * {
   outline: none; }
 #Mongol pre {
@@ -169,6 +172,7 @@
     margin: 0px;
     padding: 0px;
     padding-top: 3px;
+	color: #ccc;
     -webkit-touch-callout: text;
     -webkit-user-select: text;
     -khtml-user-select: text;

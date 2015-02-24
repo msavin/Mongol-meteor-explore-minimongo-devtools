@@ -17,11 +17,11 @@ Meteor.methods({
 			return false;
 		}
 	},
-	Mongol_update: function(collectionName, documentData) {
+	Mongol_update: function(collectionName, documentData) { console.log(collectionName);
 		
 		// var task = function () {
 			// Convert Collection String to Variable
-			var Mongol = eval(collectionName);
+			var MongolCollection = Mongol.Collection(collectionName);
 
 			// Get the document id
 			var documentID    = documentData._id; 
@@ -31,7 +31,7 @@ Meteor.methods({
 			delete documentData._id;
 
 			// Run the magic
-			Mongol.update(
+			MongolCollection.update(
 				{
 					_id: documentID
 				}, 
@@ -53,10 +53,10 @@ Meteor.methods({
 		// var task = function () {
 
 			// Convert Collection String to Variable
-			var Mongol = eval(collectionName);
+			var MongolCollection = Mongol.Collection(collectionName);
 
 			// Remove the document
-			Mongol.remove(documentID);
+			MongolCollection.remove(documentID);
 
 		// }
 
@@ -73,17 +73,17 @@ Meteor.methods({
 	Mongol_duplicate: function(collectionName, documentID) {
 		// var task = function () {
 			// Convert Collection String to Variable
-			var Mongol = eval(collectionName);
+			var MongolCollection = Mongol.Collection(collectionName);
 
 			// Get the document id
-			var OriginalDoc    = Mongol.findOne(documentID); 
+			var OriginalDoc    = MongolCollection.findOne(documentID); 
 
 			// Strip the ID from the document
 			// to prepare it for update 
 			delete OriginalDoc._id;
 
 			// Run the magic
-			var NewDocument = Mongol.insert(OriginalDoc);
+			var NewDocument = MongolCollection.insert(OriginalDoc);
 
 			// Return the ID
 			return NewDocument;
@@ -102,10 +102,10 @@ Meteor.methods({
 		
 		// var task = function () {
 			// Convert Collection String to Variable
-			var Mongol = eval(collectionName); 
+			var MongolCollection = Mongol.Collection(collectionName);
 
 			// Run the magic
-			Mongol.insert(documentData);
+			MongolCollection.insert(documentData);
 		// }
 
 		// Meteor.call("Mongol_verify", function (error, result) {
