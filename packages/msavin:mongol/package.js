@@ -31,9 +31,7 @@ Package.onUse(function(api) {
     "client/Mongol/body.html",
     "client/docControls/docControls.html",
     "client/docControls/docControls.js",
-    "client/welcome/welcome.html",
-    "client/welcome/welcome.js",
-	"client/defaults/defaults.js"
+  	"client/defaults/defaults.js"
   ];
 
   var serverFiles = [

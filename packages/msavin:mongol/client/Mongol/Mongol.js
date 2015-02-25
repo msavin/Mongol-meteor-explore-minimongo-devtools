@@ -12,13 +12,6 @@ Template.Mongol.helpers({
         if (MongolCollection !== false && MongolCollection !== null) {
             return "Mongol_expand";
         }
-    },
-    Mongol_configured: function () {
-		// Note: Mongol will always be configured by default
-        var MongolConfig = Session.get("Mongol");
-        if (MongolConfig) {
-            return true;
-        }
     }
 });
 
