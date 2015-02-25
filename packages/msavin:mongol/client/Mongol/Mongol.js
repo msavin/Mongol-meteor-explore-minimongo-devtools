@@ -1,7 +1,7 @@
 Template.Mongol.helpers({
     'Mongol_enabled': function () {
-        var MongolConfig = Session.get("Mongol");
-        return MongolConfig.display;
+        var MongolConfig = Session.get("Mongol_settings_display");
+        return MongolConfig;
     },
     Mongol_collections: function () {
         var MongolConfig = Session.get("Mongol");

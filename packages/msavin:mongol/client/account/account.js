@@ -11,7 +11,7 @@ Template.Mongol_account.helpers({
 	},
 	canSignIn: function () {
 		// Not reactive, but it'll have to do
-		console.log("canSignIn",!Meteor.userId() && $('#login-sign-in-link').length);
+		// console.log("canSignIn",!Meteor.userId() && $('#login-sign-in-link').length);
 		return !Meteor.userId() && $('#login-sign-in-link').length;
 	}
 });
