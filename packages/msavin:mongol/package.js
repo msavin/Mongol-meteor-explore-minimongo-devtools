@@ -29,6 +29,7 @@ Package.onUse(function(api) {
     "client/Mongol/Mongol.html",
     "client/Mongol/Mongol.js",
     "client/Mongol/body.html",
+    "client/Mongol/body.js",
     "client/docControls/docControls.html",
     "client/docControls/docControls.js",
   	"client/defaults/defaults.js"

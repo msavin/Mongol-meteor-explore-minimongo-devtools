@@ -15,24 +15,3 @@ Template.Mongol.helpers({
     }
 });
 
-Template.Mongol.rendered = function () {
-    
-    var configuration = Session.get("Mongol");
-
-    if (configuration) {
-
-        // hot keys
-        $(document).keydown(function(e) {
-            if (e.keyCode === 77 && e.ctrlKey) {
-               MongolPackage.toggleDisplay();
-            }
-        });
-
-        if (!configuration.disable_warning) {
-            MongolPackage.startup();
-        }
-
-    }
-
-
-};
