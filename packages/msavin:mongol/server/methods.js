@@ -1,7 +1,3 @@
-// It could be a good idea to replace the eval() function
-// Also considering verifiying if Meteor is running locally
-// Let me know what you think!
-
 Meteor.methods({
 	Mongol_verify: function() {
 		
@@ -16,33 +12,10 @@ Meteor.methods({
 		} else {
 			return false;
 		}
-	},
-	Mongol_update: function(collectionName, documentData, originalDocumentData) {
-		
-		// var task = function () {
-			// Convert Collection String to Variable
-			var MongolCollection = Mongol.Collection(collectionName);
 
-			// Get the document id
-			var documentID    = documentData._id; 
+		// Current not in use, but under consideratoin
+		// To Use:
 
-			// Strip the ID from the document
-			// to prepare it for update 
-			delete documentData._id;
-			delete originalDocumentData._id;
-			
-			var currentDbDoc = MongolCollection.findOne({_id: documentID});
-			var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
-
-			// Run the magic
-			MongolCollection.update(
-				{
-					_id: documentID
-				}, 
-					updatedDocumentData
-				);
-		// }
-		
 		// Meteor.call("Mongol_verify", function (error, result) {
 		// 	if (result === "verified") {
 		// 		task();
@@ -50,76 +23,51 @@ Meteor.methods({
 		// 		return "absoluteURLError"
 		// 	};
 		// });
+
+	},
+	Mongol_update: function(collectionName, documentData, originalDocumentData) {
+			
+		var MongolCollection = Mongol.Collection(collectionName),
+			documentID       = documentData._id; 
+
+		delete documentData._id;
+		delete originalDocumentData._id;
+		
+		var currentDbDoc        = MongolCollection.findOne({_id: documentID}),
+			updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
+
+		// Run the magic
+		MongolCollection.update(
+			{
+				_id: documentID
+			}, 
+				updatedDocumentData
+			);
 
 	},
 	Mongol_remove: function(collectionName, documentID) {
 		
-		// var task = function () {
+		var MongolCollection = Mongol.Collection(collectionName);
 
-			// Convert Collection String to Variable
-			var MongolCollection = Mongol.Collection(collectionName);
-
-			// Remove the document
-			MongolCollection.remove(documentID);
-
-		// }
-
-		// Meteor.call("Mongol_verify", function (error, result) {
-		// 	if (result === "verified") {
-		// 		task();
-		// 	} else {
-		// 		return "absoluteURLError"
-		// 	};
-		// });
-
+		MongolCollection.remove(documentID);
 
 	},
 	Mongol_duplicate: function(collectionName, documentID) {
-		// var task = function () {
-			// Convert Collection String to Variable
-			var MongolCollection = Mongol.Collection(collectionName);
 
-			// Get the document id
-			var OriginalDoc    = MongolCollection.findOne(documentID); 
+		var MongolCollection = Mongol.Collection(collectionName),
+			OriginalDoc      = MongolCollection.findOne(documentID); 
 
-			// Strip the ID from the document
-			// to prepare it for update 
-			delete OriginalDoc._id;
+		delete OriginalDoc._id;
 
-			// Run the magic
-			var NewDocument = MongolCollection.insert(OriginalDoc);
+		var NewDocument      = MongolCollection.insert(OriginalDoc);
 
-			// Return the ID
-			return NewDocument;
-		// }
-
-		// Meteor.call("Mongol_verify", function (error, result) {
-		// 	if (result === "verified") {
-		// 		task();
-		// 	} else {
-		// 		return "absoluteURLError";
-		// 	};
-		// });
+		return NewDocument;
 
 	},
 	Mongol_insert: function(collectionName, documentData) {
 		
-		// var task = function () {
-			// Convert Collection String to Variable
-			var MongolCollection = Mongol.Collection(collectionName);
-
-			// Run the magic
-			MongolCollection.insert(documentData);
-		// }
-
-		// Meteor.call("Mongol_verify", function (error, result) {
-		// 	if (result === "verified") {
-		// 		task();
-		// 	} else {
-		// 		return "absoluteURLError";
-		// 	};
-		// });
-
+		var MongolCollection = Mongol.Collection(collectionName);
+		MongolCollection.insert(documentData);
 	
 	},
 });
