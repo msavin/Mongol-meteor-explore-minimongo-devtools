@@ -112,23 +112,32 @@ Template.Mongol_docControls.events({
 	},
 	'click .Mongol_edit_save': function () {
 		
-		if (Session.get("Mongol_currentCollection") === "account_618") {
-			var targetCollection = "Meteor.users";
+		// Get current document to get its current state
+		// We need to send this to the server so we know which fields are up for change
+		// when applying the diffing algorithm
+		
+		var collectionName    = (Session.equals("Mongol_currentCollection","account_618")) ? "users" : String(this);
+		
+		if (Session.equals("Mongol_currentCollection","account_618")) {
 			var newData   		 = MongolPackage.getDocumentUpdate("account_618");
 			var newObject 		 = MongolPackage.parse(newData);
+			var oldObject 		 = Meteor.user();
 			// console.log(targetCollection);
 			// console.log(newData);
 			// console.log(newObject);
 		} else {
-			var targetCollection = String(this);
-			var newData   		 = MongolPackage.getDocumentUpdate(String(this));
-			var newObject 		 = MongolPackage.parse(newData)
+			var sessionKey        = "Mongol_" + collectionName;
+			DocumentPosition  = Session.get(sessionKey),
+			CurrentCollection = Mongol.Collection(collectionName).find().fetch();
+			var newData   		 = MongolPackage.getDocumentUpdate(collectionName);
+			var newObject 		 = MongolPackage.parse(newData);
+			var	oldObject	     = CurrentCollection[DocumentPosition];
 		}
 
 		if (newObject) {
-			Meteor.call("Mongol_update", targetCollection, newObject, function (error, result) {
+			Meteor.call("Mongol_update", collectionName, newObject, oldObject, function (error, result) {
 				if (!error)	 {
-					Session.set('Mongol_editMode');
+					Session.set('Mongol_editMode',null);
 					console.log('success')
 				} else {
 					MongolPackage.error('update')
@@ -137,7 +146,7 @@ Template.Mongol_docControls.events({
 		}
 	},
 	'click .Mongol_edit_cancel': function () {
-		Session.set('Mongol_editMode');
+		Session.set('Mongol_editMode',null);
 	},
 	'click .Mongol_m_signout': function () {
 		Meteor.logout();

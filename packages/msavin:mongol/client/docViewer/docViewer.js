@@ -1,14 +1,17 @@
 if (Meteor.isClient) {
 
     Template.Mongol_docViewer.helpers({
-        documentJSON: function () {
-            
+        activeDocument: function () {
 			var collectionName    = String(this);
             var currentCollection = Mongol.Collection(collectionName);
 			var documents         = currentCollection.find().fetch();
             var sessionKey  = "Mongol_" + String(this);
             var docNumber   = Session.get(sessionKey);
             var docCurrent  = documents[docNumber];
+			return docCurrent;
+		},
+        documentJSON: function () {
+			var docCurrent = this;
             var json_output = JSON.stringify(docCurrent, null, 2);
                 
                 if (! (typeof json_output === "undefined")) {
@@ -38,8 +41,8 @@ if (Meteor.isClient) {
             }
             
         },
-        active: function() {
-            documentCount = Mongol.Collection(String(this)) && Mongol.Collection(String(this)).find().count()
+        notEmpty: function() {
+            documentCount = Mongol.Collection(String(this)) && Mongol.Collection(String(this)).find().count();
             if (documentCount >= 1) {
                 return true;
             }

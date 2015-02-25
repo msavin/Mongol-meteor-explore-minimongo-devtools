@@ -37,7 +37,8 @@ Package.onUse(function(api) {
   ];
 
   var serverFiles = [
-    "server/methods.js"
+    "server/methods.js",
+	"server/utility_functions.js"
   ];
   
   var commonFiles = [
@@ -52,7 +53,7 @@ Package.onUse(function(api) {
   api.add_files(serverFiles, "server");
   
   if (api.export) {
-    api.export('Mongol');
+    api.export('Mongol', "client");
   }
 
 });

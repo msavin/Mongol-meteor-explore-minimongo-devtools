@@ -17,7 +17,7 @@ Meteor.methods({
 			return false;
 		}
 	},
-	Mongol_update: function(collectionName, documentData) { console.log(collectionName);
+	Mongol_update: function(collectionName, documentData, originalDocumentData) {
 		
 		// var task = function () {
 			// Convert Collection String to Variable
@@ -29,13 +29,17 @@ Meteor.methods({
 			// Strip the ID from the document
 			// to prepare it for update 
 			delete documentData._id;
+			delete originalDocumentData._id;
+			
+			var currentDbDoc = MongolCollection.findOne({_id: documentID});
+			var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
 
 			// Run the magic
 			MongolCollection.update(
 				{
 					_id: documentID
 				}, 
-					documentData
+					updatedDocumentData
 				);
 		// }
 		

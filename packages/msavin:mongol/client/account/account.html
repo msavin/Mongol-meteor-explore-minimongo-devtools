@@ -1,5 +1,5 @@
 <template name="Mongol_account">
-	<div class="Mongol_row {{active}}" id="Mongol_c{{this}}">
+	<div class="Mongol_row {{active}}" id="Mongol_c{{this}}" style="white-space:normal;">
 		
         <div class="Mongol_toggle_selected_collection">
         
@@ -22,11 +22,12 @@
 			<div class="Mongol_docMenu {{Mongol_docMenu_editing}}">
 					<div class="Mongol_docBar1" style="text-indent: 5px">
 						Not Signed In
+                        {{#if canSignIn}}<div class="Mongol_m_signin">Sign In</div>{{/if}}
 					</div>
 				</div>
 			<div class="Mongol_documentViewer">	
 				{{#if hasAccountsUI}}
-					{{> loginButtons}}
+					<!-- {{> loginButtons}} this is problematic, as the widget uses id="..." meaning it will mess with existing loginButtons -->
 				{{else}}
 <pre>Add Accounts UI to be able to
 to sign in from here.

@@ -5,7 +5,7 @@ if (Meteor.isClient) {
 
 			var targetCollection =  String(this);
 			var sessionKey       = "Mongol_" + targetCollection;
-				console.log(targetCollection,Session.get("Mongol_currentCollection"));
+			
 			if (Session.equals("Mongol_currentCollection",targetCollection)) {
 				
 				// either do nothing or collapse the pane
