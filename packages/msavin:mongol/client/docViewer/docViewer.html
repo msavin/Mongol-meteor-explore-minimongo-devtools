@@ -1,22 +1,22 @@
 <template name="Mongol_docViewer">
 
-	{{#if active}}
+	{{#if notEmpty}}
 		{{> Mongol_docControls}}
-		{{#if documentJSON}}
+		{{#with activeDocument}}
 			{{#if editStyle}}
-			<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{this}}" contenteditable="{{editContent}}">	
-				<pre>{{{documentJSON}}}</pre>
-			</div>
+				<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}" contenteditable="{{editContent}}">	
+					<pre>{{{documentJSON}}}</pre>
+				</div>
 			{{else}}
-			<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{this}}" contenteditable="{{editContent}}">	
-				<pre>{{{documentJSON}}}</pre>
-			</div>
+				<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}" contenteditable="{{editContent}}">	
+					<pre>{{{documentJSON}}}</pre>
+				</div>
 			{{/if}}
 		{{else}}
 			<div class="Mongol_documentViewer" id="MongolDoc_{{this}}">	
 				<pre>No document found</pre>
 			</div>
-		{{/if}}
+		{{/with}}
 	{{else}}
 		{{> Mongol_docInsert}}
 	{{/if}}

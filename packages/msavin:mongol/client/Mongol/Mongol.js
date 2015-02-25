@@ -1,21 +1,22 @@
 Template.Mongol.helpers({
     'Mongol_enabled': function () {
-        var Mongol = Session.get("Mongol");
-        return Mongol.display;
+        var MongolConfig = Session.get("Mongol");
+        return MongolConfig.display;
     },
     Mongol_collections: function () {
-        var Mongol = Session.get("Mongol");
-        return Mongol.collections;
+        var MongolConfig = Session.get("Mongol");
+        return MongolConfig.collections;
     },
     active: function () {
-        var Mongol = Session.get("Mongol_currentCollection")
-        if (Mongol != false && Mongol != null) {
+        var MongolCollection = Session.get("Mongol_currentCollection")
+        if (MongolCollection !== false && MongolCollection !== null) {
             return "Mongol_expand";
         }
     },
     Mongol_configured: function () {
-        var Mongol = Session.get("Mongol");
-        if (Mongol) {
+		// Note: Mongol will always be configured by default
+        var MongolConfig = Session.get("Mongol");
+        if (MongolConfig) {
             return true;
         }
     }
@@ -29,7 +30,7 @@ Template.Mongol.rendered = function () {
 
         // hot keys
         $(document).keydown(function(e) {
-            if (e.keyCode == 77 && e.ctrlKey) {
+            if (e.keyCode === 77 && e.ctrlKey) {
                MongolPackage.toggleDisplay();
             }
         });
