@@ -53,6 +53,9 @@
   text-indent: 6px;
   margin-top: 3px; }
 
+#Mongol a {
+  color: #999; }
+
 #Mongol * {
   outline: none; }
 #Mongol pre {
@@ -169,6 +172,7 @@
     margin: 0px;
     padding: 0px;
     padding-top: 3px;
+	color: #ccc;
     -webkit-touch-callout: text;
     -webkit-user-select: text;
     -khtml-user-select: text;
@@ -260,7 +264,7 @@
   padding: 0 9px !important;
   background: #363636; }
 
-.Mongol_m_signout {
+.Mongol_m_signout, .Mongol_m_signin {
   border-left: 1px solid #232323;
   background: #363636;
   float: right;
@@ -269,7 +273,7 @@
 .Mongol_m_updateAccount {
   border-right: 1px solid #232323; }
 
-.Mongol_edit_save:hover, .Mongol_edit_cancel:hover, .Mongol_docMenu_insert:hover, .Mongol_m_signout:hover, .Mongol_m_left:hover, .Mongol_m_right:hover, .Mongol_m_new:hover, .Mongol_m_edit:hover, .Mongol_m_delete:hover {
+.Mongol_edit_save:hover, .Mongol_edit_cancel:hover, .Mongol_docMenu_insert:hover, .Mongol_m_signout:hover, .Mongol_m_signin:hover, .Mongol_m_left:hover, .Mongol_m_right:hover, .Mongol_m_new:hover, .Mongol_m_edit:hover, .Mongol_m_delete:hover {
   background: #4A4A4A;
   cursor: pointer; }
 

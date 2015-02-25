@@ -24,6 +24,6 @@ Template.Mongol_accountViewer.helpers({
 	    
 	},
 	usercode: function () {
-		return Metero.userId()
+		return Meteor.userId()
 	},
 });

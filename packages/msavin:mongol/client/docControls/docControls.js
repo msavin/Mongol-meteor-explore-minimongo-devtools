@@ -4,21 +4,22 @@ Template.Mongol_docControls.events({
 	'click .Mongol_m_new': function () {
 
 		var CollectionName    = Session.get("Mongol_currentCollection"),
-			DocumentPosition  = Session.get("Mongol_" + this),
-			CurrentCollection = window[CollectionName].find().fetch(),
-			CollectionCount   = window[CollectionName].find().count(),
-			CurrentDocument   = CurrentCollection[DocumentPosition],
+			DocumentPosition  = Session.get("Mongol_" + String(this)),
+			CurrentCollection = Mongol.Collection(CollectionName).find().fetch(),
+			CollectionCount   = Mongol.Collection(CollectionName).find().count();
+			
+		var	CurrentDocument   = CurrentCollection[DocumentPosition],
 			DocumentID        = CurrentDocument._id,
-			sessionKey        = "Mongol_" + this;
+			sessionKey        = "Mongol_" + String(this);
 
 
 		Meteor.call("Mongol_duplicate", CollectionName, CurrentDocument, function (error, result) {
 			if (!error) {
 				
-				if (window[CollectionName].findOne(result)) {
+				if (Mongol.Collection(CollectionName).findOne(result)) {
 
 					// Get position of new document
-					var list  = window[CollectionName].find().fetch();
+					var list  = Mongol.Collection(CollectionName).find().fetch();
 					var docID = result;
 
 					docIndex = $.map(list, function(obj, index) {
@@ -44,11 +45,12 @@ Template.Mongol_docControls.events({
 	'click .Mongol_m_delete': function () {
 
 		var CollectionName    = Session.get("Mongol_currentCollection"),
-			sessionKey        = "Mongol_" + this;
+			sessionKey        = "Mongol_" + String(this);
 			DocumentPosition  = Session.get(sessionKey),
-			CurrentCollection = window[CollectionName].find().fetch(),
-			CollectionCount   = window[CollectionName].find().count(),
-			CurrentDocument   = CurrentCollection[DocumentPosition],
+			CurrentCollection = Mongol.Collection(CollectionName).find().fetch(),
+			CollectionCount   = Mongol.Collection(CollectionName).find().count();
+			
+		var	CurrentDocument   = CurrentCollection[DocumentPosition],
 			DocumentID        = CurrentDocument._id;
 
 			
@@ -85,12 +87,12 @@ Template.Mongol_docControls.events({
 		if (!$('.Mongol_m_right').hasClass('Mongol_m_disabled')) {
 			
 			// Grab the key
-			sessionKey        = "Mongol_" + this;
+			sessionKey          = "Mongol_" + String(this);
 
 			// Go forward one doc
-			var Mongol = Session.get(sessionKey) + 1;
-			Session.set(sessionKey, Mongol)
-			console.log("right" + this);
+			var MongolDocNumber = Session.get(sessionKey) + 1;
+			Session.set(sessionKey, MongolDocNumber);
+			// console.log("right" + this);
 		}
 	},
 	'click .Mongol_m_left': function () {
@@ -99,34 +101,43 @@ Template.Mongol_docControls.events({
 		if (!$('.Mongol_m_left').hasClass('Mongol_m_disabled')) {
 
 			// Grab the key
-			sessionKey        = "Mongol_" + this;
+			sessionKey          = "Mongol_" + String(this);
 
 			// Go back one doc
-			var Mongol = Session.get(sessionKey) - 1;
-			Session.set(sessionKey, Mongol)
-			console.log("left" + this);
+			var MongolDocNumber = Session.get(sessionKey) - 1;
+			Session.set(sessionKey, MongolDocNumber);
+			// console.log("left" + this);
 		}
 
 	},
 	'click .Mongol_edit_save': function () {
 		
-		if (Session.get("Mongol_currentCollection") === "account_618") {
-			var targetCollection = "Meteor.users";
+		// Get current document to get its current state
+		// We need to send this to the server so we know which fields are up for change
+		// when applying the diffing algorithm
+		
+		var collectionName    = (Session.equals("Mongol_currentCollection","account_618")) ? "users" : String(this);
+		
+		if (Session.equals("Mongol_currentCollection","account_618")) {
 			var newData   		 = MongolPackage.getDocumentUpdate("account_618");
 			var newObject 		 = MongolPackage.parse(newData);
-			console.log(targetCollection);
-			console.log(newData);
-			console.log(newObject);
+			var oldObject 		 = Meteor.user();
+			// console.log(targetCollection);
+			// console.log(newData);
+			// console.log(newObject);
 		} else {
-			var targetCollection = String(this);
-			var newData   		 = MongolPackage.getDocumentUpdate(this);
-			var newObject 		 = MongolPackage.parse(newData)
+			var sessionKey        = "Mongol_" + collectionName;
+			DocumentPosition  = Session.get(sessionKey),
+			CurrentCollection = Mongol.Collection(collectionName).find().fetch();
+			var newData   		 = MongolPackage.getDocumentUpdate(collectionName);
+			var newObject 		 = MongolPackage.parse(newData);
+			var	oldObject	     = CurrentCollection[DocumentPosition];
 		}
 
 		if (newObject) {
-			Meteor.call("Mongol_update", targetCollection, newObject, function (error, result) {
+			Meteor.call("Mongol_update", collectionName, newObject, oldObject, function (error, result) {
 				if (!error)	 {
-					Session.set('Mongol_editMode');
+					Session.set('Mongol_editMode',null);
 					console.log('success')
 				} else {
 					MongolPackage.error('update')
@@ -135,7 +146,7 @@ Template.Mongol_docControls.events({
 		}
 	},
 	'click .Mongol_edit_cancel': function () {
-		Session.set('Mongol_editMode');
+		Session.set('Mongol_editMode',null);
 	},
 	'click .Mongol_m_signout': function () {
 		Meteor.logout();
@@ -145,11 +156,12 @@ Template.Mongol_docControls.events({
 
 Template.Mongol_docControls.helpers({
 	disable_right: function () {
-		var sessionKey      = "Mongol_" + this,
-			CurrentDocument = Session.get(sessionKey),
-			collectionName  = this,
-		    collectionVar   = window[collectionName],
-			collectionCount = collectionVar.find().count() - 1;
+		var sessionKey      = "Mongol_" + String(this);
+		var CurrentDocument = Session.get(sessionKey);
+		var collectionName  = String(this);
+		var collectionVar   = Mongol.Collection(collectionName);
+			
+		var	collectionCount = collectionVar.find().count() - 1;
 
 		if (CurrentDocument === collectionCount) {
 			return "Mongol_m_disabled";
@@ -167,8 +179,8 @@ Template.Mongol_docControls.helpers({
 		}
 	},
 	disable_left: function () {		
-		sessionKey        = "Mongol_" + this;
-		CurrentDocument = Session.get(sessionKey);
+		var sessionKey        = "Mongol_" + String(this);
+		var CurrentDocument = Session.get(sessionKey);
 		
 		if (CurrentDocument <= 0) {
 			return "Mongol_m_disabled";
@@ -187,7 +199,7 @@ Template.Mongol_docControls.helpers({
 		
 		var current = Session.get("Mongol_currentCollection");
 		
-		// return true if collectoin name matches
+		// return true if collection name matches
 		if (current === String(this)) {
 			return true;
 		}
