@@ -1,6 +1,6 @@
 Template.Mongol_account.helpers({
 	active: function () {
-		if (Session.get("Mongol_currentCollection") === "account_618") {
+		if (Session.equals("Mongol_currentCollection","account_618")) {
 			return "Mongol_row_expand"
 		}
 	},
@@ -14,7 +14,7 @@ Template.Mongol_account.helpers({
 
 Template.Mongol_account.events({
 	'click .Mongol_toggle_selected_collection': function () {
-		if (Session.get("Mongol_currentCollection")) {
+		if (Session.equals("Mongol_currentCollection", "account_618")) {
 		  Session.set("Mongol_currentCollection", null);
 		} else {
 		  Session.set("Mongol_currentCollection", "account_618");
