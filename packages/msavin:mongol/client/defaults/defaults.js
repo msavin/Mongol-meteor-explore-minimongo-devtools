@@ -15,12 +15,19 @@ Meteor.startup(function() {
 		
 		var defaults = {
 			'collections':    collections, 
-			'display':        false,
 		}
 	
 		Session.set("Mongol", defaults);
 	  
-	} 
+	}  else {
+		console.log("");
+		console.log('Mongol now detects collections automatically');
+		console.log('Please remove the Session configuration you had set earlier');
+		console.log('If you have any issues, please report them to:');
+		console.log('https://github.com/msavin/Mongol');
+		console.log("");
+
+	}
   
 });
 
