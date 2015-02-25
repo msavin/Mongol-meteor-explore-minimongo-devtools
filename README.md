@@ -1,13 +1,14 @@
 Mongol
 ======
-Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your data again. To enjoy the productivity boost, simple run:
+Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your data again. To enjoy the productivity boost, simply run:
 
 	meteor add msavin:mongol
 
+In version 0.4.0, Mongol gained support for automatic collection detection. Please report how its working to GitHub. Thanks JackAdams! 
 
 Browse Your Collections
 -----------------------
-Mongol will automatically monitor your collections, and display the documents that you are subscribing to. Click on the collection name to see what it contains.
+Mongol will automatically detect your collections, and display the documents that you are subscribing to. Click on the collection name to see what it contains.
 
 
 Easily Modify Your Documents
@@ -18,7 +19,7 @@ Through a special set of methods, Mongol is able to insert, update and remove an
 
 Hot Key Activation
 ------------------
-Mongol won't render into the DOM until you tell it to do so. When you need it, simple press CONTROL + M and it'll be right there. 
+Mongol won't render into the DOM until you trigger it. When you need it, simple press CONTROL + M and it'll pop right up.
 
 
 Security & "debug-only"
