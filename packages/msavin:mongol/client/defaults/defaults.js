@@ -16,13 +16,11 @@ Meteor.startup(function() {
 		var defaults = {
 			'collections':    collections, 
 			'display':        false,
-			'opacity_normal': ".7",
-			'opacity_expand': ".9"
 		}
 	
 		Session.set("Mongol", defaults);
 	  
-	}
+	} 
   
 });
 

@@ -36,7 +36,7 @@ Package.onUse(function(api) {
 
   var serverFiles = [
     "server/methods.js",
-	"server/utility_functions.js"
+    "server/utility_functions.js"
   ];
   
   var commonFiles = [

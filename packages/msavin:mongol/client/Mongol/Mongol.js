@@ -9,7 +9,7 @@ Template.Mongol.helpers({
     },
     active: function () {
         var MongolCollection = Session.get("Mongol_currentCollection")
-        if (MongolCollection !== false && MongolCollection !== null) {
+        if (MongolCollection) {
             return "Mongol_expand";
         }
     }
@@ -36,18 +36,3 @@ Template.Mongol.rendered = function () {
 
 
 };
-
-
-// MongolSubData = new ReactiveVar;
-
-
-
-
-// setInterval(function() { 
-
-//  var subs   = Meteor.connection._subscriptions,
-//      array1 = _.map(subs, function(num, key) { return num; });
-
-//  MongolSubData.set(array1)
-
-// }, 1000);
