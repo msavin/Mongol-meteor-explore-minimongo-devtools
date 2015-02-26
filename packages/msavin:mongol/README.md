@@ -1,5 +1,8 @@
+[![Join the chat at https://gitter.im/msavin/Mongol](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/msavin/Mongol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Mongol
 ======
+
 Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. To get started, simply run:
 
 	meteor add msavin:mongol
@@ -20,7 +23,7 @@ Mongol is able to insert, update and/or remove any document in your database, re
 
 Hot Key Activation
 ------------------
-Mongol won't render into the DOM until you activate it. To activate, press <strong>Control + M</strong>. In case the hot key does not work, you can activate it with `Session.set("Mongol_settings_display", true)`
+Mongol won't render into the DOM until you activate it. To activate, press <strong>Control + M</strong>.
 
 
 Security & "debug-only"
