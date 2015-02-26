@@ -27,9 +27,6 @@
   max-width: 320px !important;
   opacity: 0.93 !important; }
 
-@media (max-width: 768px) {
-  #Mongol {
-    display: none; } }
 .Mongol_editable {
   cursor: auto; }
 
@@ -134,7 +131,7 @@
 
 .Mongol_header { 
   border-radius: 0 5px 0 0; }
-  
+
 .Mongol_header .Mongol_documentViewer {
   padding-bottom: 25px;
   padding-top: 3px;
