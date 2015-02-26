@@ -1,3 +1,16 @@
+// Strip out functions in case documents have had methods added to them
+
+Mongol.validateDocument = function (doc) {
+	var validatedDoc = {};
+	_.each(doc, function (val, key) {
+		if (_.isFunction(val)) {
+			return;	
+		}
+		validatedDoc[key] = val;
+	});
+	return validatedDoc;
+}
+
 Template.Mongol_docControls.events({
 	'click .Mongol_m_new': function () {
 
@@ -10,8 +23,9 @@ Template.Mongol_docControls.events({
 			DocumentID        = CurrentDocument._id,
 			sessionKey        = "Mongol_" + String(this);
 
+		var ValidatedCurrentDocument = Mongol.validateDocument(CurrentDocument);
 
-		Meteor.call("Mongol_duplicate", CollectionName, CurrentDocument, function (error, result) {
+		Meteor.call("Mongol_duplicate", CollectionName, ValidatedCurrentDocument, function (error, result) {
 			if (!error) {
 				
 				if (Mongol.Collection(CollectionName).findOne(result)) {
@@ -133,7 +147,7 @@ Template.Mongol_docControls.events({
 		}
 
 		if (newObject) {
-			Meteor.call("Mongol_update", collectionName, newObject, oldObject, function (error, result) {
+			Meteor.call("Mongol_update", collectionName, newObject, Mongol.validateDocument(oldObject), function (error, result) {
 				if (!error)	 {
 					Session.set('Mongol_editMode',null);
 					console.log('success')
