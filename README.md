@@ -4,6 +4,9 @@ Meet Mongol, the insanely handy development package for Meteor. Starting today, 
 
 	meteor add msavin:mongol
 
+Mongol does not require configuration. To turn it on, press Control + M.
+
+
 Browse Your Collections
 -----------------------
 Mongol will automatically detect your collections and display the documents that you are subscribing to. Click on the collection name to see what it contains.
