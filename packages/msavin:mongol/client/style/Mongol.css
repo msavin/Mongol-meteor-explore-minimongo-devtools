@@ -162,7 +162,7 @@
   height: 256px;
   padding: 0 5px;
   line-height: 20px;
-  overflow: scroll;
+  overflow: auto;
   z-index: 9999999998;
   position: relative;
   opacity: 0;
@@ -173,6 +173,7 @@
     padding: 0px;
     padding-top: 3px;
 	color: #ccc;
+	overflow: visible;
     -webkit-touch-callout: text;
     -webkit-user-select: text;
     -khtml-user-select: text;
