@@ -1,6 +1,6 @@
 Mongol
 ======
-Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. For a better development experience, simply run:
+Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. To get started, simply run:
 
 	meteor add msavin:mongol
 
