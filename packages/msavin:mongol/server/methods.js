@@ -1,74 +1,98 @@
 Meteor.methods({
-	Mongol_verify: function() {
-		
-		// Check if the Meteor absolute URL
-		// begins with http://localhost:
+  Mongol_verify: function () {
 
-		var location = Meteor.absoluteUrl(),
-			current  = location.substring(0, 17) 
-			
-		if (current = "http://localhost:") { 
-			return "verified";
-		} else {
-			return false;
-		}
+    // Check if the Meteor absolute URL
+    // begins with http://localhost:
 
-		// Current not in use, but under consideratoin
-		// To Use:
+    var location = Meteor.absoluteUrl(),
+      current = location.substring(0, 17);
 
-		// Meteor.call("Mongol_verify", function (error, result) {
-		// 	if (result === "verified") {
-		// 		task();
-		// 	} else {
-		// 		return "absoluteURLError"
-		// 	};
-		// });
+    if (current = "http://localhost:") {
+      return "verified";
+    }
+    return false;
 
-	},
-	Mongol_update: function(collectionName, documentData, originalDocumentData) {
-			
-		var MongolCollection = Mongol.Collection(collectionName),
-			documentID       = documentData._id; 
+    // Current not in use, but under consideratoin
+    // To Use:
 
-		delete documentData._id;
-		delete originalDocumentData._id;
-		
-		var currentDbDoc        = MongolCollection.findOne({_id: documentID}),
-			updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
+    // Meteor.call("Mongol_verify", function (error, result) {
+    // 	if (result === "verified") {
+    // 		task();
+    // 	} else {
+    // 		return "absoluteURLError"
+    // 	};
+    // });
 
-		// Run the magic
-		MongolCollection.update(
-			{
-				_id: documentID
-			}, 
-				updatedDocumentData
-			);
+  },
+  Mongol_update: function (collectionName, documentData, originalDocumentData) {
 
-	},
-	Mongol_remove: function(collectionName, documentID) {
-		
-		var MongolCollection = Mongol.Collection(collectionName);
+    var MongolCollection = Mongol.Collection(collectionName),
+      documentID = documentData._id;
 
-		MongolCollection.remove(documentID);
+    delete documentData._id;
+    delete originalDocumentData._id;
 
-	},
-	Mongol_duplicate: function(collectionName, documentID) {
+    var currentDbDoc = MongolCollection.findOne({
+        _id: documentID
+      }),
+      updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
 
-		var MongolCollection = Mongol.Collection(collectionName),
-			OriginalDoc      = MongolCollection.findOne(documentID); 
+    if (SimpleSchema !== undefined && _.isFunction(MongolCollection.simpleSchema)) {
+      // This is to nullify the effects of SimpleSchema/Collection2
+      MongolCollection.update({
+        _id: documentID
+      }, updatedDocumentData, {
+        filter: false,
+        autoConvert: false,
+        removeEmptyStrings: false,
+        validate: false
+      });
+      return;
+    }
 
-		delete OriginalDoc._id;
+    // Run the magic
+    MongolCollection.update({
+        _id: documentID
+      },
+      updatedDocumentData
+    );
 
-		var NewDocument      = MongolCollection.insert(OriginalDoc);
+  },
+  Mongol_remove: function (collectionName, documentID) {
 
-		return NewDocument;
+    var MongolCollection = Mongol.Collection(collectionName);
 
-	},
-	Mongol_insert: function(collectionName, documentData) {
-		
-		var MongolCollection = Mongol.Collection(collectionName);
-		MongolCollection.insert(documentData);
-	
-	},
+    MongolCollection.remove(documentID);
+
+  },
+  Mongol_duplicate: function (collectionName, documentID) {
+
+    var MongolCollection = Mongol.Collection(collectionName),
+      OriginalDoc = MongolCollection.findOne(documentID);
+
+    delete OriginalDoc._id;
+
+    var NewDocument = MongolCollection.insert(OriginalDoc);
+
+    return NewDocument;
+
+  },
+  Mongol_insert: function(collectionName, documentData) {
+
+    var MongolCollection = Mongol.Collection(collectionName);
+
+    if (SimpleSchema !== undefined && _.isFunction(MongolCollection.simpleSchema)) {
+      // This is to nullify the effects of SimpleSchema/Collection2
+      MongolCollection.insert(documentData, {
+        filter: false,
+        autoConvert: false,
+        removeEmptyStrings: false,
+        validate: false
+      });
+      return;
+    }
+
+    MongolCollection.insert(documentData);
+
+  },
 });
-
