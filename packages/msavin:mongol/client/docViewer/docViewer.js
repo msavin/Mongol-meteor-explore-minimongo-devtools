@@ -40,7 +40,7 @@ Template.Mongol_docViewer.helpers({
 		
 	},
 	notEmpty: function() {
-		documentCount = Mongol.Collection(String(this)) && Mongol.Collection(String(this)).find().count();
+		documentCount = Mongol.Collection(String(this)) && Mongol.Collection(String(this)).find().count() || 0;
 		if (documentCount >= 1) {
 			return true;
 		}

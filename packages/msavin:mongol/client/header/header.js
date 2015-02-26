@@ -3,7 +3,7 @@ Template.Mongol_header.events({
 		Session.set("Mongol_currentCollection", "mongol_618");
 	},
 	'click .Mongol_Minimize': function () {
-		Session.set("Mongol_currentCollection",null);
+		Session.set("Mongol_currentCollection", null);
 	}
 });
 
