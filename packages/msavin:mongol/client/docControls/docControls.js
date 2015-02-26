@@ -204,7 +204,7 @@ Template.Mongol_docControls.helpers({
 			return true;
 		}
 
-		// return true if its a user account
+		// return true if it's a user account
 		if (current === "account_618") {
 			return true;
 		}

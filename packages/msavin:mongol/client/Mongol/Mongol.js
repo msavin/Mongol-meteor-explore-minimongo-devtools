@@ -1,11 +1,11 @@
 Template.Mongol.helpers({
     'Mongol_enabled': function () {
         var MongolConfig = Session.get("Mongol");
-        return MongolConfig.display;
+        return MongolConfig && MongolConfig.display;
     },
     Mongol_collections: function () {
         var MongolConfig = Session.get("Mongol");
-        return MongolConfig.collections;
+        return MongolConfig && MongolConfig.collections || [];
     },
     active: function () {
         var MongolCollection = Session.get("Mongol_currentCollection")
