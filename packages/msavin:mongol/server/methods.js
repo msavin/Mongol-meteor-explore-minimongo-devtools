@@ -37,18 +37,19 @@ Meteor.methods({
       }),
       updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
 
-    // if (SimpleSchema !== undefined && _.isFunction(MongolCollection.simpleSchema)) {
-    //   // This is to nullify the effects of SimpleSchema/Collection2
-    //   MongolCollection.update({
-    //     _id: documentID
-    //   }, updatedDocumentData, {
-    //     filter: false,
-    //     autoConvert: false,
-    //     removeEmptyStrings: false,
-    //     validate: false
-    //   });
-    //   return;
-    // }
+
+    if (!!Package['aldeed:simple-schema'] && _.isFunction(MongolCollection.simpleSchema)) {
+      // This is to nullify the effects of SimpleSchema/Collection2
+      MongolCollection.update({
+        _id: documentID
+      }, updatedDocumentData, {
+        filter: false,
+        autoConvert: false,
+        removeEmptyStrings: false,
+        validate: false
+      });
+      return;
+    }
 
     // Run the magic
     MongolCollection.update({
