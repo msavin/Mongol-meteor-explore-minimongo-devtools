@@ -34,8 +34,9 @@ Mongol.Collection = function (collectionName) {
 
   // Changes the first character of a string to upper case
 
-
+  // !!!
   // FIXME: every code below this is unreachable!
+  // !!!
 
   function firstToUpper(text) {
 
@@ -56,13 +57,11 @@ Mongol.Collection = function (collectionName) {
       var newObj = obj ? obj[pieces[0]] : {};
       pieces.shift();
       return drillDown(newObj, pieces.join('.'));
-    } else {
-      if (obj) {
-        return obj[key];
-      } else {
-        return; // undefined
-      }
     }
+    if (obj) {
+      return obj[key];
+    }
+    return; // undefined
   }
 
 };
