@@ -36,6 +36,12 @@ Meteor.methods({
 		var currentDbDoc        = MongolCollection.findOne({_id: documentID}),
 			updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
 
+		if (typeof SimpleSchema !== 'undefined' && _.isFunction(MongolCollection.simpleSchema)) {
+		  // This is to nullify the effects of SimpleSchema/Collection2
+		  MongolCollection.update({_id:documentID},updatedDocumentData,{filter:false,autoConvert:false,removeEmptyStrings:false,validate:false});
+		  return;
+		}
+		
 		// Run the magic
 		MongolCollection.update(
 			{
@@ -67,6 +73,13 @@ Meteor.methods({
 	Mongol_insert: function(collectionName, documentData) {
 		
 		var MongolCollection = Mongol.Collection(collectionName);
+		
+		if (typeof SimpleSchema !== 'undefined' && _.isFunction(MongolCollection.simpleSchema)) {
+		  // This is to nullify the effects of SimpleSchema/Collection2
+		  MongolCollection.insert(documentData,{filter:false,autoConvert:false,removeEmptyStrings:false,validate:false});
+		  return;
+		}
+		
 		MongolCollection.insert(documentData);
 	
 	},
