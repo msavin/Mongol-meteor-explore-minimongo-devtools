@@ -1,19 +1,14 @@
 <template name="Mongol">
-	{{#if Mongol_configured}}
-		{{#if Mongol_enabled}}
-			<div id="Mongol" class="{{active}}">
-				{{> Mongol_header}}
-				{{> Mongol_account}}
-				<!-- {{> Mongol_subscriptions}} -->
-				{{#each Mongol_collections}}
-					{{> Mongol_collection}}
-				{{else}}
-					{{> Mongol_empty}}
-				{{/each}}
-			</div>
-		{{/if}}
-	{{else}}
-		{{> Mongol_welcome}}
+	{{#if Mongol_enabled}}
+		<div id="Mongol" class="{{active}}">
+			{{> Mongol_header}}
+			{{> Mongol_account}}
+			{{#each Mongol_collections}}
+				{{> Mongol_collection}}
+			{{else}}
+				{{> Mongol_empty}}
+			{{/each}}
+		</div>
 	{{/if}}
 </template>
 

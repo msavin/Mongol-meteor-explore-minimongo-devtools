@@ -1,5 +1,3 @@
-if (Meteor.isClient) {
-	
 Template.Mongol_docControls.events({
 	'click .Mongol_m_new': function () {
 
@@ -204,7 +202,7 @@ Template.Mongol_docControls.helpers({
 			return true;
 		}
 
-		// return true if its a user account
+		// return true if it's a user account
 		if (current === "account_618") {
 			return true;
 		}
@@ -222,4 +220,12 @@ Template.Mongol_docControls.helpers({
 
 });
 
+// Will possibly be used in augmented document udpate UI
+/*Template.Mongol_docViewer.events({
+'click .Mongol_string' : function (evt,tmpl) {
+var field = $(evt.target).prevAll(".Mongol_key:first").text().slice(1,-2);
+Session.set('Mongol_inlineEdit',true);
+Tracker.flush();
+// Do something to trigger the editable text element
 }
+});*/

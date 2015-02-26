@@ -6,14 +6,12 @@ MongolPackage = {
     },
     'toggleDisplay': function () {
         
-        var configuration = Session.get("Mongol");
+        var displayStatus = Session.get("Mongol_settings_display");
 
-        if (configuration['display']) {
-            configuration['display'] = false;
-            Session.set("Mongol", configuration);
+        if (displayStatus) {
+            Session.set("Mongol_settings_display", false);
         } else {
-            configuration['display'] = true;
-            Session.set("Mongol", configuration);
+            Session.set("Mongol_settings_display", true);
         }
     },
 	'colorize': function (json) {
