@@ -37,18 +37,18 @@ Meteor.methods({
       }),
       updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
 
-    if (SimpleSchema !== undefined && _.isFunction(MongolCollection.simpleSchema)) {
-      // This is to nullify the effects of SimpleSchema/Collection2
-      MongolCollection.update({
-        _id: documentID
-      }, updatedDocumentData, {
-        filter: false,
-        autoConvert: false,
-        removeEmptyStrings: false,
-        validate: false
-      });
-      return;
-    }
+    // if (SimpleSchema !== undefined && _.isFunction(MongolCollection.simpleSchema)) {
+    //   // This is to nullify the effects of SimpleSchema/Collection2
+    //   MongolCollection.update({
+    //     _id: documentID
+    //   }, updatedDocumentData, {
+    //     filter: false,
+    //     autoConvert: false,
+    //     removeEmptyStrings: false,
+    //     validate: false
+    //   });
+    //   return;
+    // }
 
     // Run the magic
     MongolCollection.update({
@@ -81,16 +81,16 @@ Meteor.methods({
 
     var MongolCollection = Mongol.Collection(collectionName);
 
-    if (SimpleSchema !== undefined && _.isFunction(MongolCollection.simpleSchema)) {
-      // This is to nullify the effects of SimpleSchema/Collection2
-      MongolCollection.insert(documentData, {
-        filter: false,
-        autoConvert: false,
-        removeEmptyStrings: false,
-        validate: false
-      });
-      return;
-    }
+    // if (SimpleSchema !== undefined && _.isFunction(MongolCollection.simpleSchema)) {
+    //   // This is to nullify the effects of SimpleSchema/Collection2
+    //   MongolCollection.insert(documentData, {
+    //     filter: false,
+    //     autoConvert: false,
+    //     removeEmptyStrings: false,
+    //     validate: false
+    //   });
+    //   return;
+    // }
 
     MongolCollection.insert(documentData);
 

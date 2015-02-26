@@ -6,6 +6,7 @@ Meet Mongol, the insanely handy development package for Meteor. Starting today, 
 
 Mongol does not require configuration. To turn it on, press Control + M.
 
+
 Browse Your Collections
 -----------------------
 Mongol will automatically detect your collections and display the documents that you are subscribing to. Click on the collection name to see what it contains.
@@ -19,7 +20,7 @@ Mongol is able to insert, update and/or remove any document in your database, re
 
 Hot Key Activation
 ------------------
-Mongol won't render into the DOM until you activate it. To activate, press <strong>Control + M</strong>.
+Mongol won't render into the DOM until you activate it. To activate, press <strong>Control + M</strong>. In case the hot key does not work, you can activate it with `Session.set("Mongol_settings_display", true)`
 
 
 Security & "debug-only"
