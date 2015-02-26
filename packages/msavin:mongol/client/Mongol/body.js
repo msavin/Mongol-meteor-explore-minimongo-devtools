@@ -2,18 +2,18 @@
 
 Template.body.created = function () {
 
-    // Set Mongol to Display
-    // When User Clicks Controls + M
+  // Set Mongol to Display
+  // When User Clicks Controls + M
 
-    $(document).keydown(function(e) {
-        if (e.keyCode === 77 && e.ctrlKey) {
-           MongolPackage.toggleDisplay();
-        }
-    });
+  $(document).keydown(function (e) {
+    if (e.keyCode === 77 && e.ctrlKey) {
+      MongolPackage.toggleDisplay();
+    }
+  });
 
-    // Educate about Mongol package
+  // Educate about Mongol package
 
-    MongolPackage.startup();
+  MongolPackage.startup();
 
 };
 
@@ -25,7 +25,7 @@ Template.body.created = function () {
 /*Blaze.body.events({
   'keydown body' : function(e) {
     if (e.keyCode === 77 && e.ctrlKey) {
-	   MongolPackage.toggleDisplay();
-	}
+     MongolPackage.toggleDisplay();
+  }
   }
 });*/
