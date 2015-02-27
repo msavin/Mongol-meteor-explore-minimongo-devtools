@@ -10,8 +10,7 @@ Template.Mongol_docInsert.events({
       Meteor.call('Mongol_insert', CollectionName, newObject, function (error, result) {
         if (!error) {
           sessionKey = "Mongol_" + CollectionName;
-          // FIXME: something is strange here. Code below uses the variable above as string !? - typo?
-          Session.set("sessionKey", "0");
+          Session.set(sessionKey, 0);
         } else {
           MongolPackage.error("insert");
         }

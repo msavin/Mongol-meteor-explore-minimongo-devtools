@@ -12,7 +12,7 @@ Meteor.methods({
     }
     return false;
 
-    // Current not in use, but under consideratoin
+    // Currently not in use, but under consideration
     // To Use:
 
     // Meteor.call("Mongol_verify", function (error, result) {
@@ -33,12 +33,11 @@ Meteor.methods({
     delete originalDocumentData._id;
 
     var currentDbDoc = MongolCollection.findOne({
-        _id: documentID
-      }),
-      updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
-
-
-    if (!!Package['aldeed:simple-schema'] && _.isFunction(MongolCollection.simpleSchema)) {
+      _id: documentID
+    });
+	var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
+	
+    if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema)) {
       // This is to nullify the effects of SimpleSchema/Collection2
       MongolCollection.update({
         _id: documentID
@@ -82,7 +81,7 @@ Meteor.methods({
 
     var MongolCollection = Mongol.Collection(collectionName);
 
-    if (!!Package['aldeed:simple-schema'] && _.isFunction(MongolCollection.simpleSchema)) {
+    if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema)) {
       // This is to nullify the effects of SimpleSchema/Collection2
       MongolCollection.insert(documentData, {
         filter: false,

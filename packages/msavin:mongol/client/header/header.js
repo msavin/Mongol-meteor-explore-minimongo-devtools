@@ -1,9 +1,14 @@
 Template.Mongol_header.events({
-  'click': function () {
-    Session.set("Mongol_currentCollection", "mongol_618");
+  'click .Mongol_header': function () {
+    if (Session.equals("Mongol_currentCollection", "mongol_618")) {
+      Session.set("Mongol_currentCollection", null);
+    } else {
+      Session.set("Mongol_currentCollection", "mongol_618");
+    }
   },
-  'click .Mongol_Minimize': function () {
-    Session.set("Mongol_currentCollection", null);
+  'click .Mongol_Minimize' : function (e) {
+    e.stopPropagation();
+    Session.set("Mongol_currentCollection", null);  
   }
 });
 
