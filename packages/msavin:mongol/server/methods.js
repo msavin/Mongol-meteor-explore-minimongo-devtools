@@ -82,16 +82,16 @@ Meteor.methods({
 
     var MongolCollection = Mongol.Collection(collectionName);
 
-    // if (SimpleSchema !== undefined && _.isFunction(MongolCollection.simpleSchema)) {
-    //   // This is to nullify the effects of SimpleSchema/Collection2
-    //   MongolCollection.insert(documentData, {
-    //     filter: false,
-    //     autoConvert: false,
-    //     removeEmptyStrings: false,
-    //     validate: false
-    //   });
-    //   return;
-    // }
+    if (!!Package['aldeed:simple-schema'] && _.isFunction(MongolCollection.simpleSchema)) {
+      // This is to nullify the effects of SimpleSchema/Collection2
+      MongolCollection.insert(documentData, {
+        filter: false,
+        autoConvert: false,
+        removeEmptyStrings: false,
+        validate: false
+      });
+      return;
+    }
 
     MongolCollection.insert(documentData);
 
