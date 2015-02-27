@@ -1,6 +1,13 @@
-// Note `rendered` fails in some situations, use `created`
+//
+//  Re-Note: `rendered`, `created`, `destroyed` should not be used on body, window, or document.
+//  Essentially not on `unique` items which can have the values you just set overwritten by the
+//  next package that is loaded.
+//
+//  For a 'when ready' hook use 'Meteor.startup' called when the DOM is ready
+//  http://docs.meteor.com/#/full/meteor_startup
+//
 
-Template.body.created = function () {
+Meteor.startup(function(){
 
   // Set Mongol to Display
   // When User Clicks Controls + M
@@ -15,7 +22,7 @@ Template.body.created = function () {
 
   MongolPackage.startup();
 
-};
+});
 
 // Below is a working alternative to Template.body.created
 // Past experience says that adding this package as a
