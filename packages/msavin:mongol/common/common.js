@@ -19,11 +19,11 @@ Mongol.Collection = function (collectionName) {
     // This should automatically match all collections by default
     // including namespaced collections
 
-  || ((Meteor.isServer) ? eval(collectionName) : drillDown(window, collectionName))
+  || ((Meteor.isServer) ? eval(collectionName) : Meteor._get.apply(null,[window].concat(collectionName.split('.'))))
   // For user defined collection names
   // in the form of Meteor's Mongo.Collection names as strings
 
-  || ((Meteor.isServer) ? eval(firstToUpper(collectionName)) : drillDown(window, firstToUpper(collectionName)))
+  || ((Meteor.isServer) ? eval(firstToUpper(collectionName)) : Meteor._get.apply(null,[window].concat(firstToUpper(collectionName).split('.'))))
   // For user defined collections where the user has typical upper-case collection names
   // but they've put actual mongodb collection names into the Mongol config instead of Meteor's Mongo.Collection names as strings
 
@@ -34,34 +34,10 @@ Mongol.Collection = function (collectionName) {
 
   // Changes the first character of a string to upper case
 
-  // !!!
-  // FIXME: every code below this is unreachable!
-  // !!!
-
   function firstToUpper(text) {
 
     return text.charAt(0).toUpperCase() + text.substr(1);
 
   }
-
-  // This utility function takes a javascript object (`obj`)
-  // And a key for that object as a dot-delimited string (`key`)
-  // e.g.
-  // var obj = { person : { name : "Jack", address : "Beijing, China"}};
-  // drillDown(obj,"person.name")
-  // => "Jack"
-
-  function drillDown(obj, key) {
-    var pieces = key.split('.');
-    if (pieces.length > 1) {
-      var newObj = obj ? obj[pieces[0]] : {};
-      pieces.shift();
-      return drillDown(newObj, pieces.join('.'));
-    }
-    if (obj) {
-      return obj[key];
-    }
-    return; // undefined
-  }
-
+  
 };
