@@ -14,10 +14,6 @@ Template.Mongol_collection.events({
 
       Session.set("Mongol_editMode", false);
 
-      // FIXME: seems not to be used
-      //var thisCollection = Mongol.Collection(targetCollection);
-      //var documentCount = thisCollection.find().count();
-
       // If the collection doesn't have an index key set,
       // start it from the first document
       if (!Session.get(sessionKey)) {
