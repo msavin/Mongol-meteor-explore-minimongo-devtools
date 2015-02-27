@@ -72,8 +72,7 @@ MongolPackage = {
 
   },
   'parse': function (data) {
-    // FIXME: variable newObject is not defined - or is it some global var from somewhere?
-    newObject = false;
+    var newObject = false;
 
     try {
       newObject = JSON.parse(data);

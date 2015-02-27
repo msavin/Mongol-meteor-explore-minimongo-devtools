@@ -10,9 +10,7 @@ Template.Mongol_docViewer.helpers({
   },
   documentJSON: function () {
     var docCurrent = this;
-    var json_output = JSON.stringify(docCurrent, null, 2);
-
-    // FIXME: variable colorize is not defined - or is it some global var from somewhere?
+    var json_output = JSON.stringify(docCurrent, null, 2), colorize;
 
     if (!(json_output === undefined)) {
       colorize = MongolPackage.colorize(json_output);
@@ -42,8 +40,7 @@ Template.Mongol_docViewer.helpers({
 
   },
   notEmpty: function () {
-    // FIXME: variable documentCount is not defined - or is it some global var from somewhere?
-    documentCount = Mongol.Collection(String(this)) && Mongol.Collection(String(this)).find().count() || 0;
+    var documentCount = Mongol.Collection(String(this)) && Mongol.Collection(String(this)).find().count() || 0;
     if (documentCount >= 1) {
       return true;
     }
