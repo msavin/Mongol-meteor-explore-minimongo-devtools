@@ -44,7 +44,7 @@ Meteor.methods({
       // Using `upsert` means that a user can change the _id value in the JSON
       // and then press the 'Update' button to create a duplicate (published keys/values only) with a different _id
 	  
-	  MongolCollection.update({
+	  MongolCollection.upsert({
         _id: documentID
       }, updatedDocumentData, {
         filter: false,
