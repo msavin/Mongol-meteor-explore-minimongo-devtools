@@ -35,11 +35,16 @@ Meteor.methods({
     var currentDbDoc = MongolCollection.findOne({
       _id: documentID
     });
-	var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
+	
+    var updatedDocumentData = (currentDbDoc) ? Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData) : documentData;
 	
     if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema)) {
+      
       // This is to nullify the effects of SimpleSchema/Collection2
-      MongolCollection.update({
+      // Using `upsert` means that a user can change the _id value in the JSON
+      // and then press the 'Update' button to create a duplicate (published keys/values only) with a different _id
+	  
+	  MongolCollection.update({
         _id: documentID
       }, updatedDocumentData, {
         filter: false,
