@@ -56,7 +56,7 @@ Meteor.methods({
     }
 
     // Run the magic
-    MongolCollection.update({
+    MongolCollection.upsert({
         _id: documentID
       },
       updatedDocumentData
