@@ -1,8 +1,6 @@
 MongolPackage = {
   'startup': function () {
-    console.log("This application contains Mongol. Press Control + M to activate it.");
-    console.log("Mongol comes with a few security pre-cautions that you should read about here: ");
-    console.log("https://github.com/msavin/Mongol");
+    console.log("This application contains Mongol. More info: https://github.com/msavin/Mongol");
   },
   'toggleDisplay': function () {
 

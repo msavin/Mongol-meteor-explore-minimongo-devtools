@@ -1,5 +1,9 @@
 // Ssh.. this is supposed to be a surprise :)
 
+// Object for subscriptions
+// var subscriptions = Meteor.default_connection._subscriptions
+// Object.observe polyfill
+
 // Template.Mongol_subscriptions.helpers({
 // 	subscription: function () {
 // 		var data = MongolSubData.get()
