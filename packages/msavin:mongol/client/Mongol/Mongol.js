@@ -10,7 +10,7 @@ Template.Mongol.helpers({
   active: function () {
     var MongolCollection = Session.get("Mongol_currentCollection");
     if (MongolCollection) {
-      return "Mongol_expand";
+      return ((Session.get("Mongol_fullscreen")) ? "Mongol_fullscreen " : "") + "Mongol_expand";
     }
   }
 });

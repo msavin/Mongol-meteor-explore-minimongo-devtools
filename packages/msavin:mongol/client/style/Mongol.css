@@ -27,6 +27,17 @@
   max-width: 320px !important;
   opacity: 0.93 !important; }
 
+#Mongol.Mongol_fullscreen {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  opacity: 0.93 !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: auto !important }
+
 .Mongol_editable {
   cursor: auto; }
 
@@ -148,6 +159,14 @@
   font-weight: bold;
   color: rgba(255, 255, 255, 0.9); }
   .Mongol_Minimize:hover {
+    background: rgba(255, 255, 255, 0.15);
+    cursor: pointer; }
+
+.Mongol_FullScreen {
+  padding: 0 6px;
+  display: none;
+   }
+  .Mongol_FullScreen:hover {
     background: rgba(255, 255, 255, 0.15);
     cursor: pointer; }
 
