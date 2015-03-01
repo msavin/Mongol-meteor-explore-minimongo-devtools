@@ -48,7 +48,7 @@ MongolPackage = {
 
     switch (data) {
       case "json.parse":
-        alert("There is an error with your JSON syntax.");
+        alert("There is an error with your JSON syntax.\n\nNote: keys and string values need double quotes.");
         break;
       case "duplicate":
         alert("Strange, there was an error duplicating your document.");

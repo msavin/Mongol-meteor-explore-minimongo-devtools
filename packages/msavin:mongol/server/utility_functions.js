@@ -21,7 +21,7 @@
 Mongol.diffDocumentData = function (dbDoc, newData, oldData) {
 
   // TODO -- recurse into subdocuments, performing checks
-  // using the drillDown utility function (as seen in /common/common.js)
+  // using the Meteor._get function (as seen in /common/common.js)
 
   var finalData = {};
 
