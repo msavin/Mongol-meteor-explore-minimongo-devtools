@@ -164,6 +164,7 @@
 
 .Mongol_FullScreen {
   padding: 0 6px;
+  display: none;
    }
   .Mongol_FullScreen:hover {
     background: rgba(255, 255, 255, 0.15);
