@@ -18,7 +18,7 @@ MongolPackage = {
 	
     Session.set("Mongol_fullscreen", !fullScreenStatus);
 	
-    if (!Session.equals("Mongol_currentCollection")) {
+    if (!Session.get("Mongol_currentCollection")) {
 	  Session.set("Mongol_fullscreen", true);
       Session.set("Mongol_currentCollection", "mongol_618");
     }
