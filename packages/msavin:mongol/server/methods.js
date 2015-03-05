@@ -26,6 +26,10 @@ Meteor.methods({
   },
   Mongol_update: function (collectionName, documentData, originalDocumentData) {
 
+    check(collectionName, String);
+    check(documentData, Object);
+    check(originalDocumentData, Object);
+
     var MongolCollection = Mongol.Collection(collectionName),
       documentID = documentData._id;
 
@@ -56,7 +60,7 @@ Meteor.methods({
     }
 
     // Run the magic
-    MongolCollection.update({
+    MongolCollection.upsert({
         _id: documentID
       },
       updatedDocumentData
@@ -65,12 +69,18 @@ Meteor.methods({
   },
   Mongol_remove: function (collectionName, documentID) {
 
+    check(collectionName, String);
+    check(documentID, String);
+
     var MongolCollection = Mongol.Collection(collectionName);
 
     MongolCollection.remove(documentID);
 
   },
   Mongol_duplicate: function (collectionName, documentID) {
+
+    check(collectionName, String);
+    check(documentID, String);
 
     var MongolCollection = Mongol.Collection(collectionName),
       OriginalDoc = MongolCollection.findOne(documentID);
@@ -83,6 +93,9 @@ Meteor.methods({
 
   },
   Mongol_insert: function(collectionName, documentData) {
+
+    check(collectionName, String);
+    check(documentData, Object);
 
     var MongolCollection = Mongol.Collection(collectionName);
 

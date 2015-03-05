@@ -1,7 +1,7 @@
 Package.describe({
   name:    'msavin:mongol',
   summary: 'The insanely handy development package for Meteor.',
-  version: '0.5.4',
+  version: '0.5.6',
   git:     'https://github.com/msavin/Mongol.git',
   documentation: 'README.md',
   debugOnly: true
@@ -46,7 +46,8 @@ Package.onUse(function(api) {
 
   api.versionsFrom('1.0');
   api.use(['templating','tracker','mongo'], 'client');
-  api.use(['dburles:mongo-collection-instances@0.3.1']);
+  api.use('aldeed:collection2@2.3.2', {weak: true}); // This must go before: api.use('dburles:mongo-collection-instances@0.3.1');
+  api.use('dburles:mongo-collection-instances@0.3.1');
   api.add_files(commonFiles);
   api.add_files(clientFiles, "client");
   api.add_files(serverFiles, "server");
