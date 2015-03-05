@@ -1,6 +1,6 @@
 MongolPackage = {
   'startup': function () {
-    console.log("This application contains Mongol. More info: https://github.com/msavin/Mongol");
+    console.log("This application contains Mongol. Read more: https://github.com/msavin/Mongol");
   },
   'toggleDisplay': function () {
 
