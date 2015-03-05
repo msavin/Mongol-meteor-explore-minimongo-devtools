@@ -12,6 +12,18 @@ MongolPackage = {
       Session.set("Mongol_settings_display", true);
     }
   },
+  'toggleFullScreen' : function () {
+	
+	var fullScreenStatus = Session.get("Mongol_fullscreen");
+	
+    Session.set("Mongol_fullscreen", !fullScreenStatus);
+	
+    if (!Session.get("Mongol_currentCollection")) {
+	  Session.set("Mongol_fullscreen", true);
+      Session.set("Mongol_currentCollection", "mongol_618");
+    }
+	
+  },
   'colorize': function (json) {
     // colorized the JSON objects
     if (typeof json != 'string') {
