@@ -16,9 +16,9 @@ Meteor.startup(function(){
     if (e.keyCode === 77 && e.ctrlKey) {
       MongolPackage.toggleDisplay();
     }
-	if (e.keyCode === 70 && e.ctrlKey) {
-	  MongolPackage.toggleFullScreen();	
-	}
+	// if (e.keyCode === 70 && e.ctrlKey) {
+	//   MongolPackage.toggleFullScreen();	
+	// }
   });
 
   // Educate about Mongol package
