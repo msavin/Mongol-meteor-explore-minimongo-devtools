@@ -25,7 +25,7 @@ Template.Mongol_docControls.events({
 
     var ValidatedCurrentDocument = Mongol.validateDocument(CurrentDocument);
 
-    Meteor.call("Mongol_duplicate", CollectionName, ValidatedCurrentDocument, function(error, result) {
+    Meteor.call("Mongol_duplicate", CollectionName, ValidatedCurrentDocument._id, function(error, result) {
       if (!error) {
 
         if (Mongol.Collection(CollectionName).findOne(result)) {
