@@ -63,7 +63,9 @@
   color: #999; }
 
 #Mongol * {
-  outline: none; }
+  outline: none;
+  font-family: Courier, Lucidatypewriter, Fixed, monospace; } 
+
 #Mongol pre {
   outline: none;
   margin: 0;
