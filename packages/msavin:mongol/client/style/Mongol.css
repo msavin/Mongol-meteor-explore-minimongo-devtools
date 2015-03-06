@@ -64,7 +64,11 @@
 
 #Mongol * {
   outline: none;
-  font-family: Courier, Lucidatypewriter, Fixed, monospace; } 
+  font-family: Courier, Lucidatypewriter, Fixed, monospace !important; } 
+
+#Mongol strong {
+  font-family: Courier, Lucidatypewriter, Fixed, monospace !important; 
+  font-weight: bold; }
 
 #Mongol pre {
   outline: none;
