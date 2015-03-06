@@ -33,14 +33,21 @@ Meteor.methods({
     var MongolCollection = Mongol.Collection(collectionName),
       documentID = documentData._id;
 
-    delete documentData._id;
-    delete originalDocumentData._id;
-
     var currentDbDoc = MongolCollection.findOne({
       _id: documentID
     });
-	
-    var updatedDocumentData = (currentDbDoc) ? Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData) : documentData;
+
+    if (!currentDbDoc) {
+	  // A document with this _id value is not in the db
+	  // Do an insert instead
+	  Meteor.call("Mongol_insert", collectionName, documentData);
+	  return;
+	}
+
+    delete documentData._id;
+    delete originalDocumentData._id;
+
+    var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
 	
     if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema)) {
       
@@ -48,7 +55,7 @@ Meteor.methods({
       // Using `upsert` means that a user can change the _id value in the JSON
       // and then press the 'Update' button to create a duplicate (published keys/values only) with a different _id
 	  
-	  MongolCollection.upsert({
+	  MongolCollection.update({
         _id: documentID
       }, updatedDocumentData, {
         filter: false,
@@ -60,7 +67,7 @@ Meteor.methods({
     }
 
     // Run the magic
-    MongolCollection.upsert({
+    MongolCollection.update({
         _id: documentID
       },
       updatedDocumentData
