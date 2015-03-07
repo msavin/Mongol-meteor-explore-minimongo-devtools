@@ -1,10 +1,10 @@
 Meteor.startup(function() {
   // If the user hasn't done a Session.set('Mongol',{ ... });
   // set some default values
-
   if (Session.get('Mongol') === undefined) {
 
     // Build a default config object
+  // Build a default config object
 
     var collections = _.map(Mongo.Collection.getAll(), function (collection) {
 
@@ -20,12 +20,8 @@ Meteor.startup(function() {
     Session.set("Mongol", defaults);
 
   } else {
-    console.log("");
-    console.log('Mongol now detects collections automatically');
-    console.log('Please remove the Session configuration you had set earlier');
-    console.log('If you have any issues, please report them to:');
-    console.log('https://github.com/msavin/Mongol');
-    console.log("");
+    
+    // Do nothing
 
   }
 

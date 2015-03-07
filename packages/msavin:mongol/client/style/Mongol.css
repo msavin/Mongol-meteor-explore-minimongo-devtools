@@ -63,7 +63,13 @@
   color: #999; }
 
 #Mongol * {
-  outline: none; }
+  outline: none;
+  font-family: Courier, Lucidatypewriter, Fixed, monospace !important; } 
+
+#Mongol strong {
+  font-family: Courier, Lucidatypewriter, Fixed, monospace !important; 
+  font-weight: bold; }
+
 #Mongol pre {
   outline: none;
   margin: 0;
@@ -81,6 +87,16 @@
   border-collapse: collapse;
   border-spacing: 0; }
 
+.Mongol_empty {
+  line-height: 14px !important;
+  font-size: 12px !important;
+  background-image: -moz-linear-gradient(#000, #292929);
+  background-image: -w2ebkit-gradient(linear, 0% 0%, 0% 100%, from(#000), to(#292929));
+  background-image: -webkit-linear-gradient(#000, #292929);
+  background-image: -o-linear-gradient(#000, #000);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$c1', endColorstr='$c2',GradientType=0);
+  color: rgba(255, 255, 255, 0.8); }
+  
 .Mongol_row {
   padding: 0 8px;
   overflow: hidden;
