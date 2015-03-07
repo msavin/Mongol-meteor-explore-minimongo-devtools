@@ -8,9 +8,13 @@
 					<pre>{{{documentJSON}}}</pre>
 				</div>
 			{{else}}
-				<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}" contenteditable="{{editContent}}">	
-					<pre>{{{documentJSON}}}</pre>
-				</div>
+			  <div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}" contenteditable="{{editContent}}">	
+				 {{#if noInlineEditing}}
+                   <pre>{{{documentJSON}}}</pre>
+                 {{else}}
+                   {{> editableJSON document=this collection=..}}
+                 {{/if}}
+			  </div>
 			{{/if}}
 		{{else}}
 			<div class="Mongol_documentViewer" id="MongolDoc_{{this}}">	
