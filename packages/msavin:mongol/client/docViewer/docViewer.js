@@ -44,6 +44,9 @@ Template.Mongol_docViewer.helpers({
     if (documentCount >= 1) {
       return true;
     }
+  },
+  noInlineEditing: function () {
+	return Session.get('Mongol_noInlineEditing');  
   }
 });
 
