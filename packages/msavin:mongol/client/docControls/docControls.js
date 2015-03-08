@@ -11,6 +11,18 @@ Mongol.validateDocument = function (doc) {
   return validatedDoc;
 }
 
+Mongol.inlineEditingTimer = null;
+
+Mongol.resetInlineEditingTimer = function() {
+  if (Mongol.inlineEditingTimer) {
+	Meteor.clearTimeout(Mongol.inlineEditingTimer);
+  }
+  Session.set('Mongol_noInlineEditing', true);
+  Mongol.inlineEditingTimer = Meteor.setTimeout(function () {
+    Session.set('Mongol_noInlineEditing', false);  
+  },300);
+}
+
 Template.Mongol_docControls.events({
   'click .Mongol_m_new': function() {
 
@@ -97,7 +109,10 @@ Template.Mongol_docControls.events({
   'click .Mongol_m_right': function() {
     // Verify that the button is not disabled
     if (!$('.Mongol_m_right').hasClass('Mongol_m_disabled')) {
-
+      
+      // Disable inline editing for 0.3s for quick flick to next doc
+      Mongol.resetInlineEditingTimer();
+	  
       // Grab the key
       sessionKey = "Mongol_" + String(this);
 
@@ -112,6 +127,9 @@ Template.Mongol_docControls.events({
     // Verify that the button is not disabled
     if (!$('.Mongol_m_left').hasClass('Mongol_m_disabled')) {
 
+      // Disable inline editing for 0.3s for quick flick to next doc
+      Mongol.resetInlineEditingTimer();
+      
       // Grab the key
       sessionKey = "Mongol_" + String(this);
 

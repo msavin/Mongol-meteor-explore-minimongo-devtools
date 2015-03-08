@@ -427,4 +427,12 @@
   text-indent: 0px;
 }
 
+.pika-single {
+  z-index: 2147483648 !important;
+}
+
+#Mongol .editable-JSON-_id-field, #Mongol .editable-JSON-_id-value {
+  opacity: 1;
+}
+
 /*# sourceMappingURL=Mongol.css.map */
