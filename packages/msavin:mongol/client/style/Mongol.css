@@ -186,6 +186,12 @@
     background: rgba(255, 255, 255, 0.15);
     cursor: pointer; }
 
+#Mongol.Mongol_fullscreen .Mongol_row_expand {
+  overflow: auto;
+  height: inherit; }
+  #Mongol.Mongol_fullscreen .Mongol_row_expand .Mongol_documentViewer {
+    height: auto; }
+
 .Mongol_expand .Mongol_Minimize {
   display: inline;
   opacity: 1; }
