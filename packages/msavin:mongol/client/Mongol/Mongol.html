@@ -1,8 +1,10 @@
 <template name="Mongol">
 	{{#if Mongol_enabled}}
 		<div id="Mongol" class="{{active}}">
+			<!-- <div class="Mongol_overlay"></div> -->
 			{{> Mongol_header}}
 			{{> Mongol_account}}
+			{{> Mongol_subscriptions}}
 			{{#each Mongol_collections}}
 				{{> Mongol_collection}}
 			{{else}}

@@ -1,8 +1,16 @@
 {
   "dependencies": [
     [
+      "aldeed:template-extension",
+      "3.4.1"
+    ],
+    [
       "application-configuration",
       "1.0.3"
+    ],
+    [
+      "babrahams:editable-json",
+      "0.3.1"
     ],
     [
       "base64",
@@ -49,6 +57,10 @@
       "1.0.1"
     ],
     [
+      "gwendall:session-json",
+      "0.1.7"
+    ],
+    [
       "htmljs",
       "1.0.2"
     ],
@@ -81,6 +93,10 @@
       "1.0.8"
     ],
     [
+      "mrt:moment",
+      "2.8.1"
+    ],
+    [
       "observe-sequence",
       "1.0.3"
     ],
@@ -93,12 +109,24 @@
       "1.0.1"
     ],
     [
+      "reactive-dict",
+      "1.0.4"
+    ],
+    [
       "reactive-var",
       "1.0.3"
     ],
     [
       "retry",
       "1.0.1"
+    ],
+    [
+      "richsilv:pikaday",
+      "1.0.0"
+    ],
+    [
+      "spacebars",
+      "1.0.3"
     ],
     [
       "templating",
