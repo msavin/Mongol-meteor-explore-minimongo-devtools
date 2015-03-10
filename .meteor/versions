@@ -2,9 +2,11 @@ accounts-base@1.1.2
 accounts-password@1.0.4
 accounts-ui-unstyled@1.1.4
 accounts-ui@1.1.3
+aldeed:template-extension@3.4.1
 application-configuration@1.0.3
 autopublish@1.0.1
 autoupdate@1.1.3
+babrahams:editable-json@0.3.1
 base64@1.0.1
 binary-heap@1.0.1
 blaze-tools@1.0.1
@@ -22,6 +24,7 @@ email@1.0.4
 fastclick@1.0.1
 follower-livedata@1.0.2
 geojson-utils@1.0.1
+gwendall:session-json@0.1.7
 html-tools@1.0.2
 htmljs@1.0.2
 http@1.0.8
@@ -39,7 +42,8 @@ minifiers@1.1.2
 minimongo@1.0.5
 mobile-status-bar@1.0.1
 mongo@1.0.8
-msavin:mongol@0.6.4
+mrt:moment@2.8.1
+msavin:mongol@0.6.5
 npm-bcrypt@0.7.7
 observe-sequence@1.0.3
 ordered-dict@1.0.1
@@ -48,6 +52,7 @@ reactive-dict@1.0.4
 reactive-var@1.0.3
 reload@1.1.1
 retry@1.0.1
+richsilv:pikaday@1.0.0
 routepolicy@1.0.2
 service-configuration@1.0.2
 session@1.0.4

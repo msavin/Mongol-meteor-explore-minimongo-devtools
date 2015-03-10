@@ -13,6 +13,18 @@
   max-width: 150px;
   max-height: 100%;
   overflow: scroll;
+  background-color: rgba(63,63,63,.93);
+  /*background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAEElEQVR42gEFAPr/AD8/P+0DKQGrUcZu7gAAAABJRU5ErkJggg==');*/
+  /*background-image: url('http://localhost:4000/images/bg.jpg');*/
+  /*background-blend-mode: luminosity;*/
+  /*isolation: isolate;*/
+  /*background-blend-mode: screen;*/
+
+  /*mix-blend-mode: normal;*/
+
+
+
+ 
   transition: 0.3s;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -20,12 +32,21 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  opacity: 0.7 !important; }
+}
 
+/*.Mongol_overlay {
+  background: rgba(255,0,0,.3);
+
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-blend-mode: luminosity;
+  isolation: isolate;
+}*/
 #Mongol.Mongol_expand {
   width: 100% !important;
   max-width: 320px !important;
-  opacity: 0.93 !important; }
+  }
 
 #Mongol.Mongol_fullscreen {
   width: 100% !important;
@@ -62,8 +83,10 @@
 #Mongol a {
   color: #999; }
 
-#Mongol * {
+#Mongol *, .Mongol_row {
   outline: none;
+  isolation-mode: isolate !important;
+  mix-blend-mode: unset !important;
   font-family: Courier, Lucidatypewriter, Fixed, monospace !important; } 
 
 #Mongol strong {
@@ -105,11 +128,10 @@
   height: 28px;
   position: relative;
   transition: 0.3s;
-  background-image: -moz-linear-gradient(#000, #292929);
-  background-image: -w2ebkit-gradient(linear, 0% 0%, 0% 100%, from(#000), to(#292929));
-  background-image: -webkit-linear-gradient(#000, #292929);
-  background-image: -o-linear-gradient(#000, #000);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$c1', endColorstr='$c2',GradientType=0);
+  background: rgba(0,0,0,.4);
+  isolation: isolate;
+
+  margin-bottom: 1px;
   color: rgba(255, 255, 255, 0.8); }
 
 .MongolHide {
@@ -130,6 +152,7 @@
 
 .Mongol_row_expand {
   height: 320px;
+  background: transparent;
   cursor: default !important; }
   .Mongol_row_expand .MongolHide {
     opacity: 1;
@@ -157,7 +180,7 @@
   float: right; }
 
 .Mongol_header { 
-  border-radius: 0 5px 0 0; }
+  }
 
 .Mongol_header .Mongol_documentViewer {
   padding-bottom: 25px;
@@ -197,11 +220,12 @@
   opacity: 1; }
 
 .Mongol_documentViewer {
-  background: #292929;
+  background: rgba(0,0,0,.4);
   height: 256px;
   padding: 0 5px;
   line-height: 20px;
   overflow: auto;
+  border-radius: 0 0 5px 5px;
   z-index: 9999999998;
   position: relative;
   opacity: 0;
