@@ -186,6 +186,12 @@
     background: rgba(255, 255, 255, 0.15);
     cursor: pointer; }
 
+#Mongol.Mongol_fullscreen .Mongol_row_expand {
+  overflow: auto;
+  height: inherit; }
+  #Mongol.Mongol_fullscreen .Mongol_row_expand .Mongol_documentViewer {
+    height: auto; }
+
 .Mongol_expand .Mongol_Minimize {
   display: inline;
   opacity: 1; }
@@ -404,5 +410,35 @@
 
 .Mongol_account_active {
   background: #A6E22D; }
+  
+#Mongol .editable-JSON input {
+  max-width: 160px;
+  background: rgba(128,128,128,.1);
+  border: 0;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  font-size:14px;
+  text-indent: 0px;
+}
+
+#Mongol .editable-JSON-field input {
+  width: 80px;	
+}
+
+#Mongol input.editable-JSON-input {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  text-indent: 0px;
+}
+
+.pika-single {
+  z-index: 2147483648 !important;
+}
+
+#Mongol .editable-JSON-_id-field, #Mongol .editable-JSON-_id-value {
+  opacity: 1;
+}
 
 /*# sourceMappingURL=Mongol.css.map */
