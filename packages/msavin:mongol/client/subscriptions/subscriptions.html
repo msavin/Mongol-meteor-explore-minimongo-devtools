@@ -8,17 +8,13 @@
 
 		<!-- Document Viewer -->
 		<div class="Mongol_documentViewer Mongol_documentSubscriptions">
-			<div class="Mongol_subscriptionRow">
-				<div class="Mongol_right"> &#9608;</div>
-				<strong>Todos</strong><br>
-				Params: "12351231231234"<br>
-			</div>
-
-			<div class="Mongol_subscriptionRow">
-				<div class="Mongol_right">&#9658;</div>
-				<strong>Lists</strong><br>
-				Params: "apple", "one"<br>
-			</div>
+			{{#each subscription}}
+				<div class="Mongol_subscription">
+					{{name}}<br>
+					Params: {{params}}
+					<div class="Mongol_subscription_stop">Stop</div>
+				</div>
+			{{/each}}
 		</div>
 		<!--  -->
 		
