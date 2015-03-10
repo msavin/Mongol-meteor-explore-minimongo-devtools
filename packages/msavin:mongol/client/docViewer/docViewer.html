@@ -1,31 +1,28 @@
 <template name="Mongol_docViewer">
 
-	{{#if notEmpty}}
-		{{> Mongol_docControls}}
-		{{#with activeDocument}}
-			{{#if editStyle}}
-				<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}" contenteditable="{{editContent}}">	
-					<pre>{{{documentJSON}}}</pre>
-				</div>
-			{{else}}
-				<div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}" contenteditable="{{editContent}}">	
-					<pre>{{{documentJSON}}}</pre>
-				</div>
-			{{/if}}
-		{{else}}
-			<div class="Mongol_documentViewer" id="MongolDoc_{{this}}">	
-				<pre>No document found</pre>
-			</div>
-		{{/with}}
-	{{else}}
-		{{> Mongol_docInsert}}
-	{{/if}}
-	
+  {{#if notEmpty}}
+    {{> Mongol_docControls}}
+    {{#with activeDocument}}
+      {{#if editStyle}}
+        <div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}" contenteditable="{{editContent}}">  
+          <pre>{{{documentJSON}}}</pre>
+        </div>
+      {{else}}
+        <div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}" contenteditable="{{editContent}}">  
+          {{#if noInlineEditing}}
+            <pre>{{{documentJSON}}}</pre>
+          {{else}}
+            {{> editableJSON document=this collection=..}}
+          {{/if}}
+        </div>
+      {{/if}}
+    {{else}}
+      <div class="Mongol_documentViewer" id="MongolDoc_{{this}}">  
+        <pre>No document found</pre>
+      </div>
+    {{/with}}
+  {{else}}
+    {{> Mongol_docInsert}}
+  {{/if}}
+  
 </template>
-
-<!-- 
-	Magic to Update Document 
-	var value = document.getElementById('X').textContent;
-	var objk = JSON.parse(value);
-	Meteor.call("updateDocument", "Vendor", objk);
--->
