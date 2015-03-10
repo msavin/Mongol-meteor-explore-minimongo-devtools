@@ -10,7 +10,7 @@
   font-size: 14px;
   line-height: 28px;
   width: 100%;
-  max-width: 150px;
+  max-width: 143px;
   max-height: 100%;
   overflow: scroll;
   background-color: rgba(63,63,63,.93);
@@ -129,10 +129,18 @@
   position: relative;
   transition: 0.3s;
   background: rgba(0,0,0,.4);
-  isolation: isolate;
-
   margin-bottom: 1px;
   color: rgba(255, 255, 255, 0.8); }
+
+.Mongol_row_name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 8px;
+}
+.Mongol_row:last-child {
+  margin-bottom: 0px;
+}
 
 .MongolHide {
   opacity: 0;
@@ -221,7 +229,7 @@
 
 .Mongol_documentViewer {
   background: rgba(0,0,0,.4);
-  height: 256px;
+  height: 258px;
   padding: 0 5px;
   line-height: 20px;
   overflow: auto;
@@ -246,6 +254,16 @@
   .Mongol_documentViewer span {
     transition: 0.2s; }
 
+.Mongol_documentSubscriptions { 
+  height: 284px;
+  border-radius: 5px;
+}
+.Mongol_subscription { 
+  border-bottom: 1px solid rgba(255,255,255,.3);
+  padding: 5px 0 6px 0;
+  margin: 0 5px ;
+  line-height: 18px;
+}
 .Mongol_documentViewer_buttons {
   position: absolute;
   bottom: 0;
