@@ -56,7 +56,7 @@ Template.Mongol_subscriptions.helpers({
 
 
   Template.Mongol_subscriptions.events({
-    'click .Mongol_toggle_selected_collection': function () {
+    'click .Mongol_row': function () {
       if (Session.equals("Mongol_currentCollection", "subscriptions_618")) {
         Session.set("Mongol_currentCollection", null);
       } else {
@@ -65,6 +65,9 @@ Template.Mongol_subscriptions.helpers({
     },
     'click .Mongol_subscription_toggle': function () {
       Meteor.default_connection._subscriptions[this].stop()
+    },
+    'click .Mongol_contentView': function(e, t) {
+      e.stopPropagation();
     }
   });
 

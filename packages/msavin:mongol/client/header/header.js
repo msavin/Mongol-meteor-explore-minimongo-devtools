@@ -1,5 +1,5 @@
 Template.Mongol_header.events({
-  'click .Mongol_header': function () {
+  'click .Mongol_row': function () {
     if (Session.equals("Mongol_currentCollection", "mongol_618")) {
       Session.set("Mongol_currentCollection", null);
     } else {
@@ -12,7 +12,10 @@ Template.Mongol_header.events({
   },
   'click .Mongol_FullScreen' : function (e) {
     e.stopPropagation();
-	MongolPackage.toggleFullScreen();
+	  MongolPackage.toggleFullScreen();
+  }, 
+  'click .Mongol_contentView': function (e) {
+    e.stopPropagation();
   }
 });
 
