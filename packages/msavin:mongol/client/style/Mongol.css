@@ -4,6 +4,7 @@
     font-family: Liberation Mono;
     src: url('./Liberation.ttf');
 }
+
 #Mongol {
   -webkit-font-smoothing: antialiased;
   font-family: Liberation Mono, "Menlo", Courier, Lucidatypewriter, Fixed, monospace;
@@ -39,6 +40,10 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+#Mongol ::-webkit-scrollbar { 
+    display: none; 
 }
 
 /*.Mongol_overlay {
@@ -110,7 +115,7 @@
   background-image: -webkit-linear-gradient(#000, #292929);
   background-image: -o-linear-gradient(#000, #000);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$c1', endColorstr='$c2',GradientType=0);
-  color: rgba(255, 255, 255, 0.8); }
+  color: rgba(255, 255, 255, 0.6); }
   
 .Mongol_row {
   padding: 0 8px;
@@ -121,7 +126,7 @@
   position: relative;
   transition: 0.3s;
   margin-bottom: 1px;
-  color: rgba(255, 255, 255, 0.8); }
+  color: rgba(255, 255, 255, 0.6); }
 
 .Mongol_row_name {
   text-overflow: ellipsis;
@@ -182,6 +187,7 @@
   float: right; }
 
 .Mongol_header { 
+  color: rgba(255,255,255,.6);
   }
 
 .Mongol_header .Mongol_documentViewer {
@@ -198,7 +204,7 @@
   margin-right: -9px;
   opacity: 0;
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.9); }
+  color: rgba(255, 255, 255, 0.6); }
   .Mongol_Minimize:hover {
     background: rgba(255, 255, 255, 0.15);
     cursor: pointer; }
@@ -232,9 +238,8 @@
   padding: 0 7px;
   padding-top: 3px;
   line-height: 20px;
-  z-index: 99
-
-  overflow: auto;
+  z-index: 99;
+  overflow: scroll;
   border-radius: 0 0 5px 5px;
   z-index: 9999999998;
   position: relative;
@@ -245,8 +250,8 @@
     margin: 0px;
     padding: 0px;
     padding-top: 3px;
-	color: #ccc;
-	overflow: visible;
+  	color: #ccc;
+	  overflow: visible;
     -webkit-touch-callout: text;
     -webkit-user-select: text;
     -khtml-user-select: text;
@@ -339,7 +344,7 @@
   height: 28px;
   border-radius: 5px 5px 0 0;
   
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
   padding-bottom: 1px;
 
   position: relative;
@@ -349,7 +354,7 @@
   background-size: 1px 2px;
   background-position: 0 -1px;
   overflow: hidden;
-  color: #ccc; }
+   }
   .Mongol_docMenu .Mongol_docBar1, .Mongol_docMenu .Mongol_docBar2 {
     position: absolute;
     top: 0;
@@ -359,9 +364,9 @@
 
 .Mongol_edit_save, .Mongol_edit_cancel, .Mongol_m_left, .Mongol_m_right, .Mongol_m_new, .Mongol_m_edit, .Mongol_m_delete, .Mongol_docMenu_insert {
   float: left;
-  margin-left: 1px;
+  border-right: 1px solid rgba(0,0,0,.4);
   padding: 0 9px;
-  background: rgba(0,0,0,.2); }
+  }
 
 .Mongol_edit_title {
   float: left;
@@ -373,35 +378,34 @@
 .Mongol_m_edit {
   margin-left: 0px; }
 
-.Mongol_m_delete {
-  margin-right: 1px; }
+.Mongol_m_delete, .Mongol_m_left {
+  border-right: 1px solid rgba(0,0,0,.4); }
 
 .Mongol_m_left, .Mongol_m_right {
   float: right !important;
-  font-family: "Menlo", Courier, Lucidatypewriter, Fixed, monospace !important;
   font-size: 20px;
   font-weight: bold;
   padding: 0 9px !important;
-  background: rgba(0,0,0,.2); }
+  }
 
 .Mongol_m_signout, .Mongol_m_signin {
-  margin-left: 1px;
-  background: rgba(0,0,0,.2);
+  border-left: 1px solid rgba(0,0,0,.4);
   float: right;
   padding: 0 8px; }
 
 .Mongol_m_updateAccount {
-  margin-right: 1px; }
+  border-right: 1px solid rgba(0,0,0,.4); }
 
 .Mongol_edit_save:hover, .Mongol_edit_cancel:hover, .Mongol_docMenu_insert:hover, .Mongol_m_signout:hover, .Mongol_m_signin:hover, .Mongol_m_left:hover, .Mongol_m_right:hover, .Mongol_m_new:hover, .Mongol_m_edit:hover, .Mongol_m_delete:hover {
-  background: #4A4A4A;
+  color: #007ade;
   cursor: pointer; }
 
 .Mongol_m_disabled {
-  color: #232323;
+  color: rgba(0,0,0,.4) !important;
   cursor: default !important;
   background: transparent !important;
-  background: #363636 !important; }
+}
+
 
 .Mongol_m_wrapper {
   width: 100%;
@@ -425,60 +429,7 @@
   .Mongol_m_wrapper_expand .Mongol_m_wrapper2 {
     margin-right: 0px; }
 
-#Mongol_welcome {
-  height: 100%;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.97);
-  position: fixed;
-  z-index: 2147483647;
-  color: rgba(0, 0, 0, 0.6);
-  overflow: scroll;
-  text-align: center;
-  font-size: 18px;
-  line-height: 24px;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-  #Mongol_welcome .Mongol_red {
-    font-weight: normal;
-    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #cc0000; }
 
-.Mongol_welcome_title {
-  font-size: 24px;
-  line-height: 32px;
-  color: rgba(0, 0, 0, 0.8);
-  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
-.Mongol_welcome_code {
-  background: rgba(0, 0, 0, 0.6);
-  text-align: left;
-  max-width: 600px;
-  font-size: 14px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  margin: 0 auto;
-  margin-top: 34px;
-  color: #fff;
-  outline: none; }
-
-.Mongol_welcome_text {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left; }
-  .Mongol_welcome_text table {
-    width: 100%;
-    border-spacing: 0;
-    display: block;
-    margin: 0;
-    padding: 0;
-    border: 0; }
-    .Mongol_welcome_text table td:first-child {
-      width: 30%;
-      font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-    .Mongol_welcome_text table td {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      vertical-align: top;
-      padding: 8px 0;
-      line-height: 22px; }
 
 .Mongol_account_active, .Mongol_account_inactive {
   float: right;
