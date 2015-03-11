@@ -16,23 +16,21 @@
   color: #fff;
   z-index: 9999999997;
   font-size: 14px;
+  
   line-height: 28px;
   width: 100%;
   max-width: 143px;
   max-height: 100%;
   overflow: scroll;
   background-color: rgba(60,60,60,.92);
+
   /*background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAEElEQVR42gEFAPr/AD8/P+0DKQGrUcZu7gAAAABJRU5ErkJggg==');*/
   /*background-image: url('http://localhost:4000/images/bg.jpg');*/
   /*background-blend-mode: luminosity;*/
   /*isolation: isolate;*/
   /*background-blend-mode: screen;*/
-
   /*mix-blend-mode: normal;*/
 
-
-
- 
   transition: 0.3s;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -89,13 +87,11 @@
 
 #Mongol *, .Mongol_row {
   outline: none;
-  isolation-mode: isolate !important;
-  mix-blend-mode: unset !important;
   font-family: Liberation Mono, Courier, Lucidatypewriter, Fixed, monospace !important; } 
 
 #Mongol strong {
   font-family: Liberation Mono, Courier, Lucidatypewriter, Fixed, monospace !important; 
-  font-weight: bold; }
+  font-weight: bold;}
 
 #Mongol pre {
   outline: none;
@@ -371,9 +367,16 @@
 
 .Mongol_m_left, .Mongol_m_right, .Mongol_m_new, .Mongol_m_edit, .Mongol_m_delete, .Mongol_docMenu_insert {
   float: left;
-  border-right: 1px solid rgba(0,0,0,.4);
+  border-left: 1px solid rgba(0,0,0,.4);
   padding: 0 8px;
   }
+.Mongol_m_edit {
+  border-left: 0px solid transparent;
+}
+
+.Mongol_m_delete {
+  border-right: 1px solid rgba(0,0,0,.4);
+}
 
   .Mongol_edit_save, .Mongol_edit_cancel {
     border-left: 1px solid rgba(0,0,0,.4);
