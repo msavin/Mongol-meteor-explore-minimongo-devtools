@@ -1,7 +1,7 @@
 <template name="Mongol_collection">
 	<div class="Mongol_row {{active}}" id="Mongol_c{{this}}">
 		
-        <div class="Mongol_toggle_selected_collection">
+        <!-- <div class="Mongol_toggle_selected_collection"> -->
         
 			<!-- Collection Count -->
 			<div class="Mongol_counter">
@@ -12,10 +12,11 @@
 			<!-- Collection Name -->
 			<div class="Mongol_row_name">{{this}}</div>
     	    
-        </div>
+        <!-- </div> -->
 
 		<!-- Document Viewer -->
-		{{> Mongol_docViewer}}
-
+		<div class="Mongol_contentView">
+			{{> Mongol_docViewer}}
+		</div>
 	</div>
 </template>

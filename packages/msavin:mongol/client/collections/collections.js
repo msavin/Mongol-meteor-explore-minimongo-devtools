@@ -25,7 +25,7 @@ Template.Mongol_collection.events({
     }
 
   },
-  'click .Mongol_documentViewer': function(e, t) {
+  'click .Mongol_contentView': function(e, t) {
     e.stopPropagation();
   }
 });

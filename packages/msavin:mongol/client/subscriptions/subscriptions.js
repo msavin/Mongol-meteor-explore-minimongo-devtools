@@ -42,7 +42,15 @@ Template.Mongol_subscriptions.helpers({
     } else {
       return "none";
     }
-
+  },
+  subType: function () {
+    
+    if (!Object.observe) {
+      return "Polling every 3 seconds"
+    } else {
+      return "Observing Changes";
+    }
+    
   }
 });
 

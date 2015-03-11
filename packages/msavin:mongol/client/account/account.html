@@ -15,29 +15,22 @@
         
         </div>
 
-		<!-- Document Viewer -->
-		{{#if currentUser}}
-			{{> Mongol_accountViewer}}
-		{{else}}
-			<div class="Mongol_docMenu {{Mongol_docMenu_editing}}">
-					<div class="Mongol_docBar1" style="text-indent: 8px">
-						Not Signed In
-                        {{#if canSignIn}}<div class="Mongol_m_signin">Sign In</div>{{/if}}
+        <div class="Mongol_contentView">
+			<!-- Document Viewer -->
+			{{#if currentUser}}
+				{{> Mongol_accountViewer}}
+			{{else}}
+				<div class="Mongol_docMenu {{Mongol_docMenu_editing}}">
+						<div class="Mongol_docBar1" style="text-indent: 8px">
+							Not Signed In
+	                        {{#if canSignIn}}<div class="Mongol_m_signin">Sign In</div>{{/if}}
+						</div>
 					</div>
+				<div class="Mongol_documentViewer">	
+					
 				</div>
-			<div class="Mongol_documentViewer">	
-				{{#if hasAccountsUI}}
-					<!-- {{> loginButtons}} this is problematic, as the widget uses id="..." meaning it will mess with existing loginButtons -->
-				{{else}}
-                {{! The following is no longer actually true, with the above removed}}
-{{! <pre>Add Accounts UI to be able to
-to sign in from here.
-
-meteor add accounts-ui</pre> }}
-				{{/if}}
-			</div>
-		{{/if}}
-
+			{{/if}}
+		</div>
 	</div>
 
 </template>

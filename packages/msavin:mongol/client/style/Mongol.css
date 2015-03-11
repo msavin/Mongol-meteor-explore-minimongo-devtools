@@ -114,7 +114,6 @@
   height: 28px;
   position: relative;
   transition: 0.3s;
-  background: rgba(0,0,0,.24);
   margin-bottom: 1px;
   color: rgba(255, 255, 255, 0.8); }
 
@@ -123,6 +122,8 @@
   white-space: nowrap;
   overflow: hidden;
   padding-right: 8px;
+  z-index: 9999999999999;
+  position: relative;
 }
 .Mongol_row:last-child {
   margin-bottom: 0px;
@@ -146,10 +147,10 @@
 
 .Mongol_row_expand {
   height: 320px;
-  background: transparent;
   cursor: default !important; 
-  background: rgba(0,0,0,.66);
 }
+.Mongol_row_expand .Mongol_contentView {
+  box-shadow: 0 0 0 80px rgba(0,0,0,.6); }
   .Mongol_row_expand .MongolHide {
     opacity: 1;
     max-width: auto;
@@ -169,8 +170,7 @@
   .Mongol_row_expand .Mongol_plus {
     font-size: 16px;
     line-height: 19px; }
-  .Mongol_row_expand .Mongol_documentViewer {
-    opacity: 1; }
+  
 
 .Mongol_counter {
   float: right; }
@@ -215,18 +215,23 @@
   display: inline;
   opacity: 1; }
 
+.Mongol_contentView {
+  box-shadow: 0 0 0 80px rgba(0,0,0,.2);
+  border-radius: 5px;
+  transition: .3s;
+
+}
 .Mongol_documentViewer {
-  background: rgba(255,255,255,.2);
   height: 253px;
   padding: 0 7px;
   padding-top: 3px;
   line-height: 20px;
+  z-index: 99
 
   overflow: auto;
   border-radius: 0 0 5px 5px;
   z-index: 9999999998;
   position: relative;
-  opacity: 0;
   transition: 0.3s;
   color: #ccc; 
 }
@@ -245,12 +250,9 @@
   .Mongol_documentViewer span {
     transition: 0.2s; }
 
-.Mongol_documentSubscriptions { 
-  height: 281px;
-  border-radius: 5px;
-}
+
 .Mongol_subscription { 
-  border-bottom: 1px solid rgba(0,0,0,.21);
+  border-bottom: 1px solid rgba(0,0,0,.2);
   padding: 5px 0 6px 0;
   margin: 0 2px;
   line-height: 18px;
@@ -330,15 +332,17 @@
   line-height: 28px;
   height: 28px;
   border-radius: 5px 5px 0 0;
-  overflow: hidden;
+  
   color: rgba(255, 255, 255, 0.5);
   padding-bottom: 1px;
 
   position: relative;
-  background: rgba(0,0,0,.46);
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAECAAAAACBhLHlAAAAD0lEQVR4AWM0YwAhXRACAAVnAMsAW/K6AAAAAElFTkSuQmCC");
+  /*background: rgba();*/
+  /*background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAECAAAAACBhLHlAAAAD0lEQVR4AWM0YwAhXRACAAVnAMsAW/K6AAAAAElFTkSuQmCC");*/
+  background: rgba(0,0,0,.2);
   background-size: 1px 2px;
   background-position: 0 -1px;
+  overflow: hidden;
   color: #ccc; }
   .Mongol_docMenu .Mongol_docBar1, .Mongol_docMenu .Mongol_docBar2 {
     position: absolute;
@@ -351,7 +355,7 @@
   float: left;
   margin-left: 1px;
   padding: 0 9px;
-  background: #363636; }
+  background: rgba(0,0,0,.2); }
 
 .Mongol_edit_title {
   float: left;
@@ -372,11 +376,11 @@
   font-size: 20px;
   font-weight: bold;
   padding: 0 9px !important;
-  background: #363636; }
+  background: rgba(0,0,0,.2); }
 
 .Mongol_m_signout, .Mongol_m_signin {
   margin-left: 1px;
-  background: #363636;
+  background: rgba(0,0,0,.2);
   float: right;
   padding: 0 8px; }
 
