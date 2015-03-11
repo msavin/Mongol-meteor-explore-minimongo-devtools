@@ -3,7 +3,7 @@ accounts-password@1.0.6
 aldeed:template-extension@3.4.1
 application-configuration@1.0.4
 autoupdate@1.1.5
-babrahams:editable-json@0.3.1
+babrahams:editable-json@0.3.5
 base64@1.0.2
 binary-heap@1.0.2
 blaze@2.0.4
