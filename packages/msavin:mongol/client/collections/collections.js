@@ -1,5 +1,5 @@
 Template.Mongol_collection.events({
-  'click .Mongol_toggle_selected_collection': function (evt) {
+  'click .Mongol_row': function (evt) {
 
     var targetCollection = String(this);
     var sessionKey = "Mongol_" + targetCollection;
@@ -24,6 +24,9 @@ Template.Mongol_collection.events({
 
     }
 
+  },
+  'click .Mongol_documentViewer': function(e, t) {
+    e.stopPropagation();
   }
 });
 
