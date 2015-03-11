@@ -290,7 +290,7 @@
   /*margin-left: 8px;*/
   font-family: Menlo !important;
   font-size: 26px;
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.4);
   margin-right: -9px;
 }
 
@@ -369,30 +369,34 @@
     width: 100%;
     transition: 0.2s; }
 
-.Mongol_edit_save, .Mongol_edit_cancel, .Mongol_m_left, .Mongol_m_right, .Mongol_m_new, .Mongol_m_edit, .Mongol_m_delete, .Mongol_docMenu_insert {
+.Mongol_m_left, .Mongol_m_right, .Mongol_m_new, .Mongol_m_edit, .Mongol_m_delete, .Mongol_docMenu_insert {
   float: left;
   border-right: 1px solid rgba(0,0,0,.4);
-  padding: 0 9px;
+  padding: 0 8px;
+  }
+
+  .Mongol_edit_save, .Mongol_edit_cancel {
+    border-left: 1px solid rgba(0,0,0,.4);
+    padding: 0 8px;
+    float: right;
   }
 
 .Mongol_edit_title {
   float: left;
-  padding-left: 7px; }
+  padding-left: 8px; }
 
-.Mongol_edit_save, .Mongol_edit_cancel {
-  float: right; }
 
 .Mongol_m_edit {
   margin-left: 0px; }
 
-.Mongol_m_delete, .Mongol_m_left {
-  border-right: 1px solid rgba(0,0,0,.4); }
 
 .Mongol_m_left, .Mongol_m_right {
   float: right !important;
   font-size: 20px;
   font-weight: bold;
-  padding: 0 9px !important;
+  padding: 0 8px !important;
+  border-right: 0px solid transparent;
+  border-left: 1px solid rgba(0,0,0,.4);
   }
 
 .Mongol_m_signout, .Mongol_m_signin {
