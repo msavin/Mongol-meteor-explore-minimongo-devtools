@@ -2,10 +2,17 @@
 MongolPackage.setSubscriptionKeys();
 
 // Observe changes
-Object.observe(Meteor.default_connection._subscriptions, function() {
-  MongolPackage.setSubscriptionKeys();  
-})
+if (!Object.observe) {
+  setInterval(function(){
+    MongolPackage.setSubscriptionKeys();  
+  }, 3000);
+} else {
+  Object.observe(Meteor.default_connection._subscriptions, function() {
+    MongolPackage.setSubscriptionKeys();  
+  })
+}
 
+// Next step: poll if not availables
 
 
 Template.Mongol_subscriptions.helpers({
