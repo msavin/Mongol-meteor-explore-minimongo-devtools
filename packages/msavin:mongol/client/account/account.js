@@ -1,3 +1,4 @@
+
 Template.Mongol_account.helpers({
   active: function () {
     if (Session.equals("Mongol_currentCollection", "account_618")) {

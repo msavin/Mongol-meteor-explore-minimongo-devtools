@@ -14,7 +14,7 @@
   max-width: 143px;
   max-height: 100%;
   overflow: scroll;
-  background-color: rgba(63,63,63,.93);
+  background-color: rgba(60,60,60,.92);
   /*background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAEElEQVR42gEFAPr/AD8/P+0DKQGrUcZu7gAAAABJRU5ErkJggg==');*/
   /*background-image: url('http://localhost:4000/images/bg.jpg');*/
   /*background-blend-mode: luminosity;*/
@@ -129,7 +129,7 @@
   height: 28px;
   position: relative;
   transition: 0.3s;
-  background: rgba(0,0,0,.34);
+  background: rgba(0,0,0,.24);
   margin-bottom: 1px;
   color: rgba(255, 255, 255, 0.8); }
 
@@ -267,26 +267,26 @@
 .Mongol_subscription { 
   border-bottom: 1px solid rgba(0,0,0,.21);
   padding: 5px 0 6px 0;
-  margin: 0 2px ;
+  margin: 0 2px;
   line-height: 18px;
-  overflow: hidden;
+}
+.Mongol_subscription:first-child {
+  padding-top: 2px;
 }
 .Mongol_subscription_toggle {
   height: 36px;
-  width: 36px;
+  width: 28px;
   line-height: 38px;
   text-align: center;
   float: right;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: rgba(255,255,255,.1);
-  margin-left: 8px;
-  border-radius: 30px;
-
+  /*margin-left: 8px;*/
   font-family: Menlo !important;
   font-size: 26px;
   color: rgba(255,255,255,.6);
+  margin-right: -9px;
 }
 
 .Mongol_subscription_toggle:hover {
@@ -294,8 +294,7 @@
   cursor: pointer;
 }
 .Mongol_subscription_toggle:active {
-  background: #EB4C16;
-  color: rgba(255,255,255,.9);
+  background: #fff;
   transition: 2.5s;
   
 }
