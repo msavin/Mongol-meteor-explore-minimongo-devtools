@@ -66,21 +66,6 @@
 .Mongol_editable span {
   color: #fff !important; }
 
-#Mongol #login-dropdown-list {
-  border: 0px solid transparent;
-  border-radius: 5px;
-  width: 293px; }
-#Mongol label {
-  width: 20% !important;
-  min-width: 80px !important;
-  float: left; }
-#Mongol input {
-  width: calc(100% - 80px);
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  text-indent: 6px;
-  margin-top: 3px; }
-
 #Mongol a {
   color: #999; }
 
@@ -511,14 +496,21 @@
 
 #Mongol .editable-JSON-field input {
   width: 80px;	
+
 }
 
 #Mongol input.editable-JSON-input {
   border: 0;
-  padding: 0;
+  padding: 0 !important;
   margin: 0;
   text-indent: 0px;
-
+  height: 10px;
+  padding: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  height: 18px !important;
+  margin: 0px !important;
+  border: 0px solid transparent !important;
 }
 
 .pika-single {
@@ -530,3 +522,7 @@
 }
 
 /*# sourceMappingURL=Mongol.css.map */
+.editable-JSON-string {
+
+
+}
