@@ -1,3 +1,2 @@
-Session.set("Mongol", {
-	'collections': ["Lists", "Todos"]
-})
+// Automatic Display
+Session.set("Mongol_settings_display", true)
