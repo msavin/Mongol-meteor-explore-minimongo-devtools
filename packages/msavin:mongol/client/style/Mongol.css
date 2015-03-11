@@ -162,7 +162,9 @@
 .Mongol_row_expand {
   height: 320px;
   background: transparent;
-  cursor: default !important; }
+  cursor: default !important; 
+  background: rgba(0,0,0,.66);
+}
   .Mongol_row_expand .MongolHide {
     opacity: 1;
     max-width: auto;
@@ -229,18 +231,20 @@
   opacity: 1; }
 
 .Mongol_documentViewer {
-  background: rgba(0,0,0,.34);
-  height: 254px;
+  background: rgba(255,255,255,.2);
+  height: 253px;
   padding: 0 7px;
   padding-top: 3px;
   line-height: 20px;
+
   overflow: auto;
   border-radius: 0 0 5px 5px;
   z-index: 9999999998;
   position: relative;
   opacity: 0;
   transition: 0.3s;
-  color: #ccc; }
+  color: #ccc; 
+}
   .Mongol_documentViewer pre {
     margin: 0px;
     padding: 0px;
@@ -257,7 +261,7 @@
     transition: 0.2s; }
 
 .Mongol_documentSubscriptions { 
-  height: 282px;
+  height: 281px;
   border-radius: 5px;
 }
 .Mongol_subscription { 
@@ -270,15 +274,15 @@
 .Mongol_subscription_toggle {
   height: 36px;
   width: 36px;
-  line-height: 36px;
+  line-height: 38px;
   text-align: center;
-  float: left;
+  float: right;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: rgba(0,0,0,.18);
-  margin-right: 8px;
-  border-radius: 3px;
+  background: rgba(255,255,255,.1);
+  margin-left: 8px;
+  border-radius: 30px;
 
   font-family: Menlo !important;
   font-size: 26px;
