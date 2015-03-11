@@ -78,7 +78,14 @@
   color: #fff !important; }
 
 #Mongol a {
-  color: #999; }
+  color: #999;
+  text-decoration: none;
+}
+
+#Mongol a:hover {
+  color: #A6E22D;
+  text-decoration: underline;
+}
 
 #Mongol *, .Mongol_row {
   outline: none;
@@ -244,13 +251,13 @@
   z-index: 9999999998;
   position: relative;
   transition: 0.3s;
-  color: #ccc; 
+  color: rgba(255,255,255,.5); 
 }
   .Mongol_documentViewer pre {
     margin: 0px;
     padding: 0px;
     padding-top: 3px;
-  	color: #ccc;
+  	color: rgba(255,255,255,.5);
 	  overflow: visible;
     -webkit-touch-callout: text;
     -webkit-user-select: text;
@@ -264,7 +271,7 @@
 
 .Mongol_subscription { 
   border-bottom: 1px solid rgba(0,0,0,.2);
-  padding: 5px 0 6px 0;
+  padding: 5px 0 5px 0;
   margin: 0 2px;
   line-height: 18px;
 }
@@ -397,7 +404,8 @@
   border-right: 1px solid rgba(0,0,0,.4); }
 
 .Mongol_edit_save:hover, .Mongol_edit_cancel:hover, .Mongol_docMenu_insert:hover, .Mongol_m_signout:hover, .Mongol_m_signin:hover, .Mongol_m_left:hover, .Mongol_m_right:hover, .Mongol_m_new:hover, .Mongol_m_edit:hover, .Mongol_m_delete:hover {
-  color: #007ade;
+  color: #A6E22D;
+  transition: .2s;
   cursor: pointer; }
 
 .Mongol_m_disabled {
