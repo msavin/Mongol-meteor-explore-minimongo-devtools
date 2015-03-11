@@ -1,6 +1,7 @@
 #Mongol {
   -webkit-font-smoothing: antialiased;
-  font-family: Courier, Lucidatypewriter, Fixed, monospace;
+  font-family: "Menlo", Courier, Lucidatypewriter, Fixed, monospace;
+  
   position: fixed;
   left: 0;
   bottom: 0;
@@ -87,10 +88,10 @@
   outline: none;
   isolation-mode: isolate !important;
   mix-blend-mode: unset !important;
-  font-family: Courier, Lucidatypewriter, Fixed, monospace !important; } 
+  font-family: 'Tagesschrift', Courier, Lucidatypewriter, Fixed, monospace !important; } 
 
 #Mongol strong {
-  font-family: Courier, Lucidatypewriter, Fixed, monospace !important; 
+  font-family: 'Tagesschrift', Courier, Lucidatypewriter, Fixed, monospace !important; 
   font-weight: bold; }
 
 #Mongol pre {
@@ -128,7 +129,7 @@
   height: 28px;
   position: relative;
   transition: 0.3s;
-  background: rgba(0,0,0,.4);
+  background: rgba(0,0,0,.34);
   margin-bottom: 1px;
   color: rgba(255, 255, 255, 0.8); }
 
@@ -228,9 +229,10 @@
   opacity: 1; }
 
 .Mongol_documentViewer {
-  background: rgba(0,0,0,.4);
-  height: 258px;
-  padding: 0 5px;
+  background: rgba(0,0,0,.34);
+  height: 254px;
+  padding: 0 7px;
+  padding-top: 3px;
   line-height: 20px;
   overflow: auto;
   border-radius: 0 0 5px 5px;
@@ -255,7 +257,7 @@
     transition: 0.2s; }
 
 .Mongol_documentSubscriptions { 
-  height: 284px;
+  height: 282px;
   border-radius: 5px;
 }
 .Mongol_subscription { 
@@ -307,10 +309,13 @@
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   color: rgba(255, 255, 255, 0.5);
+  padding-bottom: 1px;
+
   position: relative;
-  background: #363636;
+  background: rgba(0,0,0,.46);
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAECAAAAACBhLHlAAAAD0lEQVR4AWM0YwAhXRACAAVnAMsAW/K6AAAAAElFTkSuQmCC");
   background-size: 1px 2px;
+  background-position: 0 -1px;
   color: #ccc; }
   .Mongol_docMenu .Mongol_docBar1, .Mongol_docMenu .Mongol_docBar2 {
     position: absolute;
@@ -321,8 +326,8 @@
 
 .Mongol_edit_save, .Mongol_edit_cancel, .Mongol_m_left, .Mongol_m_right, .Mongol_m_new, .Mongol_m_edit, .Mongol_m_delete, .Mongol_docMenu_insert {
   float: left;
-  border-left: 1px solid #232323;
-  padding: 0 7px;
+  margin-left: 1px;
+  padding: 0 9px;
   background: #363636; }
 
 .Mongol_edit_title {
@@ -333,10 +338,10 @@
   float: right; }
 
 .Mongol_m_edit {
-  border-left: 0px solid transparent !important; }
+  margin-left: 0px; }
 
 .Mongol_m_delete {
-  border-right: 1px solid #232323; }
+  margin-right: 1px; }
 
 .Mongol_m_left, .Mongol_m_right {
   float: right !important;
@@ -347,13 +352,13 @@
   background: #363636; }
 
 .Mongol_m_signout, .Mongol_m_signin {
-  border-left: 1px solid #232323;
+  margin-left: 1px;
   background: #363636;
   float: right;
   padding: 0 8px; }
 
 .Mongol_m_updateAccount {
-  border-right: 1px solid #232323; }
+  margin-right: 1px; }
 
 .Mongol_edit_save:hover, .Mongol_edit_cancel:hover, .Mongol_docMenu_insert:hover, .Mongol_m_signout:hover, .Mongol_m_signin:hover, .Mongol_m_left:hover, .Mongol_m_right:hover, .Mongol_m_new:hover, .Mongol_m_edit:hover, .Mongol_m_delete:hover {
   background: #4A4A4A;
@@ -455,13 +460,15 @@
   
 #Mongol .editable-JSON input {
   max-width: 160px;
-  background: rgba(128,128,128,.1);
+  background: rgba(255,255,255,.14);
   border: 0;
   color: inherit;
   padding: 0;
   margin: 0;
-  font-size:14px;
+  font-size: inherit;
+  padding: 0px;
   text-indent: 0px;
+  padding-left: 5px;
 }
 
 #Mongol .editable-JSON-field input {
@@ -473,6 +480,7 @@
   padding: 0;
   margin: 0;
   text-indent: 0px;
+
 }
 
 .pika-single {

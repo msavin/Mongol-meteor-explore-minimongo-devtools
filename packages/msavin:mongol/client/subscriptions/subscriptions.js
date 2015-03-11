@@ -36,6 +36,7 @@ Template.Mongol_subscriptions.events({
   },
   'click .Mongol_subscription_stop': function () {
     this.stop()
+    alert("you stopped me");
   }
 });
 
