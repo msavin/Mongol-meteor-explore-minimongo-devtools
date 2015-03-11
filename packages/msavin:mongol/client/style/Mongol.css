@@ -1,6 +1,12 @@
+
+
+@font-face {
+    font-family: Liberation Mono;
+    src: url('./Liberation.ttf');
+}
 #Mongol {
   -webkit-font-smoothing: antialiased;
-  font-family: "Menlo", Courier, Lucidatypewriter, Fixed, monospace;
+  font-family: Liberation Mono, "Menlo", Courier, Lucidatypewriter, Fixed, monospace;
   
   position: fixed;
   left: 0;
@@ -73,10 +79,10 @@
   outline: none;
   isolation-mode: isolate !important;
   mix-blend-mode: unset !important;
-  font-family: 'Tagesschrift', Courier, Lucidatypewriter, Fixed, monospace !important; } 
+  font-family: Liberation Mono, Courier, Lucidatypewriter, Fixed, monospace !important; } 
 
 #Mongol strong {
-  font-family: 'Tagesschrift', Courier, Lucidatypewriter, Fixed, monospace !important; 
+  font-family: Liberation Mono, Courier, Lucidatypewriter, Fixed, monospace !important; 
   font-weight: bold; }
 
 #Mongol pre {
