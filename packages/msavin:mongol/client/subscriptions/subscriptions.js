@@ -34,7 +34,7 @@ Template.Mongol_subscriptions.events({
       Session.set("Mongol_currentCollection", "subscriptions_618");
     }
   },
-  'click .Mongol_subscription_stop': function () {
+  'click .Mongol_subscription_toggle': function () {
     this.stop()
     alert("you stopped me");
   }
