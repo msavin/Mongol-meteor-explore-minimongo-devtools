@@ -24,5 +24,5 @@ Template.Mongol_header.helpers({
     if (Session.equals("Mongol_currentCollection", "mongol_618")) {
       return "Mongol_row_expand";
     }
-  },
+  }
 });
