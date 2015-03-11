@@ -1,3 +1,13 @@
+// Check for subscripitons
+MongolPackage.setSubscriptionKeys();
+
+// Observe changes
+Object.observe(Meteor.default_connection._subscriptions, function() {
+  MongolPackage.setSubscriptionKeys();  
+})
+
+
+
 Template.Mongol_subscriptions.helpers({
   active: function () {
     if (Session.equals("Mongol_currentCollection", "subscriptions_618")) {
@@ -5,43 +15,41 @@ Template.Mongol_subscriptions.helpers({
     }
   },
   subscription: function () {
-    // Not yet reactive
-    var subscriptions = Meteor.default_connection._subscriptions,
-        subKeys       = Object.keys(subscriptions),
-        subs          = [];
 
-    $.each(subKeys, function(index, value ) {
-      subs.push(subscriptions[value])
-    });
+    var subscriptionIDs = Session.get("Mongol_subscriptions")
+    return subscriptionIDs;
 
-    return subs;
+  },
+  name: function () {
+    var subName = Meteor.default_connection._subscriptions[this].name;
+    return subName;
   },
   params: function () {
-    if (this.length === "0") {
+    var p = Meteor.default_connection._subscriptions[this].params
+    
+    if (p.length === "0") {
       return params;
     } else {
       return "none";
     }
+
   }
 });
 
 
-Template.Mongol_subscriptions.events({
-  'click .Mongol_toggle_selected_collection': function () {
-    if (Session.equals("Mongol_currentCollection", "subscriptions_618")) {
-      Session.set("Mongol_currentCollection", null);
-    } else {
-      Session.set("Mongol_currentCollection", "subscriptions_618");
+  Template.Mongol_subscriptions.events({
+    'click .Mongol_toggle_selected_collection': function () {
+      if (Session.equals("Mongol_currentCollection", "subscriptions_618")) {
+        Session.set("Mongol_currentCollection", null);
+      } else {
+        Session.set("Mongol_currentCollection", "subscriptions_618");
+      }
+    },
+    'click .Mongol_subscription_toggle': function () {
+      Meteor.default_connection._subscriptions[this].stop()
     }
-  },
-  'click .Mongol_subscription_toggle': function () {
-    this.stop()
-    alert("you stopped me");
-  }
-});
+  });
 
-
-// Ssh.. this is supposed to be a surprise :)
 
 // Object for subscriptions
 // var subscriptions = Meteor.default_connection._subscriptions

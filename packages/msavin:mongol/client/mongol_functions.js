@@ -92,5 +92,13 @@ MongolPackage = {
 
     return newObject;
 
+  },
+  'setSubscriptionKeys': function () {
+
+      var subscriptions  = Meteor.default_connection._subscriptions,
+          subKeys        = Object.keys(subscriptions);
+
+          Session.set("Mongol_subscriptions", subKeys)
+
   }
 };
