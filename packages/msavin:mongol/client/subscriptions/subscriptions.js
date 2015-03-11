@@ -3,16 +3,19 @@ MongolPackage.setSubscriptionKeys();
 
 // Observe changes
 if (!Object.observe) {
+
   setInterval(function(){
-    MongolPackage.setSubscriptionKeys();  
+    MongolPackage.setSubscriptionKeys(); 
   }, 3000);
+
 } else {
+  
   Object.observe(Meteor.default_connection._subscriptions, function() {
     MongolPackage.setSubscriptionKeys();  
   })
+
 }
 
-// Next step: poll if not availables
 
 
 Template.Mongol_subscriptions.helpers({
@@ -33,9 +36,9 @@ Template.Mongol_subscriptions.helpers({
   },
   params: function () {
     var p = Meteor.default_connection._subscriptions[this].params
-    
-    if (p.length === "0") {
-      return params;
+
+    if (p.length > 0) {
+      return p;
     } else {
       return "none";
     }
