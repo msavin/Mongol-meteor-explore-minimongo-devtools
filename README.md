@@ -17,8 +17,8 @@ Mongol will automatically detect your collections and display your client-side d
 <a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/public/screenshots/1.png"></a>
 
 
-Easily Modify Your Documents
-----------------------------
+Easily View & Modify Documents
+------------------------------
 Mongol is able to insert, update and/or remove any document in your database, regardless if you have `insecure` or the permissions to allow it. Read the <a href="https://github.com/msavin/Mongol/blob/master/SECURITY.md">security</a> post to learn how this works. 
 
 <a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/public/screenshots/2.png"></a>
