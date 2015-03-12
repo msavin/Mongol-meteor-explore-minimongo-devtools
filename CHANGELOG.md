@@ -10,6 +10,7 @@ v0.7.0 (Preview for 1.0)
  - Inline JSON editing
  - Ability to watch subscriptions
  - Bug and compatibility fixes
+ * Huge thanks to @JackAdams and @Krawalii for their awesome contributions here
 
 v0.1.0 - Beta
 -------------
