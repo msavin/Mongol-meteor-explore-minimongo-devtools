@@ -48,7 +48,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.0');
   api.use(['templating','tracker','mongo','session'], 'client');
   api.use('aldeed:collection2@2.3.2', {weak: true}); // This must go before: api.use('dburles:mongo-collection-instances@0.3.1');
-  api.use('dburles:mongo-collection-instances@0.3.1');
+  api.use('dburles:mongo-collection-instances@0.3.3', 'client');
   api.use('babrahams:editable-json@0.3.5');
 
   api.add_files(commonFiles);
