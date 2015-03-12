@@ -1,6 +1,10 @@
 CHANGELOG
 ====================
 
+v1.0.0
+--------------------
+ - Nobody got hurt :P time to make some noise
+ 
 v0.7.0 (Preview for 1.0)
 ------------------------
  - New look
