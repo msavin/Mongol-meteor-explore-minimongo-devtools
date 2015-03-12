@@ -1,7 +1,5 @@
 CHANGELOG
 
-
-
 v0.7.0 (Preview for 1.0)
  - New look
  - Automatic collection detection
