@@ -1,7 +1,17 @@
 <template name="appBody">
+  {{> splash}}
   <div id="container" class="{{menuOpen}} {{cordova}}">
 
     <section id="menu">
+      <div class="demo">
+      <div>Mongol Demo</div>
+      <!-- <a href="http://github.com/msavin/Mongol"> -->
+        <div class="link" onclick="window.location.href=('http://github.com/msavin/Mongol')"><div class='right'>&rarr;</div>View Documentation</div>
+      <!-- </a> -->
+      <!-- <a href="http://ctt.ec/VR4c5"> -->
+        <div class="link" onclick="window.location.href=('http://ctt.ec/VR4c5')"><div class='right'>&rarr;</div>Share on Twitter</div>
+      <!-- </a> -->
+      </div>
       {{#if currentUser}}
         <div class="btns-group-vertical">
           <a href="#" class="js-user-menu btn-secondary">
