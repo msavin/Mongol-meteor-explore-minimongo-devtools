@@ -7,4 +7,9 @@ In those cases, go to /.meteor/packages and move Mongol towards the top of the l
 
 In the event that you do not wish to use automatic collection detections, you can specify the collection names manually:
 
-	Session.set("Mongol_configuration", ["a","b","c"])
+	// be sure to use collection names, not variables
+	// Collection = new Mongo.Collection('collection-name')
+
+	Session.set("Mongol", {
+		collections: ["lists", "todos"]
+	})

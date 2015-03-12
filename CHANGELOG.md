@@ -1,6 +1,8 @@
 CHANGELOG
+====================
 
 v0.7.0 (Preview for 1.0)
+------------------------
  - New look
  - Automatic collection detection
  - Added support for manual collection listing
@@ -10,6 +12,7 @@ v0.7.0 (Preview for 1.0)
  - Bug and compatibility fixes
 
 v0.1.0 - Beta
+-------------
  - Renamed from MongoInspector to Mongol, since its no longer just an inspector
  - Added support for creating, removing, and editing documents!
  - Reverted to manual approach for detecting collections
