@@ -29,9 +29,10 @@ Mongol won't render into the DOM until you activate it. To activate, press <stro
 
 Additional Information
 ----------------------
- - Must Read: <a href="https://github.com/msavin/Mongol/blob/master/SECURITY.md">Mongol & Security</a> 
- - Troubleshooting: <a href="https://github.com/msavin/Mongol/blob/master/COMPATIBILITY.md">Mongol & Package Compatibility</a>
- - Licensed under <a href="https://github.com/msavin/Mongol/blob/master/LICENSE.md">MIT</a>
- - Live Demo: http://mongol.meteor.com
- - Atmosphere: https://atmospherejs.com/msavin/mongol
- - GitHub: https://github.com/msavin/Mongol/
+ - <a href="https://github.com/msavin/Mongol/blob/master/SECURITY.md">Mongol & Security</a> (Must Read)
+ - <a href="https://github.com/msavin/Mongol/blob/master/COMPATIBILITY.md">Mongol & Package Compatibility</a>
+ - <a href="https://github.com/msavin/Mongol/blob/master/CHANGELOG.md">Changelog</a>
+ - <a href="http://mongol.meteor.com">Live Demo</a>
+ - <a href="https://atmospherejs.com/msavin/mongol">On Atmosphere</a>
+ - <a href="https://github.com/msavin/Mongol/">On GitHub</a>
+ - <a href="https://github.com/msavin/Mongol/blob/master/LICENSE.md">Licensed under MIT</a>
