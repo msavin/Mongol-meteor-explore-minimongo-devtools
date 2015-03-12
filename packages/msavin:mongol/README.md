@@ -3,40 +3,38 @@
 Mongol 1.0 Preview [![Join the chat at https://gitter.im/msavin/Mongol](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/msavin/Mongol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ==================
 
-Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. To get it, simply run:
+Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Get started with: 
 
 	meteor add msavin:mongol
 
-Mongol does not require configuration. To turn it on, press Control + M.
+Mongol configures automatically. Press <strong>Control + M</strong> to toggle it.
 
 <a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/public/video/gif.gif"></a>
 
 
 Browse Your Collections
 -----------------------
-Mongol will automatically detect your collections and display the documents that you are subscribing to. Click on the collection name to see what it contains.
+Mongol will automatically detect your collections and display your client-side documents. You can always see how many documents you are subscribing to, and then browse them visually. 
 
 
 Easily Modify Your Documents
 ----------------------------
-Mongol is able to insert, update and/or remove any document in your database, regardless if you have insecure on or if the permissions to allow it. Read the security section to learn how this works. 
+Mongol is able to insert, update and/or remove any document in your database, regardless if you have `insecure` or the permissions to allow it. Read the <a href="https://github.com/msavin/Mongol/blob/master/SECURITY.md">security</a> post to learn how this works. 
 
+Watch Your Subscriptions
+------------------------
+Mongol allows you to view all of your data subscriptions, along with their details. You can turn any subscription off by pressing the X button.
 
-Hot Key Activation
-------------------
-Mongol won't render into the DOM until you activate it. To activate, press <strong>Control + M</strong>. You can enable it manually with `Session.set("Mongol_settings_display", true)`.
-
-
-Security & "debugOnly"
------------------------
-Mongol comes with <a href="https://github.com/msavin/Mongol/blob/master/packages/msavin:mongol/server/methods.js"> a special set of methods</a> that give it full access to your database through the server. These methods allow Mongol to insert, update and remove any document on your database. It's great for development purposes because it allows you to use your application in it's natural state while giving you the flexibility to make quick document edits.
-
-When you deploy your Meteor application (`meteor deploy xxx`), Meteor will automatically remove the package from the codebase because its a "<a href="https://www.meteor.com/blog/2014/10/13/meteor-094-mobile-and-testing">`debugOnly`</a>" package. However, if you deploy in debug mode (`meteor deploy xxx --debug`), you will upload Mongol's methods with it. In the case that you are deploying your application in debug mode, you should remove the package, or you'd leave the methods exposed.
+Only There When You Want It
+---------------------------
+Mongol won't render into the DOM until you activate it. You can activate by pressing <strong>Control + M</strong>, or with `Session.set("Mongol_settings_display", true)`.
 
 
 Additional Information
 ----------------------
- - Licensed under <a href="https://github.com/msavin/Mongol/blob/master/LICENSE.md">MIT</a>
- - Live Demo: http://mongol.meteor.com
- - Atmosphere: https://atmospherejs.com/msavin/mongol
- - GitHub: https://github.com/msavin/Mongol/
+ - <a href="https://github.com/msavin/Mongol/blob/master/SECURITY.md">Mongol & Security</a> (Must Read)
+ - <a href="https://github.com/msavin/Mongol/blob/master/COMPATIBILITY.md">Mongol & Package Compatibility</a>
+ - <a href="https://github.com/msavin/Mongol/blob/master/CHANGELOG.md">Mongol Changelog</a>
+ - <a href="https://atmospherejs.com/msavin/mongol">On Atmosphere</a>
+ - <a href="https://github.com/msavin/Mongol/">On GitHub</a>
+ - <a href="https://github.com/msavin/Mongol/blob/master/LICENSE.md">Licensed under MIT</a>
