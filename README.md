@@ -31,8 +31,7 @@ Additional Information
 ----------------------
  - <a href="https://github.com/msavin/Mongol/blob/master/SECURITY.md">Mongol & Security</a> (Must Read)
  - <a href="https://github.com/msavin/Mongol/blob/master/COMPATIBILITY.md">Mongol & Package Compatibility</a>
- - <a href="https://github.com/msavin/Mongol/blob/master/CHANGELOG.md">Changelog</a>
- - <a href="http://mongol.meteor.com">Live Demo</a>
+ - <a href="https://github.com/msavin/Mongol/blob/master/CHANGELOG.md">Mongol Changelog</a>
  - <a href="https://atmospherejs.com/msavin/mongol">On Atmosphere</a>
  - <a href="https://github.com/msavin/Mongol/">On GitHub</a>
  - <a href="https://github.com/msavin/Mongol/blob/master/LICENSE.md">Licensed under MIT</a>
