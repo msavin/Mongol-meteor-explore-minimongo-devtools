@@ -1,5 +1,16 @@
 CHANGELOG
 
+
+
+v0.7.0 (Preview for 1.0)
+ - New look
+ - Automatic collection detection
+ - Added support for manual collection listing
+ - Support for aldeed:simple-schema & aldeed:collection2
+ - Inline JSON editing
+ - Ability to watch subscriptions
+ - Bug and compatibility fixes
+
 v0.1.0 - Beta
  - Renamed from MongoInspector to Mongol, since its no longer just an inspector
  - Added support for creating, removing, and editing documents!
