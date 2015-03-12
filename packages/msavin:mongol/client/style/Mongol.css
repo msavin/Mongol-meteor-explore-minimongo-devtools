@@ -472,10 +472,9 @@
 
 #Mongol .editable-JSON-field input {
   width: 80px;	
-
 }
 
-#Mongol input.editable-JSON-input {
+#Mongol input {
   border: 0;
   padding: 0 !important;
   margin: 0;
