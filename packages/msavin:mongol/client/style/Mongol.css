@@ -411,7 +411,7 @@
   border-right: 1px solid rgba(0,0,0,.4); }
 
 .Mongol_edit_save:hover, .Mongol_edit_cancel:hover, .Mongol_docMenu_insert:hover, .Mongol_m_signout:hover, .Mongol_m_signin:hover, .Mongol_m_left:hover, .Mongol_m_right:hover, .Mongol_m_new:hover, .Mongol_m_edit:hover, .Mongol_m_delete:hover {
-  color: #A6E22D;
+  color: #2CA6E2;
   transition: .2s;
   cursor: pointer; }
 
