@@ -7,24 +7,27 @@ Meet Mongol, the insanely handy development package for Meteor. Starting today, 
 
 	meteor add msavin:mongol
 
-Mongol does not require configuration. To turn it on, press Control + M.
+Mongol configures automatically. Press <strong>Control + M</strong> to toggle it.
 
 <a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/public/video/gif.gif"></a>
 
 
 Browse Your Collections
 -----------------------
-Mongol will automatically detect your collections and display the documents that you are subscribing to. Click on the collection name to see what it contains.
+Mongol will automatically detect your collections and display your client-side documents. You can always see how many documents you are subscribing to, and then browse them visually. 
 
 
 Easily Modify Your Documents
 ----------------------------
-Mongol is able to insert, update and/or remove any document in your database, regardless if you have insecure on or if the permissions to allow it. Read the security section to learn how this works. 
+Mongol is able to insert, update and/or remove any document in your database, regardless if you have `insecure` or the permissions to allow it. Read the <a href="https://github.com/msavin/Mongol/blob/master/SECURITY.md">security</a> post to learn how this works. 
 
+Watch Subscriptions
+-------------------
+Mongol allows you to view all of your data subscriptions, along with their details. You can turn any subscription off by pressing the X button.
 
 Hot Key Activation
 ------------------
-Mongol won't render into the DOM until you activate it. To activate, press <strong>Control + M</strong>. You can enable it manually with `Session.set("Mongol_settings_display", true)`.
+Mongol won't render into the DOM until you activate it. You can activate by pressing <strong>Control + M</strong>, or with `Session.set("Mongol_settings_display", true)`.
 
 
 Additional Information
