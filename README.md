@@ -1,5 +1,3 @@
-
-
 Mongol 1.0  [![Join the chat at https://gitter.im/msavin/Mongol](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/msavin/Mongol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ==================
 
@@ -46,3 +44,6 @@ Additional Information
  - <a href="https://atmospherejs.com/msavin/mongol">On Atmosphere</a>
  - <a href="https://github.com/msavin/Mongol/">On GitHub</a>
  - <a href="https://github.com/msavin/Mongol/blob/master/LICENSE.md">Licensed under MIT</a>
+
+ Beta: JetSetter (Session tool)
+ https://atmospherejs.com/msavin/jetsetter
