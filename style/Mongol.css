@@ -1,0 +1,441 @@
+#Mongol {  
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 143px;
+  max-height: 100%;
+  overflow: scroll;
+}
+
+#Mongol ::-webkit-scrollbar { 
+    display: none; 
+}
+
+/*.Mongol_overlay {
+  background: rgba(255,0,0,.3);
+
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-blend-mode: luminosity;
+  isolation: isolate;
+}*/
+#Mongol.Mongol_expand {
+  width: 100% !important;
+  max-width: 320px !important;
+  }
+
+#Mongol.Mongol_fullscreen {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  opacity: 0.93 !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: auto !important }
+
+.Mongol_editable {
+  cursor: auto; }
+
+.Mongol_editable span {
+  color: #fff !important; }
+
+#Mongol a {
+  color: #999;
+  text-decoration: none;
+}
+
+#Mongol a:hover {
+  color: #A6E22D;
+  text-decoration: underline;
+}
+
+#Mongol *, .Mongol_row {
+  outline: none;
+  font-family: Liberation Mono, Courier, Lucidatypewriter, Fixed, monospace !important; } 
+
+#Mongol pre {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  display: block;
+  list-style: none;
+  quotes: none;
+  content: "";
+  content: none;
+  background: transparent;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.Mongol_empty {
+  line-height: 14px !important;
+  font-size: 12px !important;
+  background-image: -moz-linear-gradient(#000, #292929);
+  background-image: -w2ebkit-gradient(linear, 0% 0%, 0% 100%, from(#000), to(#292929));
+  background-image: -webkit-linear-gradient(#000, #292929);
+  background-image: -o-linear-gradient(#000, #000);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$c1', endColorstr='$c2',GradientType=0);
+  color: rgba(255, 255, 255, 0.6); }
+  
+.Mongol_row {
+  padding: 0 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 28px;
+  position: relative;
+  transition: 0.3s;
+  margin-bottom: 1px;
+}
+
+.Mongol_row_name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 8px;
+  z-index: 9999999999999;
+  position: relative;
+}
+.Mongol_row:last-child {
+  margin-bottom: 0px;
+}
+
+.MongolHide {
+  opacity: 0;
+  transition: 0.3s;
+  display: none; }
+
+.Mongol_row:hover {
+  cursor: pointer; }
+
+.Mongol_empty {
+  padding: 8px;
+  line-height: 16px;
+  font-size: 11px; }
+
+.Mongol_expand .MongolHide {
+  display: inline; }
+
+.Mongol_row_expand {
+  height: 320px;
+  cursor: default !important; 
+}
+.Mongol_row_expand .Mongol_contentView {
+  box-shadow: 0 0 0 80px rgba(0,0,0,.6); }
+  .Mongol_row_expand .MongolHide {
+    opacity: 1;
+    max-width: auto;
+    overflow: auto; }
+  .Mongol_row_expand .Mongol_Controls {
+    width: 20px;
+    line-height: 19px;
+    font-size: 22px;
+    height: 20px;
+    border-radius: 50px;
+    background: #fff;
+    color: #000;
+    opacity: 0.2; }
+    .Mongol_row_expand .Mongol_Controls:hover {
+      cursor: pointer;
+      opacity: 0.6; }
+  .Mongol_row_expand .Mongol_plus {
+    font-size: 16px;
+    line-height: 19px; }
+  
+
+.Mongol_counter {
+  float: right; }
+
+.Mongol_header { 
+  color: rgba(255,255,255,.6);
+  }
+
+.Mongol_header .Mongol_documentViewer {
+  padding-bottom: 25px;
+  padding-top: 3px;
+  border-radius: 5px; }
+
+.Mongol_header:hover {
+  cursor: pointer; }
+
+.Mongol_Minimize {
+  display: none;
+  padding: 0 9px;
+  margin-right: -9px;
+  opacity: 0;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.6); }
+  .Mongol_Minimize:hover {
+    background: rgba(255, 255, 255, 0.15);
+    cursor: pointer; }
+
+.Mongol_FullScreen {
+  padding: 0 6px;
+  display: none;
+   }
+  .Mongol_FullScreen:hover {
+    background: rgba(255, 255, 255, 0.15);
+    cursor: pointer; }
+
+#Mongol.Mongol_fullscreen .Mongol_row_expand {
+  overflow: auto;
+  height: inherit; }
+  #Mongol.Mongol_fullscreen .Mongol_row_expand .Mongol_documentViewer {
+    height: auto; }
+
+.Mongol_expand .Mongol_Minimize {
+  display: inline;
+  opacity: 1; }
+
+.Mongol_contentView {
+  box-shadow: 0 0 0 80px rgba(0,0,0,.3);
+  border-radius: 5px;
+  transition: .3s;
+
+}
+.Mongol_documentViewer {
+  height: 255px;
+  padding: 0 7px;
+  padding-top: 3px;
+  line-height: 20px;
+  z-index: 99;
+  overflow: scroll;
+  border-radius: 0 0 5px 5px;
+  z-index: 9999999998;
+  position: relative;
+  transition: 0.3s;
+  color: rgba(255,255,255,.5); 
+}
+  .Mongol_documentViewer pre {
+    margin: 0px;
+    padding: 0px;
+    padding-top: 3px;
+  	color: rgba(255,255,255,.5);
+	  overflow: visible;
+    -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text; }
+  .Mongol_documentViewer span {
+    transition: 0.2s; }
+
+
+.Mongol_subscription { 
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  padding: 5px 0 5px 0;
+  margin: 0 2px;
+  line-height: 18px;
+}
+.Mongol_subscription:first-child {
+  padding-top: 2px;
+}
+.Mongol_subscription_toggle {
+  height: 36px;
+  width: 28px;
+  line-height: 38px;
+  text-align: center;
+  float: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /*margin-left: 8px;*/
+  font-family: Menlo !important;
+  font-size: 26px;
+  color: rgba(255,255,255,.4);
+  margin-right: -8px;
+}
+
+.Mongol_subscription_toggle:hover {
+  color: #EB4C16;
+  cursor: pointer;
+}
+
+.Mongol_subscription_name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}
+.Mongol_documentViewer_buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-collapse: collapse; }
+  .Mongol_documentViewer_buttons div {
+    float: right;
+    line-height: 18px;
+    right: 0;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 0 4px;
+    padding-top: 2px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-family: "Menlo", Courier, Lucidatypewriter, Fixed, monospace; }
+
+.Mongol_string {
+  color: #A6E22D !important; }
+
+/* green */
+.Mongol_number {
+  color: #E6DB74 !important; }
+
+/* dark orange */
+.Mongol_boolean {
+  color: #66D9EF !important; }
+
+/* blue */
+.Mongol_null {
+  color: #AE81FF !important; }
+
+/* magenta */
+.Mongol_key {
+  color: #F92772 !important; }
+
+/* red */
+.Mongol_docMenu {
+  line-height: 28px;
+  height: 28px;
+  border-radius: 5px 5px 0 0;
+  
+  color: rgba(255, 255, 255, 0.6);
+  padding-bottom: 1px;
+
+  position: relative;
+  /*background: rgba();*/
+  /*background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAECAAAAACBhLHlAAAAD0lEQVR4AWM0YwAhXRACAAVnAMsAW/K6AAAAAElFTkSuQmCC");*/
+  background: rgba(0,0,0,.2);
+  background-size: 1px 2px;
+  background-position: 0 -1px;
+  overflow: hidden;
+   }
+  .Mongol_docMenu .Mongol_docBar1, .Mongol_docMenu .Mongol_docBar2 {
+    position: absolute;
+    top: 0;
+    height: 28px;
+    width: 100%;
+    transition: 0.2s; }
+
+.Mongol_m_left, .Mongol_m_right, .Mongol_m_new, .Mongol_m_edit, .Mongol_m_delete, .Mongol_docMenu_insert {
+  float: left;
+  border-left: 1px solid rgba(0,0,0,.4);
+  padding: 0 8px;
+  }
+.Mongol_m_edit {
+  border-left: 0px solid transparent;
+}
+
+.Mongol_m_delete {
+  border-right: 1px solid rgba(0,0,0,.4);
+}
+
+  .Mongol_edit_save, .Mongol_edit_cancel {
+    border-left: 1px solid rgba(0,0,0,.4);
+    padding: 0 8px;
+    float: right;
+  }
+
+.Mongol_edit_title {
+  float: left;
+  padding-left: 8px; }
+
+
+.Mongol_m_edit {
+  margin-left: 0px; }
+
+
+.Mongol_m_left, .Mongol_m_right {
+  float: right !important;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 8px !important;
+  border-right: 0px solid transparent;
+  border-left: 1px solid rgba(0,0,0,.4);
+  }
+
+.Mongol_m_signout, .Mongol_m_signin {
+  border-left: 1px solid rgba(0,0,0,.4);
+  float: right;
+  padding: 0 8px; }
+
+.Mongol_m_updateAccount {
+  border-right: 1px solid rgba(0,0,0,.4); }
+
+.Mongol_edit_save:hover, .Mongol_edit_cancel:hover, .Mongol_docMenu_insert:hover, .Mongol_m_signout:hover, .Mongol_m_signin:hover, .Mongol_m_left:hover, .Mongol_m_right:hover, .Mongol_m_new:hover, .Mongol_m_edit:hover, .Mongol_m_delete:hover {
+  color: #2CA6E2;
+  transition: .2s;
+  cursor: pointer; }
+
+.Mongol_m_disabled {
+  color: rgba(0,0,0,.4) !important;
+  cursor: default !important;
+  background: transparent !important;
+}
+
+
+.Mongol_m_wrapper {
+  width: 100%;
+  max-width: 67px;
+  overflow: hidden;
+  display: inline-block;
+  transition: 0.3s; }
+  .Mongol_m_wrapper .Mongol_m_edit {
+    transition: 0.3s; }
+  .Mongol_m_wrapper .Mongol_m_wrapper2 {
+    min-width: 120px;
+    margin-right: -120px;
+    float: right;
+    transition: 0.3s; }
+
+.Mongol_m_wrapper_expand {
+  max-width: 100%; }
+  .Mongol_m_wrapper_expand .Mongol_m_edit {
+    background: transparent;
+    cursor: default; }
+  .Mongol_m_wrapper_expand .Mongol_m_wrapper2 {
+    margin-right: 0px; }
+
+
+
+.Mongol_account_active, .Mongol_account_inactive {
+  float: right;
+  height: 8px;
+  width: 8px;
+  border-radius: 10px;
+  background: #EB4C16;
+  margin-top: 10px; }
+
+.Mongol_account_active {
+  background: #A6E22D; }
+  
+
+#Mongol input {
+  border: 0;
+  padding: 0 !important;
+  margin: 0;
+  text-indent: 0px;
+  height: 10px;
+  padding: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  height: 18px !important;
+  margin: 0px !important;
+  border: 0px solid transparent !important;
+}
+
+#Mongol .editable-JSON input {
+  text-indent: 0px;
+}
+
+.pika-single {
+  z-index: 2147483648 !important;
+}
+

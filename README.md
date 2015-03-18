@@ -1,3 +1,5 @@
+
+
 Mongol 1.0  [![Join the chat at https://gitter.im/msavin/Mongol](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/msavin/Mongol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ==================
 
@@ -31,7 +33,7 @@ Mongol allows you to view all of your data subscriptions, along with their detai
 
 Only There When You Want It
 ---------------------------
-Mongol won't render into the DOM until you activate it. You can activate by pressing <strong>Control + M</strong>, or with `Session.set("Mongol_settings_display", true)`.
+Mongol won't render into the DOM until you activate it. You can activate by pressing <strong>Control + M</strong>, or with `Session.set("MeteorToys_display", true)`.
 
 <a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/public/screenshots/4.png"></a>
 
