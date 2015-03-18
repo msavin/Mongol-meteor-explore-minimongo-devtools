@@ -1,8 +1,4 @@
 Template.Mongol.helpers({
-  'Mongol_enabled': function () {
-    var MongolConfig = Session.get("MeteorToys_display");
-    return MongolConfig;
-  },
   Mongol_collections: function () {
     var MongolConfig = Session.get("Mongol");
     return MongolConfig && _.without(MongolConfig.collections, null) || [];
