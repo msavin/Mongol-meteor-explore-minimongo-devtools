@@ -1,0 +1,31 @@
+<body>
+	{{> Mongol}}
+	<div id="MeteorToys_ToyKit" class="MeteorToys">
+		<div><strong>Meteor Toys</strong></div>
+		<div>DDP Watcher</div>
+		<div>Hot Reload</div>
+	</div>
+</body>
+
+<template name="Mongol">
+	{{#if Mongol_enabled}}
+		<div id="Mongol" class="{{active}} MeteorToys">
+			<!-- <div class="Mongol_overlay"></div> -->
+			{{> Mongol_header}}
+			{{> Mongol_account}}
+			{{> Mongol_subscriptions}}
+			{{#each Mongol_collections}}
+				{{> Mongol_collection}}
+			{{else}}
+				{{> Mongol_empty}}
+			{{/each}}
+		</div>
+	{{/if}}
+</template>
+
+<template name="Mongol_empty">
+	<div class="Mongol_empty">
+		No collections found. If you think this is an error, please report it on
+		<a href="https://github.com/msavin/Mongol" style="color: #cc0000">GitHub</a>.
+	</div>
+</template>
