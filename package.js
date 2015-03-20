@@ -46,6 +46,7 @@ Package.onUse(function(api) {
   api.use('aldeed:collection2@2.3.2', {weak: true}); // This must go before: api.use('dburles:mongo-collection-instances@0.3.1');
   api.use('dburles:mongo-collection-instances@0.3.3', 'client');
   api.use('babrahams:editable-json@0.3.10');
+  api.use('meteortoys:toykit@0.2.0');
 
   api.add_files(commonFiles);
   api.add_files(clientFiles, "client");

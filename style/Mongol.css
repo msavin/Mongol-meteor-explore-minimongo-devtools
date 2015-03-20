@@ -56,22 +56,6 @@
   outline: none;
   font-family: Liberation Mono, Courier, Lucidatypewriter, Fixed, monospace !important; } 
 
-#Mongol pre {
-  outline: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  display: block;
-  list-style: none;
-  quotes: none;
-  content: "";
-  content: none;
-  background: transparent;
-  border-collapse: collapse;
-  border-spacing: 0; }
 
 .Mongol_empty {
   line-height: 14px !important;
