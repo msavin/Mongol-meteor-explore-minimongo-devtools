@@ -5,7 +5,7 @@ Mongol 1.0  [![Join the chat at https://gitter.im/msavin/Mongol](https://badges.
 
 Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Get started with: 
 
-	meteor add msavin:mongol
+	$ meteor add msavin:mongol
 
 After installation, simply press <strong>Control + M</strong> to toggle it.
 
@@ -46,6 +46,4 @@ Additional Information
  - <a href="https://atmospherejs.com/msavin/mongol">On Atmosphere</a>
  - <a href="https://github.com/msavin/Mongol/">On GitHub</a>
  - <a href="https://github.com/msavin/Mongol/blob/master/LICENSE.md">Licensed under MIT</a>
-
- Beta: JetSetter (Session tool)
- https://atmospherejs.com/msavin/jetsetter
+ - <a href="https://atmospherejs.com/msavin/jetsetter">JetSetter (Session Tool [beta])</a>
