@@ -422,11 +422,12 @@
   padding: 0 !important;
   margin: 0;
   text-indent: 0px;
-  height: 10px;
   padding: inherit !important;
   font-size: inherit !important;
   line-height: inherit !important;
   height: 18px !important;
   margin: 0px !important;
+  line-height: inherit !important;
   border: 0px solid transparent !important;
+  color: inherit;
 }
