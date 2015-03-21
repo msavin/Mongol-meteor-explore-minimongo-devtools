@@ -56,6 +56,22 @@
   outline: none;
   font-family: Liberation Mono, Courier, Lucidatypewriter, Fixed, monospace !important; } 
 
+#Mongol pre {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  display: block;
+  list-style: none;
+  quotes: none;
+  content: "";
+  content: none;
+  background: transparent;
+  border-collapse: collapse;
+  border-spacing: 0; }
 
 .Mongol_empty {
   line-height: 14px !important;
@@ -414,12 +430,3 @@
   margin: 0px !important;
   border: 0px solid transparent !important;
 }
-
-#Mongol .editable-JSON input {
-  text-indent: 0px;
-}
-
-.pika-single {
-  z-index: 2147483648 !important;
-}
-

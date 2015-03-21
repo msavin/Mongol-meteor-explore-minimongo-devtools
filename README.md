@@ -40,10 +40,10 @@ Mongol won't render into the DOM until you activate it. You can activate by pres
 
 Additional Information
 ----------------------
- - <a href="https://github.com/msavin/Mongol/blob/master/SECURITY.md">Mongol & Security</a> (Must Read)
- - <a href="https://github.com/msavin/Mongol/blob/master/COMPATIBILITY.md">Mongol & Package Compatibility</a>
- - <a href="https://github.com/msavin/Mongol/blob/master/CHANGELOG.md">Mongol Changelog</a>
+ - <a href="https://github.com/msavin/Mongol/blob/master/documentation/SECURITY.md">Mongol & Security</a> (Must Read)
+ - <a href="https://github.com/msavin/Mongol/blob/master/documentation/COMPATIBILITY.md">Mongol & Package Compatibility</a>
+ - <a href="https://github.com/msavin/Mongol/blob/master/documentation/CHANGELOG.md">Mongol Changelog</a>
  - <a href="https://atmospherejs.com/msavin/mongol">On Atmosphere</a>
  - <a href="https://github.com/msavin/Mongol/">On GitHub</a>
- - <a href="https://github.com/msavin/Mongol/blob/master/LICENSE.md">Licensed under MIT</a>
+ - <a href="https://github.com/msavin/Mongol/blob/master/documentation/LICENSE.md">Licensed under MIT</a>
  - <a href="https://atmospherejs.com/msavin/jetsetter">JetSetter (Session Tool [beta])</a>
