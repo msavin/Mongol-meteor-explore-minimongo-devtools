@@ -1,16 +1,16 @@
-
-
 Mongol 1.0  [![Join the chat at https://gitter.im/msavin/Mongol](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/msavin/Mongol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ==================
 
-Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Get started with: 
+Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again.
+
+How to Install
+--------------
+
+Mongol configures automatically. To get started, simply run:
 
 	$ meteor add msavin:mongol
 
-After installation, simply press <strong>Control + M</strong> to toggle it.
-
-You can also see a demo at http://mongol.meteor.com
-
+After installation, simply press <strong>Control + M</strong> to toggle it. If you'd prefer to see a demo first, go to http://mongol.meteor.com.
 
 Your Documents, At a Glance
 ----------------------------
