@@ -10,8 +10,7 @@ Mongol configures automatically. To get started, simply run:
 
 	$ meteor add msavin:mongol
 
-After installation, press <strong>Control + M</strong> to toggle it.<br>
-If you'd prefer to see a demo first, go to http://mongol.meteor.com.
+After installation, press <strong>Control + M</strong> to toggle it.<br>If you'd prefer to see a demo first, go to http://mongol.meteor.com.
 
 Your Documents, At a Glance
 ----------------------------
