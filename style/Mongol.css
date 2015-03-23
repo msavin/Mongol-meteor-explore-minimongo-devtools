@@ -431,3 +431,7 @@
   border: 0px solid transparent !important;
   color: inherit;
 }
+
+#Mongol .editable-JSON-_id-field, #Mongol .editable-JSON-_id-value {
+  opacity: 1;
+}
