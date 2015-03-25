@@ -1,7 +1,7 @@
 Package.describe({
   name:    'msavin:mongol',
   summary: 'The insanely handy development package for Meteor.',
-  version: '1.0.6',
+  version: '1.0.7',
   git:     'https://github.com/msavin/Mongol.git',
   documentation: 'README.md',
   debugOnly: true
