@@ -1,7 +1,7 @@
-Mongol  [![Join the chat at https://gitter.im/msavin/Mongol](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/msavin/Mongol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <a href="https://gratipay.com/16f742ef619c/"><img src="https://img.shields.io/gratipay/16f742ef619c.svg"></a>
+Mongol [![Join the chat at https://gitter.im/msavin/Mongol](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/msavin/Mongol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <a href="https://gratipay.com/16f742ef619c/"><img src="https://img.shields.io/gratipay/16f742ef619c.svg"></a>
 ==================
 
-Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Mongol allows you to view and modify your client side documents visually.
+Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Mongol allows you to view and modify your client side documents in the browser.
 
 How to Install
 --------------
@@ -46,4 +46,4 @@ Additional Information
  - <a href="https://atmospherejs.com/msavin/mongol">On Atmosphere</a>
  - <a href="https://github.com/msavin/Mongol/">On GitHub</a>
  - <a href="https://github.com/msavin/Mongol/blob/master/documentation/LICENSE.md">Licensed under MIT</a>
- - Designed to work with <a href="https://github.com/msavin/JetSetter">JetSetter</a>
+ - Designed to work with <a href="https://github.com/msavin/JetSetter">JetSetter</a>, the Mongol equivalent for Sessions

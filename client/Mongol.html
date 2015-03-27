@@ -4,6 +4,7 @@
 
 <template name="Mongol">
 	{{#if MeteorToys}}
+		
 		<div id="Mongol" class="{{active}} MeteorToys">
 			
 			{{> Mongol_header}}
@@ -13,16 +14,10 @@
 			{{#each Mongol_collections}}
 				{{> Mongol_collection}}
 			{{else}}
-				{{> Mongol_empty}}
+				{{> Mongol_collection_notFound}}
 			{{/each}}
 
 		</div>
+		
 	{{/if}}
-</template>
-
-<template name="Mongol_empty">
-	<div class="Mongol_empty">
-		No collections found. If you think this is an error, please report it on
-		<a href="https://github.com/msavin/Mongol" style="color: #cc0000">GitHub</a>.
-	</div>
 </template>
