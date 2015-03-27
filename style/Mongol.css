@@ -127,7 +127,7 @@
   cursor: default !important; 
 }
 .Mongol_row_expand .Mongol_contentView {
-  box-shadow: 0 0 0 80px rgba(0,0,0,.6); }
+  box-shadow: 0 0 0 80px rgba(0,0,0,.68); }
   .Mongol_row_expand .MongolHide {
     opacity: 1;
     max-width: auto;
@@ -194,7 +194,7 @@
   opacity: 1; }
 
 .Mongol_contentView {
-  box-shadow: 0 0 0 80px rgba(0,0,0,.3);
+  box-shadow: 0 0 0 80px rgba(0,0,0,.35);
   border-radius: 5px;
   transition: .3s;
 
