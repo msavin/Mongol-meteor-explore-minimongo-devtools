@@ -1,13 +1,15 @@
 Meteor.methods({
   Mongol_verify: function () {
 
+    // NOTE: This function is not in use
+
     // Check if the Meteor absolute URL
     // begins with http://localhost:
 
     var location = Meteor.absoluteUrl(),
       current = location.substring(0, 17);
 
-    if (current = "http://localhost:") {
+    if (current === "http://localhost:") {
       return "verified";
     }
     return false;
