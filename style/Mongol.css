@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 143px;
   max-height: 100%;
-  overflow: scroll;
+  overflow: auto;
 }
 
 #Mongol ::-webkit-scrollbar { 
@@ -205,7 +205,7 @@
   padding-top: 3px;
   line-height: 20px;
   z-index: 99;
-  overflow: scroll;
+  overflow: auto;
   border-radius: 0 0 5px 5px;
   z-index: 9999999998;
   position: relative;
