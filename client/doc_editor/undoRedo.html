@@ -1,0 +1,14 @@
+<template name="Mongol_undoRedo">
+  <div class="undo-redo-buttons">
+    {{#with stack 'undo'}}
+      <div class="undo-button">
+        <span title="Undo {{action}}">undo</span>
+      </div>
+    {{/with}}
+    {{#with stack 'redo'}}
+      <div class="redo-button">
+        <span title="Redo {{action}}">redo</span>
+      </div>
+    {{/with}}
+  </div>
+</template>

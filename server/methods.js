@@ -106,20 +106,28 @@ Meteor.methods({
     check(collectionName, String);
     check(documentData, Object);
 
-    var MongolCollection = Mongol.Collection(collectionName);
+    var MongolCollection = Mongol.Collection(collectionName),
+	    newId = null;
+		
+	if (documentData._id && MongolCollection.findOne({_id: documentData._id})) {
+	  console.log('Duplicate _id found');
+	  return null;	
+	}
 
     if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema)) {
       // This is to nullify the effects of SimpleSchema/Collection2
-      MongolCollection.insert(documentData, {
+      newId = MongolCollection.insert(documentData, {
         filter: false,
         autoConvert: false,
         removeEmptyStrings: false,
         validate: false
       });
-      return;
     }
-
-    MongolCollection.insert(documentData);
+	else {
+      newId = MongolCollection.insert(documentData);
+	}
+	
+	return newId;
 
   },
 });

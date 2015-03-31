@@ -197,7 +197,6 @@
   box-shadow: 0 0 0 80px rgba(0,0,0,.35);
   border-radius: 5px;
   transition: .3s;
-
 }
 .Mongol_documentViewer {
   height: 255px;
@@ -217,7 +216,7 @@
     padding: 0px;
     padding-top: 3px;
   	color: rgba(255,255,255,.5);
-	  overflow: visible;
+	overflow: visible;
     -webkit-touch-callout: text;
     -webkit-user-select: text;
     -khtml-user-select: text;
@@ -434,4 +433,35 @@
 
 #Mongol .editable-JSON-_id-field, #Mongol .editable-JSON-_id-value {
   opacity: 1;
+}
+
+#Mongol .Mongol_documentViewer pre, .editable-JSON {
+  white-space: pre;       /* CSS 3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word; 
+}
+
+#Mongol .undo-redo-buttons {
+  float: right;
+}
+
+#Mongol .undo-button, #Mongol .redo-button {
+  top: 2px;
+  right: 2px;
+  cursor: pointer !important;
+  position: absolute;
+  font-size: 9px;
+  padding: 2px 2px 0px 2px;
+  border: 1px solid rgba(0,0,0,.6);
+  line-height: 9px;
+}
+
+#Mongol .undo-button:hover, #Mongol .redo-button:hover {
+  color: #2CA6E2;
+}
+
+#Mongol .redo-button {
+  right: 32px;	
 }
