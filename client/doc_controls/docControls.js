@@ -40,7 +40,9 @@ Template.Mongol_docControls.events({
     Meteor.call("Mongol_duplicate", CollectionName, ValidatedCurrentDocument._id, function(error, result) {
       if (!error) {
 
-        if (Mongol.Collection(CollectionName).findOne(result)) {
+        var newDoc = Mongol.Collection(CollectionName).findOne(result);
+
+        if (newDoc) {
 
           // Get position of new document
           var list = Mongol.Collection(CollectionName).find().fetch();
@@ -56,7 +58,7 @@ Template.Mongol_docControls.events({
 		
 		  UndoRedo.add(CollectionName, {
 			action: 'insert',
-			document: ValidatedCurrentDocument
+			document: newDoc
 		  });
 		  
         }
