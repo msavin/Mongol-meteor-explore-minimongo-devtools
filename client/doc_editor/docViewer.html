@@ -16,7 +16,8 @@
         {{/if}}
       </div>
     {{else}}
-      <div class="Mongol_documentViewer" id="MongolDoc_{{this}}">  
+      <div class="Mongol_documentViewer" id="MongolDoc_{{this}}">
+        {{> Mongol_undoRedo this}} 
         <pre>No document found</pre>
       </div>
     {{/with}}
