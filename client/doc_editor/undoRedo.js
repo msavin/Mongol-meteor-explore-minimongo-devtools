@@ -4,7 +4,8 @@ Template.Mongol_undoRedo.helpers({
   stack: function (type) {
 	var key = UndoRedo.makeKey(String(this), (type === 'redo') ? 'undone' : 'done');
 	var stack = Session.getJSON(key);
-	return _.isArray(stack) && stack.length && stack[stack.length - 1];  
+	var latest = _.isArray(stack) && stack.length && stack[stack.length - 1]; // console.log("latest " + key + ":",latest);
+	return latest; 
   }
 });
 
@@ -70,6 +71,7 @@ UndoRedo.undo = function (collection, redo) {
   var undoneStackKey = UndoRedo.makeKey(collection, 'undone');
   var doneStack = Session.getJSON(doneStackKey);
   var undoneStack = Session.getJSON(undoneStackKey);
+  // console.log("collection:",collection);console.log("doneStackKey:",doneStackKey);console.log("undoneStackKey:",undoneStackKey);console.log("doneStack:",doneStack);console.log("undoneStack:",undoneStack);
   var setStacks = function () {
 	Session.setJSON(doneStackKey, doneStack);
 	Session.setJSON(undoneStackKey, undoneStack);
@@ -117,6 +119,15 @@ UndoRedo.undo = function (collection, redo) {
 	  console.log("doc:",doc);
 	  console.log("currentDoc:",currentDoc);*/
 	  if (!currentDoc) {
+		// This document no longer exists, we need to remove the action from the stack
+		if (redo) {
+		  doneStack.pop();
+		}
+		else {
+		  undoneStack.pop();
+		}
+		setStacks(); 
+		alert('This document is not available for updates anymore');
 	    return;  
 	  }
 	  var docVersion = (redo) ? latestAction.updatedDocument : doc;
