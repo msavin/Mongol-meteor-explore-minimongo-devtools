@@ -3,10 +3,10 @@
   {{#if notEmpty}}
     {{> Mongol_docControls}}
     {{#with activeDocument}}
-      <div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}" contenteditable="{{editContent}}">
+      <div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}">
         {{> Mongol_undoRedo ..}}
         {{#if editStyle}}  
-          <pre>{{{documentJSON}}}</pre>
+          <pre contenteditable="{{editContent}}">{{{documentJSON}}}</pre>
         {{else}}  
           {{#if noInlineEditing}}
             <pre>{{{documentJSON}}}</pre>

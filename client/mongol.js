@@ -39,8 +39,8 @@ MongolPackage = {
   },
   'getDocumentUpdate': function (data) {
 
-    var elementID = 'MongolDoc_' + data,
-      newData = document.getElementById(elementID).textContent;
+    var elementID = '#MongolDoc_' + data;
+	var newData   = $(elementID + ' pre').text();
 
     return newData;
 
@@ -77,7 +77,7 @@ MongolPackage = {
 
     try {
       newObject = JSON.parse(data);
-    } catch (error) {
+    } catch (error) { console.log(data);
       MongolPackage.error("json.parse");
     }
 
