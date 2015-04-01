@@ -92,7 +92,7 @@ Template.Mongol_docControls.events({
       if (!error) {
         // Log the action
         console.log("Removed " + DocumentID + " from " + CollectionName + ". Back-up below:");
-        console.log(CurrentDocument);
+        console.log(result);
 
         // Adjust the position
         if (DocumentPosition >= CollectionCount - 1) {
@@ -106,7 +106,7 @@ Template.Mongol_docControls.events({
 		
         UndoRedo.add(String(self), {
 		  action: 'remove',
-		  document: CurrentDocument
+		  document: result
 		});
 
       } else {

@@ -48,6 +48,7 @@ Meteor.methods({
 
     delete documentData._id;
     delete originalDocumentData._id;
+	delete currentDbDoc._id;
 
     var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
 	
@@ -59,12 +60,13 @@ Meteor.methods({
 	  
 	  MongolCollection.update({
         _id: documentID
-      }, updatedDocumentData, {
+      }, {$set: updatedDocumentData}, {
         filter: false,
         autoConvert: false,
         removeEmptyStrings: false,
         validate: false
       });
+	  
       return;
     }
 
@@ -82,8 +84,12 @@ Meteor.methods({
     check(documentID, String);
 
     var MongolCollection = Mongol.Collection(collectionName);
+	
+	var docToBeRemoved = MongolCollection.findOne(documentID);
 
     MongolCollection.remove(documentID);
+	
+	return docToBeRemoved;
 
   },
   Mongol_duplicate: function (collectionName, documentID) {
@@ -113,18 +119,18 @@ Meteor.methods({
 	  console.log('Duplicate _id found');
 	  return null;	
 	}
-
-    if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema)) {
-      // This is to nullify the effects of SimpleSchema/Collection2
-      newId = MongolCollection.insert(documentData, {
-        filter: false,
-        autoConvert: false,
-        removeEmptyStrings: false,
-        validate: false
-      });
-    }
+		
+	if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema)) {
+	  // This is to nullify the effects of SimpleSchema/Collection2
+	  newId = MongolCollection.insert(documentData, {
+		filter: false,
+		autoConvert: false,
+		removeEmptyStrings: false,
+		validate: false
+	  });
+	}
 	else {
-      newId = MongolCollection.insert(documentData);
+	  newId = MongolCollection.insert(documentData);
 	}
 	
 	return newId;

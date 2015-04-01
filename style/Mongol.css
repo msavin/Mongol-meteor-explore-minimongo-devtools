@@ -323,7 +323,7 @@
     width: 100%;
     transition: 0.2s; }
 
-.Mongol_m_left, .Mongol_m_right, .Mongol_m_new, .Mongol_m_edit, .Mongol_m_delete, .Mongol_docMenu_insert {
+.Mongol_m_left, .Mongol_m_right, .Mongol_m_new, .Mongol_m_edit, .Mongol_m_delete, .Mongol_docMenu_insert, .Mongol_log_purge {
   float: left;
   border-left: 1px solid rgba(0,0,0,.4);
   padding: 0 8px;
@@ -332,7 +332,7 @@
   border-left: 0px solid transparent;
 }
 
-.Mongol_m_delete {
+.Mongol_m_delete, .Mongol_log_purge {
   border-right: 1px solid rgba(0,0,0,.4);
 }
 
@@ -368,7 +368,7 @@
 .Mongol_m_updateAccount {
   border-right: 1px solid rgba(0,0,0,.4); }
 
-.Mongol_edit_save:hover, .Mongol_edit_cancel:hover, .Mongol_docMenu_insert:hover, .Mongol_m_signout:hover, .Mongol_m_signin:hover, .Mongol_m_left:hover, .Mongol_m_right:hover, .Mongol_m_new:hover, .Mongol_m_edit:hover, .Mongol_m_delete:hover {
+.Mongol_edit_save:hover, .Mongol_edit_cancel:hover, .Mongol_docMenu_insert:hover, .Mongol_m_signout:hover, .Mongol_m_signin:hover, .Mongol_m_left:hover, .Mongol_m_right:hover, .Mongol_m_new:hover, .Mongol_m_edit:hover, .Mongol_m_delete:hover, .Mongol_log_purge:hover {
   color: #2CA6E2;
   transition: .2s;
   cursor: pointer; }
@@ -445,23 +445,35 @@
 
 #Mongol .undo-redo-buttons {
   float: right;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0;
 }
 
 #Mongol .undo-button, #Mongol .redo-button {
-  top: 2px;
-  right: 2px;
   cursor: pointer !important;
-  position: absolute;
   font-size: 9px;
-  padding: 2px 2px 0px 2px;
-  border: 1px solid rgba(0,0,0,.6);
+  padding: 1px 1px 0px 1px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.1);
+  border-radius: 2px;
   line-height: 9px;
+  margin-right: 2px;
 }
 
 #Mongol .undo-button:hover, #Mongol .redo-button:hover {
   color: #2CA6E2;
 }
 
-#Mongol .redo-button {
-  right: 32px;	
+.Mongol_action {
+  border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+.Mongol_action_time {
+  color: grey;
+  font-size: smaller;	
+}
+
+.Mongol_action_toggle {
+  font-size: smaller;	
 }

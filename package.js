@@ -27,6 +27,8 @@ Package.onUse(function(api) {
     "client/doc_insert/docInsert.js",
     "client/row_subscriptions/subscriptions.html",
     "client/row_subscriptions/subscriptions.js",
+    "client/row_actions/actions.html",
+    "client/row_actions/actions.js",
     "client/Mongol.html",
     "client/Mongol.js",
     "client/doc_controls/docControls.html",
@@ -43,8 +45,8 @@ Package.onUse(function(api) {
   ];
 
   api.versionsFrom('1.0');
-  api.use(['templating','tracker','mongo','session'], 'client');
-  api.use('aldeed:collection2@2.3.2', {weak: true}); // This must go before: api.use('dburles:mongo-collection-instances@0.3.1');
+  api.use(['templating','tracker','mongo','session','underscore','reactive-var'], 'client');
+  api.use('aldeed:collection2@2.3.3', {weak: true}); // This must go before: api.use('dburles:mongo-collection-instances@0.3.3');
   api.use('dburles:mongo-collection-instances@0.3.3', 'client');
   api.use('gwendall:session-json@0.1.7', 'client');
   api.use('babrahams:editable-json@0.4.1');

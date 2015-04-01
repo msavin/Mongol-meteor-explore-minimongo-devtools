@@ -2,12 +2,14 @@
 	<div class="Mongol_row {{active}}" id="Mongol_c{{this}}">
 		
         <!-- <div class="Mongol_toggle_selected_collection"> -->
-        
+
 			<!-- Collection Count -->
 			<div class="Mongol_counter">
 				{{#if collectionCount}}
 				    <span class="MongolHide">{{currentPosition}}/</span>{{/if}}{{collectionCount}}
 			</div>
+      
+            <!-- {{#if active}}{{> Mongol_undoRedo}}{{/if}} -->
             
 			<!-- Collection Name -->
 			<div class="Mongol_row_name">{{this}}</div>
