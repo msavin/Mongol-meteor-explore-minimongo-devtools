@@ -2,12 +2,12 @@
   <div class="undo-redo-buttons">
     {{#with stack 'undo'}}
       <div class="undo-button">
-        <span title="Undo {{action}}">undo</span>
+        <span title="Undo {{action}} {{document._id}}">undo</span>
       </div>
     {{/with}}
     {{#with stack 'redo'}}
       <div class="redo-button">
-        <span title="Redo {{action}}">redo</span>
+        <span title="Redo {{action}} {{document._id}}">redo</span>
       </div>
     {{/with}}
   </div>
