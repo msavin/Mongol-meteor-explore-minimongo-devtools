@@ -1,3 +1,19 @@
+var insertDoc = function (MongolCollection, documentData) {
+  if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema) && MongolCollection._c2) {
+    // This is to nullify the effects of SimpleSchema/Collection2
+    newId = MongolCollection.insert(documentData, {
+      filter: false,
+      autoConvert: false,
+      removeEmptyStrings: false,
+      validate: false
+    });
+  }
+  else {
+    newId = MongolCollection.insert(documentData);
+  }
+  return newId;
+}
+
 Meteor.methods({
   Mongol_verify: function () {
 
@@ -7,7 +23,7 @@ Meteor.methods({
     // begins with http://localhost:
 
     var location = Meteor.absoluteUrl(),
-      current = location.substring(0, 17);
+         current = location.substring(0, 17);
 
     if (current === "http://localhost:") {
       return "verified";
@@ -18,11 +34,11 @@ Meteor.methods({
     // To Use:
 
     // Meteor.call("Mongol_verify", function (error, result) {
-    // 	if (result === "verified") {
-    // 		task();
-    // 	} else {
-    // 		return "absoluteURLError"
-    // 	};
+    //   if (result === "verified") {
+    //     task();
+    //   } else {
+    //      return "absoluteURLError"
+    //   }
     // });
 
   },
@@ -40,25 +56,25 @@ Meteor.methods({
     });
 
     if (!currentDbDoc) {
-	  // A document with this _id value is not in the db
-	  // Do an insert instead
-	  Meteor.call("Mongol_insert", collectionName, documentData);
-	  return;
-	}
+      // A document with this _id value is not in the db
+      // Do an insert instead
+      Meteor.call("Mongol_insert", collectionName, documentData);
+      return;
+    }
 
     delete documentData._id;
     delete originalDocumentData._id;
-	delete currentDbDoc._id;
+    delete currentDbDoc._id;
 
     var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
-	
-    if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema)) {
+    
+    if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema) && MongolCollection._c2) {
       
       // This is to nullify the effects of SimpleSchema/Collection2
       // Using `upsert` means that a user can change the _id value in the JSON
       // and then press the 'Update' button to create a duplicate (published keys/values only) with a different _id
-	  
-	  MongolCollection.update({
+      
+      MongolCollection.update({
         _id: documentID
       }, {$set: updatedDocumentData}, {
         filter: false,
@@ -66,7 +82,7 @@ Meteor.methods({
         removeEmptyStrings: false,
         validate: false
       });
-	  
+      
       return;
     }
 
@@ -84,12 +100,12 @@ Meteor.methods({
     check(documentID, String);
 
     var MongolCollection = Mongol.Collection(collectionName);
-	
-	var docToBeRemoved = MongolCollection.findOne(documentID);
+    
+    var docToBeRemoved = MongolCollection.findOne(documentID);
 
     MongolCollection.remove(documentID);
-	
-	return docToBeRemoved;
+    
+    return docToBeRemoved;
 
   },
   Mongol_duplicate: function (collectionName, documentID) {
@@ -100,11 +116,15 @@ Meteor.methods({
     var MongolCollection = Mongol.Collection(collectionName),
       OriginalDoc = MongolCollection.findOne(documentID);
 
-    delete OriginalDoc._id;
+    if (OriginalDoc) {
 
-    var NewDocument = MongolCollection.insert(OriginalDoc);
+      delete OriginalDoc._id;
 
-    return NewDocument;
+      var NewDocumentId = insertDoc(MongolCollection, OriginalDoc);
+
+      return NewDocumentId;
+      
+    }
 
   },
   Mongol_insert: function(collectionName, documentData) {
@@ -113,27 +133,16 @@ Meteor.methods({
     check(documentData, Object);
 
     var MongolCollection = Mongol.Collection(collectionName),
-	    newId = null;
-		
-	if (documentData._id && MongolCollection.findOne({_id: documentData._id})) {
-	  console.log('Duplicate _id found');
-	  return null;	
-	}
-		
-	if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema)) {
-	  // This is to nullify the effects of SimpleSchema/Collection2
-	  newId = MongolCollection.insert(documentData, {
-		filter: false,
-		autoConvert: false,
-		removeEmptyStrings: false,
-		validate: false
-	  });
-	}
-	else {
-	  newId = MongolCollection.insert(documentData);
-	}
-	
-	return newId;
+        newId = null;
+        
+    if (documentData._id && MongolCollection.findOne({_id: documentData._id})) {
+      console.log('Duplicate _id found');
+      return null;    
+    }
+        
+    var newId = insertDoc(MongolCollection, documentData);
+    
+    return newId;
 
   },
 });
