@@ -77,7 +77,7 @@
   line-height: 14px !important;
   font-size: 12px !important;
   background-image: -moz-linear-gradient(#000, #292929);
-  background-image: -w2ebkit-gradient(linear, 0% 0%, 0% 100%, from(#000), to(#292929));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#000), to(#292929));
   background-image: -webkit-linear-gradient(#000, #292929);
   background-image: -o-linear-gradient(#000, #000);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$c1', endColorstr='$c2',GradientType=0);
