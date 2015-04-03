@@ -50,7 +50,6 @@ Package.onUse(function(api) {
   api.use('dburles:mongo-collection-instances@0.3.3', 'client');
   api.use('gwendall:session-json@0.1.7', 'client');
   api.use('babrahams:editable-json@0.4.3');
-  api.use('fortawesome:fontawesome@4.3.0', 'client');
   api.use('meteortoys:toykit@0.2.2');
 
   api.add_files(commonFiles);
