@@ -24,17 +24,16 @@ Template.Mongol_undoRedo.events({
 });
 
 if (!!EditableJSON) {
-  EditableJSON.afterUpdate = function(collection, action, result) {
+  EditableJSON.afterUpdate = function(collection, action, documentBefore, result) {
     /*console.log("doc before:",this);
     console.log("collection:",collection);
     console.log("action:",action);
     console.log("result:", result);
     console.log("doc after:", Mongo.Collection.get(collection).findOne({_id:this._id}));*/
-    var updatedDocument = Mongo.Collection.get(collection).findOne({_id:this._id});
     UndoRedo.add(collection, {
       action: 'update',
-      document: this,
-      updatedDocument: updatedDocument
+      document: documentBefore,
+      updatedDocument: this
     });
   }
 }
