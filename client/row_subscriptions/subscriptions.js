@@ -11,13 +11,13 @@ Template.Mongol_subscriptions.helpers({
 
   },
   name: function () {
-    var subName = Meteor.default_connection._subscriptions[this].name;
+    var subName = Meteor.default_connection._subscriptions[this] && Meteor.default_connection._subscriptions[this].name;
     return subName;
   },
   params: function () {
-    var p = Meteor.default_connection._subscriptions[this].params
+    var p = Meteor.default_connection._subscriptions[this] && Meteor.default_connection._subscriptions[this].params
 
-    if (p.length > 0) {
+    if (p && p.length > 0) {
       return p;
     } else {
       return "none";

@@ -3,21 +3,19 @@
   {{#if notEmpty}}
     {{> Mongol_docControls}}
     {{#with activeDocument}}
-      {{#if editStyle}}
-        <div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}" contenteditable="{{editContent}}">  
-          <pre>{{{documentJSON}}}</pre>
-        </div>
-      {{else}}
-        <div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}" contenteditable="{{editContent}}">  
+      <div class="Mongol_documentViewer {{editStyle}}" id="MongolDoc_{{..}}">
+        {{#if editStyle}}  
+          <pre contenteditable="{{editContent}}">{{{documentJSON}}}</pre>
+        {{else}}
           {{#if noInlineEditing}}
             <pre>{{{documentJSON}}}</pre>
           {{else}}
             {{> editableJSON document=this collection=..}}
           {{/if}}
-        </div>
-      {{/if}}
+        {{/if}}
+      </div>
     {{else}}
-      <div class="Mongol_documentViewer" id="MongolDoc_{{this}}">  
+      <div class="Mongol_documentViewer" id="MongolDoc_{{this}}">
         <pre>No document found</pre>
       </div>
     {{/with}}

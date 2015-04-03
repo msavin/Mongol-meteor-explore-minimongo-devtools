@@ -1,0 +1,45 @@
+<template name="Mongol_actions">
+    <div class="Mongol_row {{active}}" id="Mongol_actions_618" style="white-space:normal;">
+        
+        <div class="Mongol_toggle_selected_collection">
+            {{#with stack}}{{> Mongol_global_undo_redo }}{{/with}}
+            Actions log
+        </div>
+
+        <div class="Mongol_contentView">
+            <div class="Mongol_docMenu">
+                <div class="Mongol_log_purge">Purge log</div>
+            </div>
+            <!-- Document Viewer -->
+            <div class="Mongol_documentViewer ">
+                {{#each actions}}
+                    {{> Mongol_action}}
+                {{else}}
+                    No actions logged
+                {{/each}}
+            </div>
+ 
+        </div>
+    
+    </div>
+
+</template>
+
+<template name="Mongol_global_undo_redo">
+  <span class="undo-redo-buttons">
+    {{#with stack 'undo'}}<span class="undo-button"><span title="Undo {{action}} {{collection}}: {{json}}">undo</span></span>{{/with}}{{#with stack 'redo'}}<span class="redo-button"><span title="Redo {{action}} {{collection}}: {{json}}">redo</span></span>{{/with}}
+  </span>
+</template>
+
+<template name="Mongol_action">
+  <div class="Mongol_action">
+    {{#with singleAction}}{{> Mongol_global_undo_redo }}{{/with}}
+    {{action}} {{collection}} <span class="Mongol_action_time">{{time}}</span>
+    <br />
+    <span class="Mongol_action_toggle"><a href="" class="Mongol_toggle_document">{{document._id}}</a></span>
+    {{#if fullDoc}}
+      <br />
+      <pre>{{{json}}}</pre>
+    {{/if}}
+  </div>
+</template>

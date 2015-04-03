@@ -40,7 +40,9 @@ Template.Mongol_docControls.events({
     Meteor.call("Mongol_duplicate", CollectionName, ValidatedCurrentDocument._id, function(error, result) {
       if (!error) {
 
-        if (Mongol.Collection(CollectionName).findOne(result)) {
+        var newDoc = Mongol.Collection(CollectionName).findOne(result);
+
+        if (newDoc) {
 
           // Get position of new document
           var list = Mongol.Collection(CollectionName).find().fetch();
@@ -52,7 +54,13 @@ Template.Mongol_docControls.events({
             }
           })
 
-          Session.set(sessionKey, Number(docIndex));
+          Session.set(sessionKey, Number(docIndex));  
+		
+		  UndoRedo.add(CollectionName, {
+			action: 'insert',
+			document: newDoc
+		  });
+		  
         }
 
       } else {
@@ -70,13 +78,13 @@ Template.Mongol_docControls.events({
 
     var CollectionName = Session.get("Mongol_currentCollection"),
       sessionKey = "Mongol_" + String(this);
-    DocumentPosition = Session.get(sessionKey),
+      DocumentPosition = Session.get(sessionKey),
       CurrentCollection = Mongol.Collection(CollectionName).find().fetch(),
-      CollectionCount = Mongol.Collection(CollectionName).find().count();
+      CollectionCount = Mongol.Collection(CollectionName).find().count(),
+	  self = this;
 
     var CurrentDocument = CurrentCollection[DocumentPosition],
       DocumentID = CurrentDocument._id;
-
 
 
     Meteor.call('Mongol_remove', CollectionName, DocumentID, function(error, result) {
@@ -84,7 +92,7 @@ Template.Mongol_docControls.events({
       if (!error) {
         // Log the action
         console.log("Removed " + DocumentID + " from " + CollectionName + ". Back-up below:");
-        console.log(CurrentDocument);
+        console.log(result);
 
         // Adjust the position
         if (DocumentPosition >= CollectionCount - 1) {
@@ -95,7 +103,11 @@ Template.Mongol_docControls.events({
         if (Session.get(sessionKey) === -1) {
           Session.set(sessionKey, 0);
         }
-
+		
+        UndoRedo.add(String(self), {
+		  action: 'remove',
+		  document: result
+		});
 
       } else {
         MongolPackage.error("remove");
@@ -168,7 +180,12 @@ Template.Mongol_docControls.events({
       Meteor.call("Mongol_update", collectionName, newObject, Mongol.validateDocument(oldObject), function(error, result) {
         if (!error) {
           Session.set('Mongol_editMode', null);
-          console.log('success')
+          console.log('success');	
+		  UndoRedo.add(collectionName, {
+			action: 'update',
+			document: oldObject,
+			updatedDocument: newObject
+		  });
         } else {
           MongolPackage.error('update')
         }

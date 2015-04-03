@@ -1,0 +1,5 @@
+<template name="Mongol_undoRedo">
+  <span class="undo-redo-buttons">
+    {{#with stack 'undo'}}<span class="undo-button"><span title="Undo {{latest.action}} {{latest.document._id}}">undo({{count}})</span></span>{{/with}}{{#with stack 'redo'}}<span class="redo-button"><span title="Redo {{latest.action}} {{latest.document._id}}">redo({{count}})</span></span>{{/with}}
+  </span>
+</template>
