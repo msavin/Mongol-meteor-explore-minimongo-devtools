@@ -126,6 +126,12 @@
   height: 320px;
   cursor: default !important; 
 }
+
+.Mongol_row:hover .Mongol_contentView {
+  box-shadow: 0 0 0 80px rgba(0,0,0,.68);
+  transition: 0s !important;
+}
+
 .Mongol_row_expand .Mongol_contentView {
   box-shadow: 0 0 0 80px rgba(0,0,0,.68); }
   .Mongol_row_expand .MongolHide {
@@ -196,7 +202,6 @@
 .Mongol_contentView {
   box-shadow: 0 0 0 80px rgba(0,0,0,.35);
   border-radius: 5px;
-  transition: .3s;
 
 }
 .Mongol_documentViewer {
