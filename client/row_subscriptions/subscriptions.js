@@ -6,7 +6,7 @@ Template.Mongol_subscriptions.helpers({
   },
   subscription: function () {
 
-    var subscriptionIDs = Session.get("Mongol_subscriptions")
+    var subscriptionIDs = Session.get("MeteorToys_PubSub")
     return subscriptionIDs;
 
   },

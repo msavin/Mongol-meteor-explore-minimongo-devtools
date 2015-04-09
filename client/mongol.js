@@ -83,6 +83,14 @@ MongolPackage = {
 
     return newObject;
 
+  },
+  'setSubscriptionKeys': function () {
+
+      var subscriptions  = Meteor.default_connection._subscriptions,
+          subKeys        = Object.keys(subscriptions);
+
+          Session.set("MeteorToys_PubSub", subKeys)
+
   }
 };
 
