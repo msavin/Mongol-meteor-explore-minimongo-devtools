@@ -114,12 +114,22 @@ Template.Mongol_docControls.events({
       Mongol.resetInlineEditingTimer();
 	  
       // Grab the key
-      sessionKey = "Mongol_" + String(this);
 
-      // Go forward one doc
-      var MongolDocNumber = Session.get(sessionKey) + 1;
-      Session.set(sessionKey, MongolDocNumber);
-      // console.log("right" + this);
+      var sessionKey = "Mongol_" + String(this);
+      var CurrentDocument = Session.get(sessionKey);
+      var collectionName = String(this);
+      var collectionVar = Mongol.Collection(collectionName);
+      var collectionCount = collectionVar.find().count() - 1;
+
+      if (collectionCount === CurrentDocument) {
+        // Go back to document 1 
+        Session.set(sessionKey, 0);
+      } else {
+        // Go to next document
+        var MongolDocNumber = Session.get(sessionKey) + 1;
+        Session.set(sessionKey, MongolDocNumber);
+      }
+      
     }
   },
   'click .Mongol_m_left': function() {
@@ -133,10 +143,20 @@ Template.Mongol_docControls.events({
       // Grab the key
       sessionKey = "Mongol_" + String(this);
 
-      // Go back one doc
-      var MongolDocNumber = Session.get(sessionKey) - 1;
-      Session.set(sessionKey, MongolDocNumber);
-      // console.log("left" + this);
+      if (Session.get(sessionKey) === 0) {
+        // Get the document count
+        var CurrentDocument = Session.get(sessionKey);
+        var collectionName  = String(this);
+        var collectionVar   = Mongol.Collection(collectionName);
+        var collectionCount = collectionVar.find().count() - 1;
+
+        // Set the key to last
+        Session.set(sessionKey, collectionCount)
+      } else {
+        var MongolDocNumber = Session.get(sessionKey) - 1;
+        Session.set(sessionKey, MongolDocNumber);
+      }
+
     }
 
   },
@@ -185,15 +205,14 @@ Template.Mongol_docControls.events({
 
 
 Template.Mongol_docControls.helpers({
-  disable_right: function() {
+  disable: function() {
     var sessionKey = "Mongol_" + String(this);
     var CurrentDocument = Session.get(sessionKey);
     var collectionName = String(this);
     var collectionVar = Mongol.Collection(collectionName);
+    var collectionCount = collectionVar.find().count();
 
-    var collectionCount = collectionVar.find().count() - 1;
-
-    if (CurrentDocument === collectionCount) {
+    if (collectionCount === 1) {
       return "Mongol_m_disabled";
     }
 
@@ -207,15 +226,6 @@ Template.Mongol_docControls.helpers({
     if (edit) {
       return "Mongol_m_wrapper_expand"
     }
-  },
-  disable_left: function() {
-    var sessionKey = "Mongol_" + String(this);
-    var CurrentDocument = Session.get(sessionKey);
-
-    if (CurrentDocument <= 0) {
-      return "Mongol_m_disabled";
-    }
-
   },
   Mongol_docMenu_editing: function() {
     var editMode = Session.get("Mongol_editMode");
