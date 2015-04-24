@@ -1,3 +1,6 @@
+
+// needs to be re-thought
+
 // Strip out functions in case documents have had methods added to them
 
 Mongol.validateDocument = function (doc) {
@@ -121,6 +124,11 @@ Template.Mongol_docControls.events({
       var collectionVar = Mongol.Collection(collectionName);
       var collectionCount = collectionVar.find().count() - 1;
 
+      if (CurrentDocument > collectionCount) {
+        Session.set(sessionKey, 0)
+        return;
+      }
+
       if (collectionCount === CurrentDocument) {
         // Go back to document 1 
         Session.set(sessionKey, 0);
@@ -142,13 +150,19 @@ Template.Mongol_docControls.events({
       
       // Grab the key
       sessionKey = "Mongol_" + String(this);
+      // Get the document count
+      var CurrentDocument = Session.get(sessionKey);
+      var collectionName  = String(this);
+      var collectionVar   = Mongol.Collection(collectionName);
+      var collectionCount = collectionVar.find().count() - 1;
+
+      if (CurrentDocument > collectionCount) {
+        Session.set(sessionKey, collectionCount)
+        return;
+      }
 
       if (Session.get(sessionKey) === 0) {
-        // Get the document count
-        var CurrentDocument = Session.get(sessionKey);
-        var collectionName  = String(this);
-        var collectionVar   = Mongol.Collection(collectionName);
-        var collectionCount = collectionVar.find().count() - 1;
+        
 
         // Set the key to last
         Session.set(sessionKey, collectionCount)
