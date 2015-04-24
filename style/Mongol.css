@@ -76,15 +76,7 @@
   border-collapse: collapse;
   border-spacing: 0; }
 
-.Mongol_empty {
-  line-height: 14px !important;
-  font-size: 12px !important;
-  background-image: -moz-linear-gradient(#000, #292929);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#000), to(#292929));
-  background-image: -webkit-linear-gradient(#000, #292929);
-  background-image: -o-linear-gradient(#000, #000);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$c1', endColorstr='$c2',GradientType=0);
-  color: rgba(255, 255, 255, 0.6); }
+
   
 .Mongol_row {
   padding: 0 8px;
@@ -105,6 +97,7 @@
   z-index: 9999999999999;
   position: relative;
 }
+
 .Mongol_row:last-child {
   margin-bottom: 0px;
 }
@@ -116,11 +109,6 @@
 
 .Mongol_row:hover {
   cursor: pointer; }
-
-.Mongol_empty {
-  padding: 8px;
-  line-height: 16px;
-  font-size: 11px; }
 
 .Mongol_expand .MongolHide {
   display: inline; }
