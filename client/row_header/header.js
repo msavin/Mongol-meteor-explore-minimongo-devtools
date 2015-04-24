@@ -6,14 +6,6 @@ Template.Mongol_header.events({
       Session.set("Mongol_currentCollection", "mongol_618");
     }
   },
-  'click .Mongol_Minimize' : function (e) {
-    e.stopPropagation();
-    Session.set("Mongol_currentCollection", null);  
-  },
-  'click .Mongol_FullScreen' : function (e) {
-    e.stopPropagation();
-	  MongolPackage.toggleFullScreen();
-  }, 
   'click .Mongol_contentView': function (e) {
     e.stopPropagation();
   }
