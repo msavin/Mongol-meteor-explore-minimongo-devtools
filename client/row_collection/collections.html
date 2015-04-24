@@ -1,22 +1,19 @@
 <template name="Mongol_collection">
 	<div class="Mongol_row {{active}}" id="Mongol_c{{this}}">
-		
-        <!-- <div class="Mongol_toggle_selected_collection"> -->
-        
-			<!-- Collection Count -->
-			<div class="Mongol_counter">
-				{{#if collectionCount}}
-				<span class="MongolHide">{{currentPosition}}/</span>{{/if}}{{collectionCount}}
-			</div>
-	
-			<!-- Collection Name -->
-			<div class="Mongol_row_name">{{this}}</div>
-    	    
-        <!-- </div> -->
+    
+		<!-- Collection Count -->
+		<div class="Mongol_counter">
+			{{#if collectionCount}}
+			<span class="MongolHide">{{currentPosition}}/</span>{{/if}}{{collectionCount}}
+		</div>
 
+		<!-- Collection Name -->
+		<div class="Mongol_row_name">{{this}}</div>
+    	    
 		<!-- Document Viewer -->
 		<div class="Mongol_contentView">
 			{{> Mongol_docViewer}}
 		</div>
+		
 	</div>
 </template>

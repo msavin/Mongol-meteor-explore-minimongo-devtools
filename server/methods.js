@@ -15,33 +15,6 @@ var insertDoc = function (MongolCollection, documentData) {
 }
 
 Meteor.methods({
-  Mongol_verify: function () {
-
-    // NOTE: This function is not in use
-
-    // Check if the Meteor absolute URL
-    // begins with http://localhost:
-
-    var location = Meteor.absoluteUrl(),
-         current = location.substring(0, 17);
-
-    if (current === "http://localhost:") {
-      return "verified";
-    }
-    return false;
-
-    // Currently not in use, but under consideration
-    // To Use:
-
-    // Meteor.call("Mongol_verify", function (error, result) {
-    //   if (result === "verified") {
-    //     task();
-    //   } else {
-    //      return "absoluteURLError"
-    //   }
-    // });
-
-  },
   Mongol_update: function (collectionName, documentData, originalDocumentData) {
 
     check(collectionName, String);
@@ -104,6 +77,16 @@ Meteor.methods({
     var docToBeRemoved = MongolCollection.findOne(documentID);
 
     MongolCollection.remove(documentID);
+    
+
+    // Start Trash Can
+      if (Package["meteortoys:toypro"]) {
+        targetCollection        = Mongol.Collection("MeteorToysData_Mongol");
+        trashDocument           = docToBeRemoved;
+        trashDocument["origin"] = String(collectionName);
+        targetCollection.insert(trashDocument);
+      }
+    // End Trash Can
     
     return docToBeRemoved;
 
