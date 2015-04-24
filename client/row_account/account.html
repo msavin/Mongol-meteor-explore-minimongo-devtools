@@ -1,4 +1,5 @@
 <template name="Mongol_account">
+
 	<div class="Mongol_row {{active}}" id="Mongol_caccount_618" style="white-space:normal;">
 		
 			<!-- Display sign in status -->
@@ -8,24 +9,20 @@
 				<div class="Mongol_account_inactive"></div>
 			{{/if}}
 
-			<!-- Name -->
+			<!-- Row Name -->
 			Account
      
         <div class="Mongol_contentView">
+			
 			<!-- Document Viewer -->
 			{{#if currentUser}}
 				{{> Mongol_accountViewer}}
 			{{else}}
-				<div class="Mongol_docMenu {{Mongol_docMenu_editing}}">
-						<div class="Mongol_docBar1" style="text-indent: 8px">
-							Not Signed In
-						</div>
-					</div>
-				<div class="Mongol_documentViewer">	
-					
-				</div>
+				{{> Mongol_accountViewer_notSignedIn}}
 			{{/if}}
+
 		</div>
 		
 	</div>
+
 </template>
