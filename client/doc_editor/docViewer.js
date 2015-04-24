@@ -2,7 +2,7 @@ Template.Mongol_docViewer.helpers({
   activeDocument: function () {
     var collectionName = String(this);
     var currentCollection = Mongol.Collection(collectionName);
-    var documents = currentCollection.find().fetch();
+    var documents = currentCollection.find({}, {transform: null}).fetch();
     var sessionKey = "Mongol_" + String(this);
     var docNumber = Session.get(sessionKey);
     var docCurrent = documents[docNumber];
