@@ -1,14 +1,5 @@
-<!-- <template name="Mongol_collection_notFound">
-	<div class="Mongol_row Mongol_empty">
-		<div>No collections found. <br>
-		If you think this is an error,<br>
-		please report it on <a href="https://github.com/msavin/Mongol" style="color: #cc0000">GitHub</a>.</div>
-	</div>
-</template> -->
-
 <template name="Mongol_collection_notFound">
-
-  <div class="Mongol_row {{active}} Mongol_header" id="Mongol_no_collections">
+  {{#Mongol_Component name="no_collections"}}
 
     No Collections<br>
     <div class="Mongol_contentView">
@@ -24,6 +15,6 @@
       </div>
     <!--  -->
     </div>
-  </div>
 
+  {{/Mongol_Component}}
 </template>

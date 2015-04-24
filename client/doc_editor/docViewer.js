@@ -46,18 +46,18 @@ Template.Mongol_docViewer.helpers({
     }
   },
   noInlineEditing: function () {
-	return Session.get('Mongol_noInlineEditing');  
+    return Session.get('Mongol_noInlineEditing');  
   }
 });
 
 // Will possibly be used in augmented document udpate UI
 /*Template.Mongol_docViewer.events({
 
-	'click .Mongol_string' : function (evt,tmpl) {
-		var field = $(evt.target).prevAll(".Mongol_key:first").text().slice(1,-2);
-		Session.set('Mongol_inlineEdit',true);
-		Tracker.flush();
-		// Do something to trigger the editable text element
-	}
+  'click .Mongol_string' : function (evt,tmpl) {
+    var field = $(evt.target).prevAll(".Mongol_key:first").text().slice(1,-2);
+    Session.set('Mongol_inlineEdit',true);
+    Tracker.flush();
+    // Do something to trigger the editable text element
+  }
 
 });*/

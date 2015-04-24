@@ -1,6 +1,6 @@
 <template name="Mongol_collection">
-	<div class="Mongol_row {{active}}" id="Mongol_c{{this}}">
-    
+	{{#Mongol_Component name=this}}
+	
 		<!-- Collection Count -->
 		<div class="Mongol_counter">
 			{{#if collectionCount}}
@@ -15,5 +15,5 @@
 			{{> Mongol_docViewer}}
 		</div>
 		
-	</div>
+	{{/Mongol_Component}}
 </template>

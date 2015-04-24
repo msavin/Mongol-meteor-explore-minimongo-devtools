@@ -1,9 +1,4 @@
 Template.Mongol_subscriptions.helpers({
-  active: function () {
-    if (Session.equals("Mongol_currentCollection", "subscriptions_618")) {
-      return "Mongol_row_expand";
-    }
-  },
   subscription: function () {
 
     var subscriptionIDs = Session.get("MeteorToys_PubSub")
@@ -36,18 +31,8 @@ Template.Mongol_subscriptions.helpers({
 
 
   Template.Mongol_subscriptions.events({
-    'click .Mongol_row': function () {
-      if (Session.equals("Mongol_currentCollection", "subscriptions_618")) {
-        Session.set("Mongol_currentCollection", null);
-      } else {
-        Session.set("Mongol_currentCollection", "subscriptions_618");
-      }
-    },
     'click .Mongol_subscription_toggle': function () {
       Meteor.default_connection._subscriptions[this].stop()
-    },
-    'click .Mongol_contentView': function(e, t) {
-      e.stopPropagation();
     }
   });
 

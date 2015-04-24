@@ -1,7 +1,7 @@
 <template name="Mongol_account">
 
-	<div class="Mongol_row {{active}}" id="Mongol_caccount_618" style="white-space:normal;">
-		
+	{{#Mongol_Component name="caccount_618"}}
+
 			<!-- Display sign in status -->
 			{{#if currentUser}}
 				<div class="Mongol_account_active"></div>
@@ -22,7 +22,7 @@
 			{{/if}}
 
 		</div>
-		
-	</div>
+	
 
+	{{/Mongol_Component}}
 </template>

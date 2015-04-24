@@ -2,9 +2,9 @@ Template.Mongol_docInsert.events({
   'click .Mongol_docMenu_insert': function () {
 
     var CollectionName = String(this),
-      newDataID = "Mongol_" + String(this) + "_newEntry";
-    var newData = document.getElementById(newDataID).textContent;
-    var newObject = MongolPackage.parse(newData);
+        newDataID      = "Mongol_" + String(this) + "_newEntry",
+        newData        = document.getElementById(newDataID).textContent,
+        newObject      = MongolPackage.parse(newData);
 
     if (newObject) {
       Meteor.call('Mongol_insert', CollectionName, newObject, function (error, result) {
@@ -15,7 +15,6 @@ Template.Mongol_docInsert.events({
           MongolPackage.error("insert");
         }
       });
-      // if successful, set the proper session
     }
 
   }

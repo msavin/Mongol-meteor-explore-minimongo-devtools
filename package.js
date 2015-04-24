@@ -25,6 +25,8 @@ Package.onUse(function(api) {
     "client/doc_editor/docViewer.js",
     "client/doc_insert/docInsert.html",
     "client/doc_insert/docInsert.js",
+    "client/_component/component.html",
+    "client/_component/component.js",
     "client/row_subscriptions/subscriptions.html",
     "client/row_subscriptions/subscriptions.js",
     "client/Mongol.html",

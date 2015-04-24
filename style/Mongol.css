@@ -5,6 +5,7 @@
     max-width: 143px;
     max-height: 100%;
     overflow: auto;
+    font-size: 14px;
 }
 
 #Mongol * {
@@ -44,7 +45,11 @@
     white-space: nowrap;
     height: 28px;
     position: relative;
-    transition: 0.3s;
+    -webkit-transition: all .3s;
+    -moz-transition:    all .3s;
+    -ms-transition:     all .3s;
+    -o-transition:      all .3s;
+    transition:         all .3s;
     margin-bottom: 1px;
 }
 
@@ -65,16 +70,15 @@
     cursor: pointer;
 }
 
-.Mongol_expand .MongolHide {
-    display: inline;
+.MongolHide {
+    max-width: 0px;
+    opacity: 0;
 }
 
 .Mongol_row_expand {
     height: 320px;
     cursor: default !important;
 }
-
-
 
 .Mongol_row_expand .MongolHide {
     opacity: 1;
@@ -126,7 +130,11 @@
 
 .Mongol_row:hover .Mongol_contentView {
     box-shadow: 0 0 0 80px rgba(0, 0, 0, 0.68);
-    transition: 0s !important;
+    -webkit-transition: all 0s !important;
+    -moz-transition:    all 0s !important;
+    -ms-transition:     all 0s !important;
+    -o-transition:      all 0s !important;
+    transition:         all 0s !important;
 }
 
 .Mongol_row_expand .Mongol_contentView {
@@ -158,12 +166,15 @@
     padding: 0 7px;
     padding-top: 3px;
     line-height: 20px;
-    z-index: 99;
     overflow: auto;
     border-radius: 0 0 5px 5px;
     z-index: 9999999998;
     position: relative;
-    transition: 0.3s;
+    -webkit-transition: all .3s !important;
+    -moz-transition:    all .3s !important;
+    -ms-transition:     all .3s !important;
+    -o-transition:      all .3s !important;
+    transition:         all .3s !important;
     color: rgba(255, 255, 255, 0.5);
 }
 
@@ -181,8 +192,13 @@
     user-select: text;
 }
 
+/* Need to check if this is still needed */
 .Mongol_documentViewer span {
-    transition: 0.2s;
+    -webkit-transition: all .2s !important;
+    -moz-transition:    all .2s !important;
+    -ms-transition:     all .2s !important;
+    -o-transition:      all .2s !important;
+    transition:         all .2s !important;
 }
 
 .Mongol_documentViewer_buttons {
@@ -254,7 +270,11 @@
     top: 0;
     height: 28px;
     width: 100%;
-    transition: 0.2s;
+    -webkit-transition: all .2s;
+    -moz-transition:    all .2s;
+    -ms-transition:     all .2s;
+    -o-transition:      all .2s;
+    transition:         all .2s;
 }
 
 .Mongol_m_left, .Mongol_m_right, .Mongol_m_new, .Mongol_m_edit, .Mongol_m_delete, .Mongol_docMenu_insert {
@@ -307,7 +327,11 @@
 
 .Mongol_edit_save:hover, .Mongol_edit_cancel:hover, .Mongol_docMenu_insert:hover, .Mongol_m_signout:hover, .Mongol_m_signin:hover, .Mongol_m_left:hover, .Mongol_m_right:hover, .Mongol_m_new:hover, .Mongol_m_edit:hover, .Mongol_m_delete:hover {
     color: #2CA6E2;
-    transition: .2s;
+    -webkit-transition: all .2s;
+    -moz-transition:    all .2s;
+    -ms-transition:     all .2s;
+    -o-transition:      all .2s;
+    transition:         all .2s;
     cursor: pointer;
 }
 
