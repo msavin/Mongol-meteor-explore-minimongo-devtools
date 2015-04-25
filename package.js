@@ -1,7 +1,7 @@
 Package.describe({
   name:    'msavin:mongol',
   summary: 'The insanely handy development package for Meteor.',
-  version: '1.0.25',
+  version: '1.0.26',
   git:     'https://github.com/msavin/Mongol.git',
   documentation: 'README.md',
   debugOnly: true
@@ -29,10 +29,9 @@ Package.onUse(function(api) {
     "client/_component/component.js",
     "client/row_subscriptions/subscriptions.html",
     "client/row_subscriptions/subscriptions.js",
-    "client/Mongol.html",
-    "client/Mongol.js",
+    "client/main.html",
+    "client/main.js",
     "client/functions.js",
-    "client/startup.js",
     "client/doc_controls/docControls.html",
     "client/doc_controls/docControls.js"
   ];

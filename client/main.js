@@ -1,3 +1,11 @@
+Meteor.startup(function() {
+  
+  // Detect collections
+  MongolPackage.detectCollections();
+
+});
+
+
 Template.Mongol.helpers({
   Mongol_collections: function () {
     var    MongolConfig = Session.get("Mongol");

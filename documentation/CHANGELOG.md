@@ -3,7 +3,7 @@ CHANGELOG
 
 v1.1.0
 --------------------
- - Looping back/forward controls
+ - Looping for back/forward controls
  - Patch for when removed documents mess with document position
  - Filtering out transforms from find() queries for real document editing
  - Maintenance (UI improvements, code clean-up, bug fixes)

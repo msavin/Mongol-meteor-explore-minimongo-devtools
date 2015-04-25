@@ -1,7 +1,3 @@
-// Namespaced Functions
-
-
-
 MongolPackage = {
   'colorize': function (json) {
     // colorized the JSON objects
@@ -79,7 +75,29 @@ MongolPackage = {
 
           Session.set("MeteorToys_PubSub", subKeys)
 
+  },
+  'detectCollections': function () {
+    if (Session.get('Mongol') === undefined) {
+        // Note: this returns the actual mongo collection name
+        var collections = _.map(Mongo.Collection.getAll(), function (collection) {
+        return collection.name;
+      });
+
+      var defaults = {
+        'collections': collections,
+      };
+
+      Session.set("Mongol", defaults);
+
+    }
+  },
+  'hideCollection': function (collectionName) {
+
+    var MongolConfig = Session.get("Mongol") || {},
+        collections  = MongolConfig.collections || {};
+
+    collections = _.without(collections, collectionName);
+    MongolConfig.collections = collections;
+    Session.set("Mongol", MongolConfig);
   }
-};
-
-
+}
