@@ -31,7 +31,7 @@ Template.Mongol_docControls.events({
 
     var CollectionName = Session.get("Mongol_currentCollection"),
       DocumentPosition = Session.get("Mongol_" + String(this)),
-      CurrentCollection = Mongol.Collection(CollectionName).find().fetch(),
+      CurrentCollection = Mongol.Collection(CollectionName).find({}, {transform: null}).fetch(),
       CollectionCount = Mongol.Collection(CollectionName).find().count();
 
     var CurrentDocument = CurrentCollection[DocumentPosition],
@@ -46,7 +46,7 @@ Template.Mongol_docControls.events({
         if (Mongol.Collection(CollectionName).findOne(result)) {
 
           // Get position of new document
-          var list = Mongol.Collection(CollectionName).find().fetch();
+          var list = Mongol.Collection(CollectionName).find({}, {transform: null}).fetch();
           var docID = result;
 
           docIndex = $.map(list, function(obj, index) {
@@ -74,7 +74,7 @@ Template.Mongol_docControls.events({
     var CollectionName = Session.get("Mongol_currentCollection"),
       sessionKey = "Mongol_" + String(this);
     DocumentPosition = Session.get(sessionKey),
-      CurrentCollection = Mongol.Collection(CollectionName).find().fetch(),
+      CurrentCollection = Mongol.Collection(CollectionName).find({}, {transform: null}).fetch(),
       CollectionCount = Mongol.Collection(CollectionName).find().count();
 
     var CurrentDocument = CurrentCollection[DocumentPosition],
@@ -192,7 +192,7 @@ Template.Mongol_docControls.events({
     } else {
       var sessionKey = "Mongol_" + collectionName;
       DocumentPosition = Session.get(sessionKey),
-        CurrentCollection = Mongol.Collection(collectionName).find().fetch();
+        CurrentCollection = Mongol.Collection(collectionName).find({}, {transform: null}).fetch();
       var newData = MongolPackage.getDocumentUpdate(collectionName);
       var newObject = MongolPackage.parse(newData);
       var oldObject = CurrentCollection[DocumentPosition];

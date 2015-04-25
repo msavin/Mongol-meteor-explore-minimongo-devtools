@@ -26,6 +26,8 @@ Meteor.methods({
 
     var currentDbDoc = MongolCollection.findOne({
       _id: documentID
+    }, {
+      transform: null
     });
 
     if (!currentDbDoc) {
@@ -67,25 +69,27 @@ Meteor.methods({
     );
 
   },
-  Mongol_remove: function (collectionName, documentID) {
+  Mongol_remove: function (collectionName, documentID, doNotTrash) {
 
     check(collectionName, String);
     check(documentID, String);
 
     var MongolCollection = Mongol.Collection(collectionName);
     
-    var docToBeRemoved = MongolCollection.findOne(documentID);
+    var docToBeRemoved = MongolCollection.findOne(documentID, {transform: null});
 
     MongolCollection.remove(documentID);
-    
 
     // Start Trash Can
+    if (!doNotTrash) {
       if (Package["meteortoys:toypro"]) {
         targetCollection        = Mongol.Collection("MeteorToysData_Mongol");
         trashDocument           = docToBeRemoved;
-        trashDocument["origin"] = String(collectionName);
+        trashDocument["Mongol_origin"] = String(collectionName);
+        trashDocument["Mongol_date"]   = new Date();
         targetCollection.insert(trashDocument);
       }
+    }
     // End Trash Can
     
     return docToBeRemoved;
@@ -97,7 +101,7 @@ Meteor.methods({
     check(documentID, String);
 
     var MongolCollection = Mongol.Collection(collectionName),
-      OriginalDoc = MongolCollection.findOne(documentID);
+      OriginalDoc = MongolCollection.findOne(documentID, {transform: null});
 
     if (OriginalDoc) {
 
@@ -118,7 +122,7 @@ Meteor.methods({
     var MongolCollection = Mongol.Collection(collectionName),
         newId = null;
         
-    if (documentData._id && MongolCollection.findOne({_id: documentData._id})) {
+    if (documentData._id && MongolCollection.findOne({_id: documentData._id}, {transform: null})) {
       console.log('Duplicate _id found');
       return null;    
     }

@@ -30,14 +30,5 @@ Mongol.Collection = function (collectionName) {
   || null;
   // If the user has gone for unconventional casing of collection names,
   // they'll have to get them right (i.e. Meteor's Mongo.Collection names as string) in the Mongol config manually
-
-
-  // Changes the first character of a string to upper case
-
-  function firstToUpper(text) {
-
-    return text.charAt(0).toUpperCase() + text.substr(1);
-
-  }
   
 };

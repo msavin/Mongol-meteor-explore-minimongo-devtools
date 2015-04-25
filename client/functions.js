@@ -1,5 +1,7 @@
 // Namespaced Functions
 
+
+
 MongolPackage = {
   'colorize': function (json) {
     // colorized the JSON objects
