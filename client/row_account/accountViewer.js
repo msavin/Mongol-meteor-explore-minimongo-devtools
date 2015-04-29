@@ -1,9 +1,11 @@
 Template.Mongol_accountViewer.helpers({
   accountData: function () {
-    var docCurrent = Meteor.user(),
-      json_output = JSON.stringify(docCurrent, null, 2),
-      colorized = MongolPackage.colorize(json_output);
+    
+    var docCurrent  = Meteor.user(),
+        json_output = JSON.stringify(docCurrent, null, 2),
+        colorized   = MongolPackage.colorize(json_output);
     return colorized;
+
   },
   editContent: function () {
 
@@ -24,6 +26,8 @@ Template.Mongol_accountViewer.helpers({
 
   },
   usercode: function () {
+    
     return Meteor.userId();
+
   },
 });

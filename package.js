@@ -1,10 +1,10 @@
 Package.describe({
   name:    'msavin:mongol',
   summary: 'The insanely handy development package for Meteor.',
-  version: '1.0.26',
+  version: '1.0.30',
   git:     'https://github.com/msavin/Mongol.git',
   documentation: 'README.md',
-  debugOnly: true
+  // debugOnly: true
 });
 
 Package.onUse(function(api) {
@@ -42,13 +42,16 @@ Package.onUse(function(api) {
   ];
   
   var commonFiles = [
-    "common/common.js"
+    "lib/common.js"
   ];
 
   api.versionsFrom('1.0');
   api.use(['templating','tracker','mongo','session'], 'client');
-  api.use('aldeed:collection2@2.3.2', {weak: true}); // This must go before: api.use('dburles:mongo-collection-instances@0.3.1');
-  api.use('dburles:mongo-collection-instances@0.3.3', 'client');
+  
+  // This must go before: api.use('dburles:mongo-collection-instances@0.3.1');
+  // Weak dependency: only used if app contains package 
+  api.use('aldeed:collection2@2.3.2', {weak: true}); 
+  api.use('dburles:mongo-collection-instances@0.3.3');
   api.use('babrahams:editable-json@0.4.3');
   api.use('meteortoys:toykit@0.3.5');
 

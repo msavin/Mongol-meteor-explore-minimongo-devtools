@@ -3,21 +3,40 @@
 </body>
 
 <template name="Mongol">
+
 	{{#if MeteorToys}}
 		
 		<div id="Mongol" class="{{active}} MeteorToys">
 			
-			{{> Mongol_header}}
-			{{> Mongol_account}}
-			{{> Mongol_subscriptions}}
+			{{#if MeteorToys_Pro}}
+			
+				{{> Mongol_header_pro}}
+				{{> Mongol_account}}
 
-			{{#each Mongol_collections}}
-				{{> Mongol_collection}}
+				{{#each Mongol_collections}}
+					{{> Mongol_collection}}
+				{{else}}
+					{{> Mongol_collection_notFound}}
+				{{/each}}
+
+				{{> Mongol_trash}}
+
 			{{else}}
-				{{> Mongol_collection_notFound}}
-			{{/each}}
+
+				{{> Mongol_header}}
+				{{> Mongol_account}}
+				{{> Mongol_subscriptions}}
+
+				{{#each Mongol_collections}}
+					{{> Mongol_collection}}
+				{{else}}
+					{{> Mongol_collection_notFound}}
+				{{/each}}
+
+			{{/if}}
 
 		</div>
 		
 	{{/if}}
+
 </template>

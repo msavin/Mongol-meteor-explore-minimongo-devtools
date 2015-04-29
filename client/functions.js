@@ -99,5 +99,17 @@ MongolPackage = {
     collections = _.without(collections, collectionName);
     MongolConfig.collections = collections;
     Session.set("Mongol", MongolConfig);
+    
+  },
+  'showCollection': function (collectionName) {
+
+    // In case a collection does not get detected, like a local one
+    var MongolConfig = Session.get("Mongol") || {},
+        collections  = MongolConfig.collections || {};
+
+    collections.push(collectionName);
+    
+    Session.set("Mongol", MongolConfig);
+
   }
 }

@@ -1,15 +1,17 @@
 CHANGELOG
-====================
+========================
 
 v1.1.0
---------------------
+------------------------
  - Looping for back/forward controls
  - Patch for when removed documents mess with document position
- - Filtering out transforms from find() queries for real document editing
+ - Filtering out transforms from Mongo queries for raw document editing
+ - Bug fix for when dates would be saved as strings
+ - Support for Pro version
  - Maintenance (UI improvements, code clean-up, bug fixes)
 
 v1.0.0
---------------------
+------------------------
  - Nobody got hurt :P time to make some noise
  
 v0.7.0 (Preview for 1.0)
@@ -24,7 +26,7 @@ v0.7.0 (Preview for 1.0)
  * Huge thanks to @JackAdams and @Krawalii for their awesome contributions here
 
 v0.1.0 - Beta
--------------
+------------------------
  - Renamed from MongoInspector to Mongol, since its no longer just an inspector
  - Added support for creating, removing, and editing documents!
  - Reverted to manual approach for detecting collections

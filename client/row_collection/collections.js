@@ -1,11 +1,13 @@
 Template.Mongol_collection.events({
-  'click': function (evt) {
+  'click': function () {
 
     var targetCollection = String(this),
         sessionKey       = "Mongol_" + targetCollection;
 
     if (Session.equals("Mongol_currentCollection", targetCollection)) {
+      
       // do nothing
+    
     } else {
       
       // If the collection doesn't have an index key set,
@@ -14,7 +16,7 @@ Template.Mongol_collection.events({
       if (!Session.get(sessionKey)) {
         Session.set(sessionKey, 0);
       }
-
+      
     }
 
   },

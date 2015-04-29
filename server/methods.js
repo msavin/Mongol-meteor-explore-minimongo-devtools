@@ -81,9 +81,9 @@ Meteor.methods({
     MongolCollection.remove(documentID);
 
     // Start Trash Can
-    if (!doNotTrash) {
+    if(typeof doNotTrash === 'undefined') {
       if (Package["meteortoys:toypro"]) {
-        targetCollection        = Mongol.Collection("MeteorToysData_Mongol");
+        targetCollection        = Mongol.Collection("MeteorToys_Mongol");
         trashDocument           = docToBeRemoved;
         trashDocument["Mongol_origin"] = String(collectionName);
         trashDocument["Mongol_date"]   = new Date();

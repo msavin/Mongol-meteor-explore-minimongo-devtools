@@ -3,8 +3,8 @@ Mongol [![Join the chat at https://gitter.im/msavin/Mongol](https://badges.gitte
 
 Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Instead, Mongol lets you view and modify your client side documents in the browser.
 
-How to Install
---------------
+"Plug & Play" Installation
+---------------------------
 
 Mongol configures automatically. To get started, simply run:
 
@@ -37,6 +37,9 @@ Mongol won't render into the DOM until you activate it. You can activate by pres
 
 <a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/documentation/screenshots/4.png"></a>
 
+Mongol Pro
+----------
+Mongol Pro is available as part of the Meteor Toys suite. The Pro version allows you to reset your MongoDB collections and includes a trash can for restoring removed documents.
 
 Additional Information
 ----------------------
