@@ -49,7 +49,7 @@ Template.Mongol_docControls.events({
           var list = Mongol.Collection(CollectionName).find({}, {transform: null}).fetch();
           var docID = result;
 
-          docIndex = $.map(list, function(obj, index) {
+          docIndex = _.map(list, function(obj, index) {
             if (obj._id == docID) {
               return index;
             }
@@ -109,9 +109,9 @@ Template.Mongol_docControls.events({
 
 
   },
-  'click .Mongol_m_right': function() {
+  'click .Mongol_m_right': function(e,t) {
     // Verify that the button is not disabled
-    if (!$('.Mongol_m_right').hasClass('Mongol_m_disabled')) {
+    if (!t.$('.Mongol_m_right').hasClass('Mongol_m_disabled')) {
       
       // Disable inline editing for 0.3s for quick flick to next doc
       Mongol.resetInlineEditingTimer();
@@ -140,10 +140,10 @@ Template.Mongol_docControls.events({
       
     }
   },
-  'click .Mongol_m_left': function() {
+  'click .Mongol_m_left': function(e,t) {
 
     // Verify that the button is not disabled
-    if (!$('.Mongol_m_left').hasClass('Mongol_m_disabled')) {
+    if (!t.$('.Mongol_m_left').hasClass('Mongol_m_disabled')) {
 
       // Disable inline editing for 0.3s for quick flick to next doc
       Mongol.resetInlineEditingTimer();
