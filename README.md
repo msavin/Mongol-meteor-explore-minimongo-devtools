@@ -37,9 +37,7 @@ Mongol Pro is available as part of the Meteor Toys suite. The Pro version allows
 Additional Information
 ----------------------
  - Available on <a href="https://github.com/msavin/Mongol/">GitHub</a> and <a href="https://atmospherejs.com/msavin/mongol">Atmosphere</a>
- - <a href="https://github.com/msavin/Mongol/blob/master/documentation/SECURITY.md">Mongol & Security</a>
- - <a href="https://github.com/msavin/Mongol/blob/master/documentation/COMPATIBILITY.md">Mongol & Package Compatibility</a>
- - <a href="https://github.com/msavin/Mongol/blob/master/documentation/CHANGELOG.md">Mongol Changelog</a>
- - <a href="https://github.com/msavin/Mongol/blob/master/documentation/LICENSE.md">Licensed under MIT</a>
+ - Documentation: <a href="https://github.com/msavin/Mongol/blob/master/documentation/SECURITY.md">Security</a>, <a href="https://github.com/msavin/Mongol/blob/master/documentation/COMPATIBILITY.md">Package Compatibility</a>, and <a href="https://github.com/msavin/Mongol/blob/master/documentation/CHANGELOG.md">Changelog</a>
+ - Licensed under <a href="https://github.com/msavin/Mongol/blob/master/documentation/LICENSE.md">The MIT License</a>
  - Designed to work with <a href="https://github.com/msavin/JetSetter">JetSetter</a>, the Mongol equivalent for Sessions
  - Part of the <a href="http://meteor.toys">Meteor Toys</a> Bundle
