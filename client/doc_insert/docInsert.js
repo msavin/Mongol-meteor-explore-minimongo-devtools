@@ -4,7 +4,7 @@ Template.Mongol_docInsert.events({
     var CollectionName = String(this),
         newDataID      = "Mongol_" + String(this) + "_newEntry",
         newData        = document.getElementById(newDataID).textContent,
-        newObject      = MongolPackage.parse(newData);
+        newObject      = Mongol.parse(newData);
 
     if (newObject) {
       Meteor.call('Mongol_insert', CollectionName, newObject, function (error, result) {
@@ -12,7 +12,7 @@ Template.Mongol_docInsert.events({
           sessionKey = "Mongol_" + CollectionName;
           Session.set(sessionKey, 0);
         } else {
-          MongolPackage.error("insert");
+          Mongol.error("insert");
         }
       });
     }

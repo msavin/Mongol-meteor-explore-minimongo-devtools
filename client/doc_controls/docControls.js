@@ -59,7 +59,7 @@ Template.Mongol_docControls.events({
         }
 
       } else {
-        MongolPackage.error("duplicate");
+        Mongol.error("duplicate");
       }
     });
 
@@ -101,7 +101,7 @@ Template.Mongol_docControls.events({
 
 
       } else {
-        MongolPackage.error("remove");
+        Mongol.error("remove");
       }
 
     });
@@ -183,8 +183,8 @@ Template.Mongol_docControls.events({
     var collectionName = (Session.equals("Mongol_currentCollection", "account_618")) ? "users" : String(this);
 
     if (Session.equals("Mongol_currentCollection", "account_618")) {
-      var newData = MongolPackage.getDocumentUpdate("account_618");
-      var newObject = MongolPackage.parse(newData);
+      var newData = Mongol.getDocumentUpdate("account_618");
+      var newObject = Mongol.parse(newData);
       var oldObject = Meteor.user();
       // console.log(targetCollection);
       // console.log(newData);
@@ -193,8 +193,8 @@ Template.Mongol_docControls.events({
       var sessionKey = "Mongol_" + collectionName;
       DocumentPosition = Session.get(sessionKey),
         CurrentCollection = Mongol.Collection(collectionName).find({}, {transform: null}).fetch();
-      var newData = MongolPackage.getDocumentUpdate(collectionName);
-      var newObject = MongolPackage.parse(newData);
+      var newData = Mongol.getDocumentUpdate(collectionName);
+      var newObject = Mongol.parse(newData);
       var oldObject = CurrentCollection[DocumentPosition];
     }
 
@@ -204,7 +204,7 @@ Template.Mongol_docControls.events({
           Session.set('Mongol_editMode', null);
           console.log('success')
         } else {
-          MongolPackage.error('update')
+          Mongol.error('update')
         }
       });
     }

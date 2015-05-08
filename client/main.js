@@ -1,16 +1,16 @@
 Meteor.startup(function() {
   
   // Detect collections
-  MongolPackage.detectCollections();
+  Mongol.detectCollections();
 
   // Hide Meteor Toys collections
-  MongolPackage.hideCollection("MeteorToys_Impersonate");
-  MongolPackage.hideCollection("MeteorToys_JetSetter");
-  MongolPackage.hideCollection("MeteorToys_Mongol");
+  Mongol.hideCollection("MeteorToys_Impersonate");
+  Mongol.hideCollection("MeteorToys_JetSetter");
+  Mongol.hideCollection("MeteorToys_Mongol");
 
   // For use outside of Mongol package scope:
-  // Package["msavin:mongol"].MongolPackage.hideCollection("mongoName");
-  // Package["msavin:mongol"].MongolPackage.showCollection("localCollection");
+  // Package["msavin:mongol"].Mongol.hideCollection("mongoName");
+  // Package["msavin:mongol"].Mongol.showCollection("localCollection");
 
 });
 

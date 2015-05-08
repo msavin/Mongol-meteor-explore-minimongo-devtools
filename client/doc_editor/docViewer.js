@@ -13,7 +13,7 @@ Template.Mongol_docViewer.helpers({
     var json_output = JSON.stringify(docCurrent, null, 2), colorize;
 
     if (!(json_output === undefined)) {
-      colorize = MongolPackage.colorize(json_output);
+      colorize = Mongol.colorize(json_output);
     } else {
       colorize = json_output;
     }

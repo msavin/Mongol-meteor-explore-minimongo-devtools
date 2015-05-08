@@ -3,7 +3,7 @@ Template.Mongol_accountViewer.helpers({
     
     var docCurrent  = Meteor.user(),
         json_output = JSON.stringify(docCurrent, null, 2),
-        colorized   = MongolPackage.colorize(json_output);
+        colorized   = Mongol.colorize(json_output);
     return colorized;
 
   },
