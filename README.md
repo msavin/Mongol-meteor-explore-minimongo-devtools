@@ -3,6 +3,8 @@ Mongol [![Join the chat at https://gitter.im/msavin/Mongol](https://badges.gitte
 
 Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Instead, Mongol lets you view and modify your client side documents in the browser.
 
+As part of <a href="http://bit.ly/1ARJG4x">Meteor Toys</a> bundle, Mongol is a debugOnly package, meaning it does not compile to production code.
+
 Your Documents, At a Glance
 ----------------------------
 Mongol will automatically detect your collections and display your client-side documents. A reactive count of the documents is always in your sight, and browsing them is just a click away.
@@ -28,7 +30,7 @@ Mongol configures automatically. To get started, simply run:
 
 	$ meteor add msavin:mongol
 
-After installation, press Control + M to toggle it.<br>If you'd prefer to see a demo first, go to http://mongol.meteor.com.
+After installation, press Control + M to toggle it. To see a demo, go to http://mongol.meteor.com.
 
 Mongol Pro
 ----------
