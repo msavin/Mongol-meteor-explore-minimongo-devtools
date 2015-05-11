@@ -1,9 +1,7 @@
-Mongol [![Join the chat at https://gitter.im/msavin/Mongol](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/msavin/Mongol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+Mongol <a href="http://meteor.toys"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/documentation/badge.png"></a>
 ==================
 
-Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Instead, Mongol lets you view and modify your client side documents in the browser.
-
-As part of <a href="http://bit.ly/1ARJG4x">Meteor Toys</a> bundle, Mongol is a debugOnly package, meaning it does not compile to production code.
+Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Instead, Mongol lets you view and modify your client side documents in the browser. And because Mongol is a debugOnly package, it does not compile to production code.
 
 Your Documents, At a Glance
 ----------------------------
