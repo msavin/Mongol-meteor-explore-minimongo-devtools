@@ -29,16 +29,14 @@ Mongol.resetInlineEditingTimer = function() {
 Template.Mongol_docControls.events({
   'click .Mongol_m_new': function() {
 
-    var CollectionName = Session.get("Mongol_currentCollection"),
-      DocumentPosition = Session.get("Mongol_" + String(this)),
-      CurrentCollection = Mongol.Collection(CollectionName).find({}, {transform: null}).fetch(),
-      CollectionCount = Mongol.Collection(CollectionName).find().count();
-
-    var CurrentDocument = CurrentCollection[DocumentPosition],
-      DocumentID = CurrentDocument._id,
-      sessionKey = "Mongol_" + String(this);
-
-    var ValidatedCurrentDocument = Mongol.validateDocument(CurrentDocument);
+    CollectionName    = Session.get("Mongol_currentCollection"),
+    DocumentPosition  = Session.get("Mongol_" + String(this)),
+    CurrentCollection = Mongol.Collection(CollectionName).find({}, {transform: null}).fetch(),
+    CollectionCount   = Mongol.Collection(CollectionName).find().count(),
+    CurrentDocument   = CurrentCollection[DocumentPosition],
+    DocumentID        = CurrentDocument._id,
+    sessionKey        = "Mongol_" + String(this),
+    ValidatedCurrentDocument = Mongol.validateDocument(CurrentDocument);
 
     Meteor.call("Mongol_duplicate", CollectionName, ValidatedCurrentDocument._id, function(error, result) {
       if (!error) {
@@ -46,16 +44,17 @@ Template.Mongol_docControls.events({
         if (Mongol.Collection(CollectionName).findOne(result)) {
 
           // Get position of new document
-          var list = Mongol.Collection(CollectionName).find({}, {transform: null}).fetch();
-          var docID = result;
+          list  = Mongol.Collection(CollectionName).find({}, {transform: null}).fetch(),
+          docID = result,
+          currentDoc;
 
           docIndex = _.map(list, function(obj, index) {
-            if (obj._id == docID) {
-              return index;
+            if (obj._id === docID) {
+              currentDoc = index;
             }
           })
 
-          Session.set(sessionKey, Number(docIndex));
+          Session.set(sessionKey, Number(currentDoc));
         }
 
       } else {

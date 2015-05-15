@@ -34,6 +34,18 @@ Mongol Pro
 ----------
 Mongol Pro is available as part of the Meteor Toys suite. The Pro version allows you to reset your MongoDB collections and includes a trash can for restoring removed documents. To see the other tools available, go to the <a href="http://meteor.toys">Meteor Toys</a> website.
 
+FAQ 
+---
+Does Mongol require insecure to work?
+No, Meteor has its own set of method's that enable it work without disrupting your application permissions.
+
+Will Mongol ship to my production application? 
+No, Mongol is a debugOnly package, meaning Meteor's build process will not compile it into production code.
+
+Are there any other development tools that complement Mongol? 
+JetSetter is an open-source package like Mongol but for Session variables. Both are also available in the premium <a href="http://bit.ly/1ARJG4x">Meteor Toys</a> bundle.
+
+
 Additional Information
 ----------------------
  - Available on <a href="https://github.com/msavin/Mongol/">GitHub</a> and <a href="https://atmospherejs.com/msavin/mongol">Atmosphere</a>
