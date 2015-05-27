@@ -1,4 +1,6 @@
-Mongol <a href="http://bit.ly/1ARJG4x"><img align="center" src="https://raw.githubusercontent.com/msavin/Mongol/master/documentation/ad.png"></a>
+<a href="http://bit.ly/1ARJG4x"><img align="center" src="https://raw.githubusercontent.com/msavin/Mongol/master/documentation/ad.png"></a>
+
+Mongol 
 ==================
 
 Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Instead, Mongol lets you view and modify your client side documents in the browser. And because Mongol is a debugOnly package, it does not compile to production code.
