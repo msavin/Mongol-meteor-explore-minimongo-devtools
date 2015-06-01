@@ -41,8 +41,30 @@ Meteor.methods({
     delete originalDocumentData._id;
     delete currentDbDoc._id;
 
-    var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
+    var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData),
+        revisedDocument     = updatedDocumentData;
     
+    // Convert date strings to Date()
+    for (var key in updatedDocumentData) {
+      if (updatedDocumentData.hasOwnProperty(key)) {
+        
+        var t_self = updatedDocumentData[key],
+            t_date = new Date(t_self);
+        
+        if (Object.prototype.toString.call(t_date) === '[object Date]') {
+          if ( isNaN( t_date.getTime() ) ) {  
+             // do nothing
+           }
+           else {
+             revisedDocument[key] = t_date;
+           }
+        }
+
+      }
+    }
+
+    // Check for packages
+
     if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema) && MongolCollection._c2) {
       
       // This is to nullify the effects of SimpleSchema/Collection2
@@ -51,7 +73,7 @@ Meteor.methods({
       
       MongolCollection.update({
         _id: documentID
-      }, {$set: updatedDocumentData}, {
+      }, {$set: revisedDocument}, {
         filter: false,
         autoConvert: false,
         removeEmptyStrings: false,
@@ -65,7 +87,7 @@ Meteor.methods({
     MongolCollection.update({
         _id: documentID
       },
-      updatedDocumentData
+      revisedDocument
     );
 
   },
@@ -101,13 +123,38 @@ Meteor.methods({
     check(documentID, String);
 
     var MongolCollection = Mongol.Collection(collectionName),
-      OriginalDoc = MongolCollection.findOne(documentID, {transform: null});
+        OriginalDoc      = MongolCollection.findOne(documentID, {transform: null});
 
     if (OriginalDoc) {
 
       delete OriginalDoc._id;
 
-      var NewDocumentId = insertDoc(MongolCollection, OriginalDoc);
+      // 
+
+      // Convert date strings to Date()
+      var revisedDocument = OriginalDoc;
+
+      for (var key in OriginalDoc) {
+        if (OriginalDoc.hasOwnProperty(key)) {
+          
+          var t_self = OriginalDoc[key],
+              t_date = new Date(t_self);
+          
+          if (Object.prototype.toString.call(t_date) === '[object Date]') {
+            if ( isNaN( t_date.getTime() ) ) {  
+               // do nothing
+             }
+             else {
+               revisedDocument[key] = t_date;
+             }
+          }
+
+        }
+      }
+
+      // 
+
+      var NewDocumentId = insertDoc(MongolCollection, revisedDocument);
 
       return NewDocumentId;
       
@@ -126,8 +173,31 @@ Meteor.methods({
       console.log('Duplicate _id found');
       return null;    
     }
+
+    revisedDocument = documentData; 
+
+    // Convert date strings to Date()
+    for (var key in documentData) {
+      if (documentData.hasOwnProperty(key)) {
         
-    var newId = insertDoc(MongolCollection, documentData);
+        var t_self = documentData[key],
+            t_date = new Date(t_self);
+        
+        if (Object.prototype.toString.call(t_date) === '[object Date]') {
+          if ( isNaN( t_date.getTime() ) ) {  
+             // do nothing
+           }
+           else {
+             revisedDocument[key] = t_date;
+           }
+        }
+
+      }
+    }
+
+    // Insert it 
+        
+    var newId = insertDoc(MongolCollection, revisedDocument);
     
     return newId;
 

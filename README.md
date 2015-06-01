@@ -1,13 +1,12 @@
-<a href="http://bit.ly/1ARJG4x"><img align="center" src="https://raw.githubusercontent.com/msavin/Mongol/master/documentation/ad.png"></a>
-
+<a href="http://bit.ly/1ARJG4x"><img align="center" src="http://maxsavin.com/sandbox/MeteorToysAd.png"></a>
 Mongol 
 ==================
 
-Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Instead, Mongol lets you view and modify your client side documents in the browser. And because Mongol is a debugOnly package, it does not compile to production code.
+Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Instead, Mongol lets you view and edit your client side documents in the browser. And because Mongol is a debugOnly package, it does not compile to production code.
 
 Your Documents, At a Glance
 ----------------------------
-Mongol will automatically detect your collections and display your client-side documents. A reactive count of the documents is always in your sight, and browsing them is just a click away.
+Mongol will automatically detect your collections and display your client-side documents. A reactive count of the documents is always available, and document browsing is just a click away.
 
 <a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/documentation/screenshots/1.png"></a>
  
@@ -30,22 +29,19 @@ Mongol configures automatically. To get started, simply run:
 
 	$ meteor add msavin:mongol
 
-After installation, press Control + M to toggle it. To see a demo, go to http://mongol.meteor.com.
+After installation, open your app in the browser and press Control + M to toggle it. For a demo, go to http://mongol.meteor.com.
 
 Mongol Pro
 ----------
-Mongol Pro is available as part of the Meteor Toys suite. The Pro version allows you to reset your MongoDB collections and includes a trash can for restoring removed documents. To see the other tools available, go to the <a href="http://meteor.toys">Meteor Toys</a> website.
+Mongol Pro is available as part of the Meteor Toys suite. The Pro version allows you to reset your MongoDB collections and includes a trash can for restoring removed documents. To see the other tools available, go to the <a href="http://bit.ly/1ARJG4x">Meteor Toys</a> website.
 
 FAQ 
 ---
-Does Mongol require insecure to work?
-No, Meteor has its own set of method's that enable it work without disrupting your application permissions.
+<strong>Does Mongol require insecure to work?</strong> No, Meteor has its own set of method's that enable it work without disrupting your application permissions.
 
-Will Mongol ship to my production application? 
-No, Mongol is a debugOnly package, meaning Meteor's build process will not compile it into production code.
+<strong>Will Mongol ship to my production application?</strong> No, Mongol is a debugOnly package, meaning Meteor's build process will not compile it into production code.
 
-Are there any other development tools that complement Mongol? 
-JetSetter is an open-source package like Mongol but for Session variables. Both are also available in the premium <a href="http://bit.ly/1ARJG4x">Meteor Toys</a> bundle.
+<strong>Are there any other development tools that complement Mongol?</strong> In addition the the Meteor Toys bundle, <a href="http://github.com/msavin/JetSetter">JetSetter</a> is an open-source package like Mongol but for Session variables. 
 
 
 Additional Information

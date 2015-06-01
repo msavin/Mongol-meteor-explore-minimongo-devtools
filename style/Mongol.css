@@ -124,7 +124,7 @@
 /* Row > Content View */
 
 .Mongol_contentView {
-    box-shadow: 0 0 0 80px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 0 80px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 }
 

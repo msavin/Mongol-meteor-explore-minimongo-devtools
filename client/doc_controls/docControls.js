@@ -201,7 +201,7 @@ Template.Mongol_docControls.events({
       Meteor.call("Mongol_update", collectionName, newObject, Mongol.validateDocument(oldObject), function(error, result) {
         if (!error) {
           Session.set('Mongol_editMode', null);
-          console.log('success')
+
         } else {
           Mongol.error('update')
         }
