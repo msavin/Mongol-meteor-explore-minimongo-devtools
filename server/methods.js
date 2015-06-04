@@ -1,3 +1,61 @@
+// // // // // // // // // // // // // // // // // // // // // // 
+// 
+// TODO:
+// - For update, diff document changes and use $set for changes
+//   to control date fields from database level
+// - For duplicate, use actual MongoDB duplicate function
+// 
+// Pull request welcome here!
+// 
+// // // // // // // // // // // // // // // // // // // // // // 
+
+var dateParser = function (updatedDocumentData) {
+
+  // Purpose: Convert date strings to Date()
+  // This is hacky but works in most cases 
+  // Won't merge into Mongol namespace until its good
+
+  currentDocument = updatedDocumentData;
+  revisedDocument = currentDocument;
+
+  // Loop over object
+  // Replace date strings with dates 
+  for (var key in currentDocument) {
+    if (currentDocument.hasOwnProperty(key)) {
+
+      var t_self = currentDocument[key],
+          t_date;
+
+      
+      if (t_self) {
+        // check its a string to avoid hooking t/f values
+        if (typeof t_self === 'string') {
+        // ensure its not just a number 
+        // need a stronger test here
+          if (/\s/g.test(t_self)) {
+            // attempt to convert to date
+            t_date = new Date(t_self);
+          }
+        }
+      }
+      
+      if (Object.prototype.toString.call(t_date) === '[object Date]') {
+        if ( isNaN( t_date.getTime() ) ) {  
+           // do nothing
+         }
+         else {
+           revisedDocument[key] = t_date;
+         }
+      }
+
+    }
+  }
+
+  // return the processed document
+  return revisedDocument;
+
+}
+
 var insertDoc = function (MongolCollection, documentData) {
   if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema) && MongolCollection._c2) {
     // This is to nullify the effects of SimpleSchema/Collection2
@@ -42,26 +100,8 @@ Meteor.methods({
     delete currentDbDoc._id;
 
     var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData),
-        revisedDocument     = updatedDocumentData;
+        revisedDocument     = dateParser(updatedDocumentData);
     
-    // Convert date strings to Date()
-    for (var key in updatedDocumentData) {
-      if (updatedDocumentData.hasOwnProperty(key)) {
-        
-        var t_self = updatedDocumentData[key],
-            t_date = new Date(t_self);
-        
-        if (Object.prototype.toString.call(t_date) === '[object Date]') {
-          if ( isNaN( t_date.getTime() ) ) {  
-             // do nothing
-           }
-           else {
-             revisedDocument[key] = t_date;
-           }
-        }
-
-      }
-    }
 
     // Check for packages
 
@@ -129,30 +169,8 @@ Meteor.methods({
 
       delete OriginalDoc._id;
 
-      // 
-
       // Convert date strings to Date()
-      var revisedDocument = OriginalDoc;
-
-      for (var key in OriginalDoc) {
-        if (OriginalDoc.hasOwnProperty(key)) {
-          
-          var t_self = OriginalDoc[key],
-              t_date = new Date(t_self);
-          
-          if (Object.prototype.toString.call(t_date) === '[object Date]') {
-            if ( isNaN( t_date.getTime() ) ) {  
-               // do nothing
-             }
-             else {
-               revisedDocument[key] = t_date;
-             }
-          }
-
-        }
-      }
-
-      // 
+      var revisedDocument = dateParser(OriginalDoc);;
 
       var NewDocumentId = insertDoc(MongolCollection, revisedDocument);
 
@@ -174,26 +192,8 @@ Meteor.methods({
       return null;    
     }
 
-    revisedDocument = documentData; 
+    revisedDocument = dateParser(documentData); 
 
-    // Convert date strings to Date()
-    for (var key in documentData) {
-      if (documentData.hasOwnProperty(key)) {
-        
-        var t_self = documentData[key],
-            t_date = new Date(t_self);
-        
-        if (Object.prototype.toString.call(t_date) === '[object Date]') {
-          if ( isNaN( t_date.getTime() ) ) {  
-             // do nothing
-           }
-           else {
-             revisedDocument[key] = t_date;
-           }
-        }
-
-      }
-    }
 
     // Insert it 
         
