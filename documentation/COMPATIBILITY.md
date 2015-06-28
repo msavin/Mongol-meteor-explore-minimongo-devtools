@@ -10,6 +10,6 @@ In the event that you do not wish to use automatic collection detections, you ca
 	// be sure to use collection names, not variables
 	// Collection = new Mongo.Collection('collection-name')
 
-	Session.set("Mongol", {
+	Package["meteortoys:toykit].MeteorToysDict.set("Mongol", {
 		collections: ["lists", "todos"]
 	})

@@ -20,17 +20,17 @@ Mongol.resetInlineEditingTimer = function() {
   if (Mongol.inlineEditingTimer) {
 	Meteor.clearTimeout(Mongol.inlineEditingTimer);
   }
-  Session.set('Mongol_noInlineEditing', true);
+  MeteorToysDict.set('Mongol_noInlineEditing', true);
   Mongol.inlineEditingTimer = Meteor.setTimeout(function () {
-    Session.set('Mongol_noInlineEditing', false);  
+    MeteorToysDict.set('Mongol_noInlineEditing', false);  
   },300);
 }
 
 Template.Mongol_docControls.events({
   'click .Mongol_m_new': function() {
 
-    CollectionName    = Session.get("Mongol_currentCollection"),
-    DocumentPosition  = Session.get("Mongol_" + String(this)),
+    CollectionName    = MeteorToysDict.get("Mongol_currentCollection"),
+    DocumentPosition  = MeteorToysDict.get("Mongol_" + String(this)),
     CurrentCollection = Mongol.Collection(CollectionName).find({}, {transform: null}).fetch(),
     CollectionCount   = Mongol.Collection(CollectionName).find().count(),
     CurrentDocument   = CurrentCollection[DocumentPosition],
@@ -54,7 +54,7 @@ Template.Mongol_docControls.events({
             }
           })
 
-          Session.set(sessionKey, Number(currentDoc));
+          MeteorToysDict.set(sessionKey, Number(currentDoc));
         }
 
       } else {
@@ -66,13 +66,13 @@ Template.Mongol_docControls.events({
 
   },
   'click .Mongol_m_edit': function() {
-    Session.set("Mongol_editMode", true);
+    MeteorToysDict.set("Mongol_editMode", true);
   },
   'click .Mongol_m_delete': function() {
 
-    var CollectionName = Session.get("Mongol_currentCollection"),
+    var CollectionName = MeteorToysDict.get("Mongol_currentCollection"),
       sessionKey = "Mongol_" + String(this);
-    DocumentPosition = Session.get(sessionKey),
+    DocumentPosition = MeteorToysDict.get(sessionKey),
       CurrentCollection = Mongol.Collection(CollectionName).find({}, {transform: null}).fetch(),
       CollectionCount = Mongol.Collection(CollectionName).find().count();
 
@@ -91,11 +91,11 @@ Template.Mongol_docControls.events({
         // Adjust the position
         if (DocumentPosition >= CollectionCount - 1) {
           newPosition = DocumentPosition - 1;
-          Session.set(sessionKey, newPosition);
+          MeteorToysDict.set(sessionKey, newPosition);
         }
 
-        if (Session.get(sessionKey) === -1) {
-          Session.set(sessionKey, 0);
+        if (MeteorToysDict.get(sessionKey) === -1) {
+          MeteorToysDict.set(sessionKey, 0);
         }
 
 
@@ -118,23 +118,23 @@ Template.Mongol_docControls.events({
       // Grab the key
 
       var sessionKey = "Mongol_" + String(this);
-      var CurrentDocument = Session.get(sessionKey);
+      var CurrentDocument = MeteorToysDict.get(sessionKey);
       var collectionName = String(this);
       var collectionVar = Mongol.Collection(collectionName);
       var collectionCount = collectionVar.find().count() - 1;
 
       if (CurrentDocument > collectionCount) {
-        Session.set(sessionKey, 0)
+        MeteorToysDict.set(sessionKey, 0)
         return;
       }
 
       if (collectionCount === CurrentDocument) {
         // Go back to document 1 
-        Session.set(sessionKey, 0);
+        MeteorToysDict.set(sessionKey, 0);
       } else {
         // Go to next document
-        var MongolDocNumber = Session.get(sessionKey) + 1;
-        Session.set(sessionKey, MongolDocNumber);
+        var MongolDocNumber = MeteorToysDict.get(sessionKey) + 1;
+        MeteorToysDict.set(sessionKey, MongolDocNumber);
       }
       
     }
@@ -150,24 +150,24 @@ Template.Mongol_docControls.events({
       // Grab the key
       sessionKey = "Mongol_" + String(this);
       // Get the document count
-      var CurrentDocument = Session.get(sessionKey);
+      var CurrentDocument = MeteorToysDict.get(sessionKey);
       var collectionName  = String(this);
       var collectionVar   = Mongol.Collection(collectionName);
       var collectionCount = collectionVar.find().count() - 1;
 
       if (CurrentDocument > collectionCount) {
-        Session.set(sessionKey, collectionCount)
+        MeteorToysDict.set(sessionKey, collectionCount)
         return;
       }
 
-      if (Session.get(sessionKey) === 0) {
+      if (MeteorToysDict.get(sessionKey) === 0) {
         
 
         // Set the key to last
-        Session.set(sessionKey, collectionCount)
+        MeteorToysDict.set(sessionKey, collectionCount)
       } else {
-        var MongolDocNumber = Session.get(sessionKey) - 1;
-        Session.set(sessionKey, MongolDocNumber);
+        var MongolDocNumber = MeteorToysDict.get(sessionKey) - 1;
+        MeteorToysDict.set(sessionKey, MongolDocNumber);
       }
 
     }
@@ -179,9 +179,9 @@ Template.Mongol_docControls.events({
     // We need to send this to the server so we know which fields are up for change
     // when applying the diffing algorithm
 
-    var collectionName = (Session.equals("Mongol_currentCollection", "account_618")) ? "users" : String(this);
+    var collectionName = (MeteorToysDict.equals("Mongol_currentCollection", "account_618")) ? "users" : String(this);
 
-    if (Session.equals("Mongol_currentCollection", "account_618")) {
+    if (MeteorToysDict.equals("Mongol_currentCollection", "account_618")) {
       var newData = Mongol.getDocumentUpdate("account_618");
       var newObject = Mongol.parse(newData);
       var oldObject = Meteor.user();
@@ -190,7 +190,7 @@ Template.Mongol_docControls.events({
       // console.log(newObject);
     } else {
       var sessionKey = "Mongol_" + collectionName;
-      DocumentPosition = Session.get(sessionKey),
+      DocumentPosition = MeteorToysDict.get(sessionKey),
         CurrentCollection = Mongol.Collection(collectionName).find({}, {transform: null}).fetch();
       var newData = Mongol.getDocumentUpdate(collectionName);
       var newObject = Mongol.parse(newData);
@@ -200,7 +200,7 @@ Template.Mongol_docControls.events({
     if (newObject) {
       Meteor.call("Mongol_update", collectionName, newObject, Mongol.validateDocument(oldObject), function(error, result) {
         if (!error) {
-          Session.set('Mongol_editMode', null);
+          MeteorToysDict.set('Mongol_editMode', null);
 
         } else {
           Mongol.error('update')
@@ -209,7 +209,7 @@ Template.Mongol_docControls.events({
     }
   },
   'click .Mongol_edit_cancel': function() {
-    Session.set('Mongol_editMode', null);
+    MeteorToysDict.set('Mongol_editMode', null);
   },
   'click .Mongol_m_signout': function() {
     Meteor.logout();
@@ -220,7 +220,7 @@ Template.Mongol_docControls.events({
 Template.Mongol_docControls.helpers({
   disable: function() {
     var sessionKey = "Mongol_" + String(this);
-    var CurrentDocument = Session.get(sessionKey);
+    var CurrentDocument = MeteorToysDict.get(sessionKey);
     var collectionName = String(this);
     var collectionVar = Mongol.Collection(collectionName);
     var collectionCount = collectionVar.find().count();
@@ -231,17 +231,17 @@ Template.Mongol_docControls.helpers({
 
   },
   editing: function() {
-    var editing = Session.get('Mongol_editMode');
+    var editing = MeteorToysDict.get('Mongol_editMode');
     return editing;
   },
   editing_class: function() {
-    var edit = Session.get('Mongol_editMode');
+    var edit = MeteorToysDict.get('Mongol_editMode');
     if (edit) {
       return "Mongol_m_wrapper_expand"
     }
   },
   Mongol_docMenu_editing: function() {
-    var editMode = Session.get("Mongol_editMode");
+    var editMode = MeteorToysDict.get("Mongol_editMode");
 
     if (editMode) {
       return "Mongol_docMenu_editing";
@@ -250,7 +250,7 @@ Template.Mongol_docControls.helpers({
   },
   active: function() {
 
-    var current = Session.get("Mongol_currentCollection");
+    var current = MeteorToysDict.get("Mongol_currentCollection");
 
     // return true if collection name matches
     if (current === String(this)) {
@@ -265,7 +265,7 @@ Template.Mongol_docControls.helpers({
   },
   account: function() {
 
-    var currentCollection = Session.get("Mongol_currentCollection");
+    var currentCollection = MeteorToysDict.get("Mongol_currentCollection");
     if (currentCollection === "account_618") {
       return true
     } else {
@@ -279,7 +279,7 @@ Template.Mongol_docControls.helpers({
 /*Template.Mongol_docViewer.events({
 'click .Mongol_string' : function (evt,tmpl) {
 var field = $(evt.target).prevAll(".Mongol_key:first").text().slice(1,-2);
-Session.set('Mongol_inlineEdit',true);
+MeteorToysDict.set('Mongol_inlineEdit',true);
 Tracker.flush();
 // Do something to trigger the editable text element
 }

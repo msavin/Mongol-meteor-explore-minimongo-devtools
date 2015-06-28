@@ -8,7 +8,12 @@ v1.1.0
  - Filtering out transforms from Mongo queries for raw document editing
  - Bug fix for when dates would be saved as strings
  - Support for Pro version
+ - Switched from Session to private reactive dictionary
  - Maintenance (UI improvements, code clean-up, bug fixes)
+
+TODO: 
+ - Improve date parsing
+ - Fixes for Editable-JSON 
 
 v1.0.0
 ------------------------

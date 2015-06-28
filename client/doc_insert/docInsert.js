@@ -10,7 +10,7 @@ Template.Mongol_docInsert.events({
       Meteor.call('Mongol_insert', CollectionName, newObject, function (error, result) {
         if (!error) {
           sessionKey = "Mongol_" + CollectionName;
-          Session.set(sessionKey, 0);
+          MeteorToysDict.set(sessionKey, 0);
         } else {
           Mongol.error("insert");
         }

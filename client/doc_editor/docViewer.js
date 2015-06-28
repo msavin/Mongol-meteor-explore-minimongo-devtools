@@ -4,7 +4,7 @@ Template.Mongol_docViewer.helpers({
     var currentCollection = Mongol.Collection(collectionName);
     var documents = currentCollection.find({}, {transform: null}).fetch();
     var sessionKey = "Mongol_" + String(this);
-    var docNumber = Session.get(sessionKey);
+    var docNumber = MeteorToysDict.get(sessionKey);
     var docCurrent = documents[docNumber];
     return docCurrent;
   },
@@ -23,7 +23,7 @@ Template.Mongol_docViewer.helpers({
   },
   editContent: function () {
 
-    var editMode = Session.get("Mongol_editMode");
+    var editMode = MeteorToysDict.get("Mongol_editMode");
 
     if (editMode) {
       return "true";
@@ -32,7 +32,7 @@ Template.Mongol_docViewer.helpers({
   },
   editStyle: function () {
 
-    var editMode = Session.get("Mongol_editMode");
+    var editMode = MeteorToysDict.get("Mongol_editMode");
 
     if (editMode) {
       return "Mongol_editable";
@@ -46,7 +46,7 @@ Template.Mongol_docViewer.helpers({
     }
   },
   noInlineEditing: function () {
-    return Session.get('Mongol_noInlineEditing');  
+    return MeteorToysDict.get('Mongol_noInlineEditing');  
   }
 });
 
@@ -55,7 +55,7 @@ Template.Mongol_docViewer.helpers({
 
   'click .Mongol_string' : function (evt,tmpl) {
     var field = $(evt.target).prevAll(".Mongol_key:first").text().slice(1,-2);
-    Session.set('Mongol_inlineEdit',true);
+    MeteorToysDict.set('Mongol_inlineEdit',true);
     Tracker.flush();
     // Do something to trigger the editable text element
   }

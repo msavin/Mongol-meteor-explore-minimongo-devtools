@@ -26,15 +26,7 @@
     z-index: 2147483647 !important;
 }
 
-#Mongol a {
-    color: #999;
-    text-decoration: none;
-}
 
-#Mongol a:hover {
-    color: #A6E22D;
-    text-decoration: underline;
-}
 
 /* Row */
 

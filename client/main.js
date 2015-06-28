@@ -1,3 +1,5 @@
+
+
 Meteor.startup(function() {
   
   // Detect collections
@@ -12,17 +14,20 @@ Meteor.startup(function() {
   // Package["msavin:mongol"].Mongol.hideCollection("mongoName");
   // Package["msavin:mongol"].Mongol.showCollection("localCollection");
 
+  // Initialize Reactive-Dict
+  MeteorToysDict = Package["meteortoys:toykit"].MeteorToysDict;
+
 });
 
 
 Template.Mongol.helpers({
   Mongol_collections: function () {
     // returns Mongo names of collections
-    var    MongolConfig = Session.get("Mongol");
+    var    MongolConfig = MeteorToysDict.get("Mongol");
     return MongolConfig && _.without(MongolConfig.collections, null) || [];
   },
   active: function () {
-    var MongolCollection = Session.get("Mongol_currentCollection");
+    var MongolCollection = MeteorToysDict.get("Mongol_currentCollection");
     if (MongolCollection) {
       return "Mongol_expand";
     }

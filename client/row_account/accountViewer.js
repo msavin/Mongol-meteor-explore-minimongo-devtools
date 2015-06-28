@@ -9,7 +9,7 @@ Template.Mongol_accountViewer.helpers({
   },
   editContent: function () {
 
-    var editMode = Session.get("Mongol_editMode");
+    var editMode = MeteorToysDict.get("Mongol_editMode");
 
     if (editMode) {
       return "true";
@@ -18,7 +18,7 @@ Template.Mongol_accountViewer.helpers({
   },
   editStyle: function () {
 
-    var editMode = Session.get("Mongol_editMode");
+    var editMode = MeteorToysDict.get("Mongol_editMode");
 
     if (editMode) {
       return "Mongol_editable";
