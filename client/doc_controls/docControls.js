@@ -224,6 +224,10 @@ Template.Mongol_docControls.helpers({
     var collectionName = String(this);
     var collectionVar = Mongol.Collection(collectionName);
     var collectionCount = collectionVar.find().count();
+    
+    if (CurrentDocument >= 1) {
+      return;
+    }
 
     if (collectionCount === 1) {
       return "Mongol_m_disabled";

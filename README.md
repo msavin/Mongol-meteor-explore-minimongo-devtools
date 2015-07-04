@@ -44,7 +44,13 @@ FAQ
 <strong>Are there any other development tools that complement Mongol?</strong> In addition the the Meteor Toys bundle, <a href="http://github.com/msavin/JetSetter">JetSetter</a> is an open-source package like Mongol but for Session variables. 
 
 <strong>How do I hide collections?</strong>
-To hide a collection, use `Mongol.hideCollection("collectionName");` anywhere on the client. There is also a shortcut for Velocity: `Mongol.hideVelocity();`. 
+Mongol allows you to hide individual collections by using the collection name. 
+
+    Meteor.startup(function () {
+        Package["msavin:mongol"].Mongol.hideCollection("collectionName");
+        // shortcut for Velocity
+        Package["msavin:mongol"].Mongol.hideVelocity();
+    }); 
 
 Additional Information
 ----------------------
