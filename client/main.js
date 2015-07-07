@@ -1,24 +1,20 @@
-
-
 Meteor.startup(function() {
   
   // Detect collections
-  Mongol.detectCollections();
+    Mongol.detectCollections();
 
-  // Hide Meteor Toys collections
-  Mongol.hideCollection("MeteorToys_Impersonate");
-  Mongol.hideCollection("MeteorToys_JetSetter");
-  Mongol.hideCollection("MeteorToys_Mongol");
+  // Initialize Reactive-Dict
+    MeteorToysDict = Package["meteortoys:toykit"].MeteorToysDict;
+
+  // Hide background collections
+    Mongol.hideVelocity();
+    Mongol.hideMeteorToys();
 
   // For use outside of Mongol package scope:
   // Package["msavin:mongol"].Mongol.hideCollection("mongoName");
   // Package["msavin:mongol"].Mongol.showCollection("localCollection");
 
-  // Initialize Reactive-Dict
-  MeteorToysDict = Package["meteortoys:toykit"].MeteorToysDict;
-
 });
-
 
 Template.Mongol.helpers({
   Mongol_collections: function () {

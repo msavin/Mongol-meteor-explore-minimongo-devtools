@@ -57,6 +57,10 @@ var dateParser = function (updatedDocumentData) {
 }
 
 var insertDoc = function (MongolCollection, documentData) {
+
+  check(MongolCollection, Match.Any);
+  check(documentData, Match.Any);
+
   if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema) && MongolCollection._c2) {
     // This is to nullify the effects of SimpleSchema/Collection2
     newId = MongolCollection.insert(documentData, {
@@ -135,11 +139,11 @@ Meteor.methods({
 
     check(collectionName, String);
     check(documentID, String);
+    check(doNotTrash, Match.Any);
+
 
     var MongolCollection = Mongol.Collection(collectionName);
-    
     var docToBeRemoved = MongolCollection.findOne(documentID, {transform: null});
-
     MongolCollection.remove(documentID);
 
     // Start Trash Can

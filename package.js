@@ -1,7 +1,7 @@
 Package.describe({
   name:    'msavin:mongol',
   summary: 'The insanely handy development package for Meteor.',
-  version: '1.0.100',
+  version: '1.0.101',
   git:     'https://github.com/msavin/Mongol.git',
   documentation: 'README.md',
   debugOnly: true
@@ -54,7 +54,7 @@ Package.onUse(function(api) {
   
   api.use('dburles:mongo-collection-instances@0.3.3');
   api.use('babrahams:editable-json@0.4.3');
-  api.use('meteortoys:toykit@0.8.1');
+  api.use('meteortoys:toykit@0.8.2');
   
   api.add_files(commonFiles);
   api.add_files(clientFiles, "client");
