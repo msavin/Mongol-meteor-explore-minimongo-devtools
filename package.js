@@ -52,7 +52,7 @@ Package.onUse(function(api) {
   // Weak dependency: only used if app contains package 
   api.use('aldeed:collection2@2.3.2', {weak: true}); 
   
-  api.use('dburles:mongo-collection-instances@0.3.3');
+  api.use('dburles:mongo-collection-instances@0.3.4');
   api.use('babrahams:editable-json@0.4.3');
   api.use('meteortoys:toykit@0.8.2');
   
