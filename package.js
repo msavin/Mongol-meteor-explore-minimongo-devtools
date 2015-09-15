@@ -46,6 +46,7 @@ Package.onUse(function(api) {
 
   api.versionsFrom('1.0');
 
+  api.use(‘check’);
   api.use(['templating','tracker','mongo'], 'client');
   
   // This must go before: api.use('dburles:mongo-collection-instances@0.3.1');
