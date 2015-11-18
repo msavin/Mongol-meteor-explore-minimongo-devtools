@@ -1,62 +1,44 @@
 <a href="http://bit.ly/1ARJG4x"><img align="center" src="http://maxsavin.com/sandbox/MeteorToysAd.png"></a>
-Mongol 
-==================
+Meet Mongol, the Original Development Tool for Meteor
+=====================================================
 
-Meet Mongol, the insanely handy development package for Meteor. Starting today, you'll never have to enter the console to play with your collections again. Instead, Mongol lets you view and edit your client side documents in the browser. And because Mongol is a debugOnly package, it does not compile to production code.
-
-Your Documents, At a Glance
-----------------------------
-Mongol will automatically detect your collections and display your client-side documents. A reactive count of the documents is always available, and document browsing is just a click away.
-
-<a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/documentation/screenshots/1.png"></a>
- 
-Easily View & Modify Documents
-------------------------------
-Mongol is able to insert, update and/or remove any document in your database, regardless if you have `insecure` on or the permissions to allow it. Read the <a href="https://github.com/msavin/Mongol/blob/master/documentation/SECURITY.md">security</a> post to learn how this works.
-
-<a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/documentation/screenshots/2.png"></a>
-
-Only There When You Want It
----------------------------
-Mongol won't render into the DOM until you activate it. You can activate by pressing Control + M, or with `Session.set("MeteorToys_display", true)`.
+Starting today, you'll never have to enter the console to play with your collections again. With Mongol, you can view and edit your client documents right in the browser. And because Mongol is a debugOnly package, it does not compile to your production build.
 
 <a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/documentation/screenshots/4.png"></a>
 
-"Plug & Play" Installation
----------------------------
+How Does It Work?
+-----------------
+Using Mongol is like having a database management tool with-in your Meteor application. Since Mongol acts on `minimongo`, you don't have to run queries to find your active documents. With that, you can: 
+ - View the document counts in your `minimongo` collection
+ - Browse the documents in your `minimongo` collection
+ - Modify any document as if you have insecure on
+ - Get a reactive window into your data
 
-Mongol configures automatically. To get started, simply run:
+Plug & Play Installation
+------------------------
+
+Mongol configures automatically. To get started, run:
 
 	$ meteor add msavin:mongol
 
-After installation, open your app in the browser and press Control + M to toggle it. For a demo, go to http://mongol.meteor.com.
-
-Mongol Pro
-----------
-Mongol Pro is available as part of the Meteor Toys suite. The Pro version allows you to reset your MongoDB collections and includes a trash can for restoring removed documents. To see the other tools available, go to the <a href="http://bit.ly/1ARJG4x">Meteor Toys</a> website.
+After installation, open your app in the browser and press Control + M to toggle it. If you require additional configuration, check out the <a href="">documentation</a>.
 
 FAQ 
 ---
-<strong>Does Mongol require insecure to work?</strong> No, Meteor has its own set of method's that enable it work without disrupting your application permissions.
+<strong>Does Mongol require insecure to work?</strong> No, Mongol has special set of method's that allow it to interact with the database without disrupting your application permissions.
 
-<strong>Will Mongol ship to my production application?</strong> No, Mongol is a debugOnly package, meaning Meteor's build process will not compile it into production code.
+<strong>Is there a security risk to using Mongol?</strong> Since Mongol is a `debugOnly` package, Meteor's build process will not compile it into production code.
 
-<strong>Are there any other development tools that complement Mongol?</strong> In addition the the Meteor Toys bundle, <a href="http://github.com/msavin/JetSetter">JetSetter</a> is an open-source package like Mongol but for Session variables. 
+<strong>Will Mongol cause my application to behave differently?</strong> All of the code and functions of Mongol are pre-fixed and scoped, so there shouldn't be any intrusion.
 
-<strong>How do I hide collections?</strong>
-Mongol allows you to hide individual collections and provides a shortcut for Velocity.
+What's New in Mongol 2.0
+------------------------
+In addition to bug fixes from ~100 reported issues, Mongol 2.0 features:
+ - support for client-side operations
+ - support for local collections
+ - a lighter inline JSON editor
+ - better UI performance
 
-    Meteor.startup(function () {
-        // make sure to use collection name, not variable
-        Package["msavin:mongol"].Mongol.hideCollection("collectionName");
-        // shortcut for Velocity
-        Package["msavin:mongol"].Mongol.hideVelocity();
-    }); 
-
-Additional Information
-----------------------
- - Available on <a href="https://github.com/msavin/Mongol/">GitHub</a> and <a href="https://atmospherejs.com/msavin/mongol">Atmosphere</a>
- - Documentation: <a href="https://github.com/msavin/Mongol/blob/master/documentation/SECURITY.md">Security</a>, <a href="https://github.com/msavin/Mongol/blob/master/documentation/COMPATIBILITY.md">Package Compatibility</a>, and <a href="https://github.com/msavin/Mongol/blob/master/documentation/CHANGELOG.md">Changelog</a>
- - Licensed under <a href="https://github.com/msavin/Mongol/blob/master/documentation/LICENSE.md">The MIT License</a>
- - Designed to work with <a href="https://github.com/msavin/JetSetter">JetSetter</a>, the Mongol equivalent for Sessions
- - Part of the <a href="http://meteor.toys">Meteor Toys</a> Bundle
+<center>Mongol is part of <a href="http://meteor.toys">Meteor Toys</a>, 
+	and is licensed under the <a href="https://github.com/MeteorToys/allthings/blob/master/LICENSE.md">Meteor Toys License</a>.
+(C) FaverSocial, LLC 2014. All Rights Reserved.</center>
