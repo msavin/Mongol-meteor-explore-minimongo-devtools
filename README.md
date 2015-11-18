@@ -1,18 +1,9 @@
-<a href="http://bit.ly/1ARJG4x"><img align="center" src="http://maxsavin.com/sandbox/MeteorToysAd.png"></a>
 Meet Mongol, the Original Development Tool for Meteor
 =====================================================
 
 Starting today, you'll never have to enter the console to play with your collections again. With Mongol, you can view and edit your client documents right in the browser. And because Mongol is a debugOnly package, it does not compile to your production build.
 
-<a href="http://mongol.meteor.com"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/documentation/screenshots/4.png"></a>
-
-How Does It Work?
------------------
-Using Mongol is like having a database management tool with-in your Meteor application. Since Mongol acts on `minimongo`, you don't have to run queries to find your active documents. With that, you can: 
- - View the document counts in your `minimongo` collection
- - Browse the documents in your `minimongo` collection
- - Modify any document as if you have insecure on
- - Get a reactive window into your data
+<a href="http://meteor.toys"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/image.png" width="1024" height="640"></a>
 
 Plug & Play Installation
 ------------------------
@@ -23,9 +14,17 @@ Mongol configures automatically. To get started, run:
 
 After installation, open your app in the browser and press Control + M to toggle it. If you require additional configuration, check out the <a href="">documentation</a>.
 
+How Does It Work?
+-----------------
+Using Mongol is like having a database management tool with-in your Meteor application. Since Mongol acts on `minimongo`, you don't have to run queries to find your active documents. With that, you can: 
+ - View the document counts in your `minimongo` collection
+ - Browse the documents in your `minimongo` collection
+ - Modify any document as if you have insecure on
+ - Get a reactive window into your data
+
 FAQ 
 ---
-<strong>Does Mongol require insecure to work?</strong> No, Mongol has special set of methods that allow it to interact with the database without intefering with your application permissions.
+<strong>Does Mongol require insecure to work?</strong> No, Mongol has special set of method's that allow it to interact with the database without disrupting your application permissions.
 
 <strong>Is there a security risk to using Mongol?</strong> Since Mongol is a `debugOnly` package, Meteor's build process will not compile it into production code.
 
