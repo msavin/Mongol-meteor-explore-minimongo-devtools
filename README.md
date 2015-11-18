@@ -25,19 +25,14 @@ After installation, open your app in the browser and press Control + M to toggle
 
 FAQ 
 ---
-<strong>Does Mongol require insecure to work?</strong> No, Mongol has special set of method's that allow it to interact with the database without disrupting your application permissions.
+<strong>Does Mongol require insecure to work?</strong> No, Mongol has special set of methods that allow it to interact with the database without intefering with your application permissions.
 
 <strong>Is there a security risk to using Mongol?</strong> Since Mongol is a `debugOnly` package, Meteor's build process will not compile it into production code.
 
 <strong>Will Mongol cause my application to behave differently?</strong> All of the code and functions of Mongol are pre-fixed and scoped, so there shouldn't be any intrusion.
 
-What's New in Mongol 2.0
-------------------------
-In addition to bug fixes from ~100 reported issues, Mongol 2.0 features:
- - support for client-side operations
- - support for local collections
- - a lighter inline JSON editor
- - better UI performance
+About
+-----
 
 <center>Mongol is part of <a href="http://meteor.toys">Meteor Toys</a>, 
 	and is licensed under the <a href="https://github.com/MeteorToys/allthings/blob/master/LICENSE.md">Meteor Toys License</a>.
