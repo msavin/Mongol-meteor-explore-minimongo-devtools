@@ -3,7 +3,7 @@ Meet Mongol, the Original Development Tool for Meteor
 
 Starting today, you'll never have to enter the console to play with your Meteor collections again. With Mongol, you can view and edit any client document right in the browser. And because Mongol is a debugOnly package, it does not compile to your production build.
 
-<a href="http://meteor.toys"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/image.png" width="1024" height="640"></a>
+<a href="http://meteor.toys"><img src="https://raw.githubusercontent.com/msavin/Mongol/master/Mongol.gif"></a>
 
 Plug & Play Installation
 ------------------------
@@ -39,4 +39,4 @@ About
 
 <center>Mongol is part of <a href="http://meteor.toys">Meteor Toys</a>, 
 	and is licensed under the <a href="https://github.com/MeteorToys/allthings/blob/master/LICENSE.md">Meteor Toys License</a>.
-(C) FaverSocial, LLC 2014. All Rights Reserved.</center>
+&copy; FaverSocial, LLC 2014. All Rights Reserved.</center>
