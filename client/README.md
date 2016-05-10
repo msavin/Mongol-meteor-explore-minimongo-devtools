@@ -1,0 +1,1 @@
+As of over 6 months ago, the Mongol UI has become part of the proprietary Meteor Toys package set. However, the free edition is still available and has only been getting better. Additionally, the Methods that power Mongol are still available as open source.

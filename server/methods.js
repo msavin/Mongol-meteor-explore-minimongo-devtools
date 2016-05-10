@@ -1,81 +1,3 @@
-// // // // // // // // // // // // // // // // // // // // // // 
-// 
-// TODO:
-// - For update, diff document changes and use $set for changes
-//   to control date fields from database level
-// - For duplicate, use actual MongoDB duplicate function
-// 
-// Pull request welcome here!
-// 
-// // // // // // // // // // // // // // // // // // // // // // 
-
-var dateParser = function (updatedDocumentData) {
-
-  // Purpose: Convert date strings to Date()
-  // This is hacky but works in most cases 
-  // Won't merge into Mongol namespace until its good
-
-  currentDocument = updatedDocumentData;
-  revisedDocument = currentDocument;
-
-  // Loop over object
-  // Replace date strings with dates 
-  for (var key in currentDocument) {
-    if (currentDocument.hasOwnProperty(key)) {
-
-      var t_self = currentDocument[key],
-          t_date;
-
-      
-      if (t_self) {
-        // check its a string to avoid hooking t/f values
-        if (typeof t_self === 'string') {
-        // ensure its not just a number 
-        // need a stronger test here
-          if (/\s/g.test(t_self)) {
-            // attempt to convert to date
-            t_date = new Date(t_self);
-          }
-        }
-      }
-      
-      if (Object.prototype.toString.call(t_date) === '[object Date]') {
-        if ( isNaN( t_date.getTime() ) ) {  
-           // do nothing
-         }
-         else {
-           revisedDocument[key] = t_date;
-         }
-      }
-
-    }
-  }
-
-  // return the processed document
-  return revisedDocument;
-
-}
-
-var insertDoc = function (MongolCollection, documentData) {
-
-  check(MongolCollection, Match.Any);
-  check(documentData, Match.Any);
-
-  if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema) && MongolCollection._c2) {
-    // This is to nullify the effects of SimpleSchema/Collection2
-    newId = MongolCollection.insert(documentData, {
-      filter: false,
-      autoConvert: false,
-      removeEmptyStrings: false,
-      validate: false
-    });
-  }
-  else {
-    newId = MongolCollection.insert(documentData);
-  }
-  return newId;
-}
-
 Meteor.methods({
   Mongol_update: function (collectionName, documentData, originalDocumentData) {
 
@@ -84,7 +6,8 @@ Meteor.methods({
     check(originalDocumentData, Object);
 
     var MongolCollection = Mongol.Collection(collectionName),
-      documentID = documentData._id;
+        documentID       = documentData._id,
+        originalID       = originalDocumentData._id;
 
     var currentDbDoc = MongolCollection.findOne({
       _id: documentID
@@ -103,8 +26,7 @@ Meteor.methods({
     delete originalDocumentData._id;
     delete currentDbDoc._id;
 
-    var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData),
-        revisedDocument     = dateParser(updatedDocumentData);
+    var updatedDocumentData = Mongol.diffDocumentData(currentDbDoc, documentData, originalDocumentData);
     
 
     // Check for packages
@@ -117,7 +39,7 @@ Meteor.methods({
       
       MongolCollection.update({
         _id: documentID
-      }, {$set: revisedDocument}, {
+      }, {$set: updatedDocumentData}, {
         filter: false,
         autoConvert: false,
         removeEmptyStrings: false,
@@ -131,7 +53,7 @@ Meteor.methods({
     MongolCollection.update({
         _id: documentID
       },
-      revisedDocument
+      updatedDocumentData
     );
 
   },
@@ -143,20 +65,23 @@ Meteor.methods({
 
 
     var MongolCollection = Mongol.Collection(collectionName);
-    var docToBeRemoved = MongolCollection.findOne(documentID, {transform: null});
-    MongolCollection.remove(documentID);
+    var docToBeRemoved   = MongolCollection.findOne(documentID, {transform: null});
+    
 
     // Start Trash Can
     if(typeof doNotTrash === 'undefined') {
-      if (Package["meteortoys:toypro"]) {
-        targetCollection        = Mongol.Collection("MeteorToys_Mongol");
+
+        targetCollection        = Mongol.Collection("MeteorToys.Mongol");
         trashDocument           = docToBeRemoved;
         trashDocument["Mongol_origin"] = String(collectionName);
         trashDocument["Mongol_date"]   = new Date();
         targetCollection.insert(trashDocument);
-      }
+
     }
     // End Trash Can
+
+    // remove the document
+    MongolCollection.remove(documentID);
     
     return docToBeRemoved;
 
@@ -174,9 +99,9 @@ Meteor.methods({
       delete OriginalDoc._id;
 
       // Convert date strings to Date()
-      var revisedDocument = dateParser(OriginalDoc);;
+      var revisedDocument = OriginalDoc;
 
-      var NewDocumentId = insertDoc(MongolCollection, revisedDocument);
+      var NewDocumentId = Mongol.insertDoc(MongolCollection, revisedDocument);
 
       return NewDocumentId;
       
@@ -196,14 +121,14 @@ Meteor.methods({
       return null;    
     }
 
-    revisedDocument = dateParser(documentData); 
+    revisedDocument = documentData; 
 
 
     // Insert it 
         
-    var newId = insertDoc(MongolCollection, revisedDocument);
+    var newId = Mongol.insertDoc(MongolCollection, revisedDocument);
     
     return newId;
 
-  },
+  }
 });
