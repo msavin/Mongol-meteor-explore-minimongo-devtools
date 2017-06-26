@@ -29,7 +29,7 @@ Combine Mongol with the free <a href="http://github.com/msavin/MeteorCandy">Mete
 
 FAQ 
 ---
-<strong>Does Mongol require insecure to work?</strong> No, Mongol has special set of Method's that allow it to interact with the database without disrupting your application permissions. Check them out in `./server`.
+<strong>Does Mongol require insecure to work?</strong> No, Mongol has special set of Methods that allow it to interact with the database without disrupting your application permissions. Check them out in `./server`.
 
 <strong>Is there a security risk to using Mongol?</strong> Since Mongol is marked as a `debugOnly` package, Meteor's build tool will automatically remove it when you build your app for production.
 
