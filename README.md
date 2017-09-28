@@ -33,6 +33,8 @@ FAQ
 
 <strong>Is there a security risk to using Mongol?</strong> Since Mongol is marked as a `debugOnly` package, Meteor's build tool will automatically remove it when you build your app for production.
 
+<strong>Can I use Mongol in production?</strong> Since Mongol is a `debugOnly` package, it will only work in development mode. For production, I have another solution called <a href="https://www.meteorcandy.com">Meteor Candy</a>.
+
 <strong>Will Mongol cause my application to behave differently?</strong> All of the code and functions of Mongol are pre-fixed and scoped, so there shouldn't be any intrusion.
 
 <strong>Can I add or remove collections that are displayed in Mongol?</strong> To add a collection to the list, use `Package[“msavin:mongol”].Mongol.showCollection(‘collectionName’)`, and to remove, use `Package[“msavin:mongol”].Mongol.hideCollection(‘collectionName’)`. These functions work on the client. 
