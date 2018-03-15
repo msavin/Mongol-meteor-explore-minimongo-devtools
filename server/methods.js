@@ -31,7 +31,7 @@ Meteor.methods({
 
     // Check for packages
 
-    if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema) && MongolCollection._c2) {
+    if (!!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema) && MongolCollection._c2) {
       
       // This is to nullify the effects of SimpleSchema/Collection2
       // Using `upsert` means that a user can change the _id value in the JSON
@@ -40,10 +40,7 @@ Meteor.methods({
       MongolCollection.update({
         _id: documentID
       }, {$set: updatedDocumentData}, {
-        filter: false,
-        autoConvert: false,
-        removeEmptyStrings: false,
-        validate: false
+        bypassCollection2: true
       });
       
       return;
