@@ -33,13 +33,10 @@ Mongol.insertDoc = function (MongolCollection, documentData) {
   check(MongolCollection, Match.Any);
   check(documentData, Match.Any);
 
-  if (!!Package['aldeed:simple-schema'] && !!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema) && MongolCollection._c2) {
+  if (!!Package['aldeed:collection2'] && _.isFunction(MongolCollection.simpleSchema) && MongolCollection._c2) {
     // This is to nullify the effects of SimpleSchema/Collection2
     newId = MongolCollection.insert(documentData, {
-      filter: false,
-      autoConvert: false,
-      removeEmptyStrings: false,
-      validate: false
+      bypassCollection2: true
     });
   }
   else {
